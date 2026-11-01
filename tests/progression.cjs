@@ -52,10 +52,19 @@ let server;
   if (await page.locator('[data-ack]').count()) {
     throw new Error('Acknowledged hand-raise alert returned after reload');
   }
+  if (!await page.locator('[data-action="reset"]').count()) {
+    throw new Error('Teacher reset button is missing');
+  }
+  page.once('dialog', dialog => dialog.accept());
+  await page.locator('[data-action="reset"]').first().click();
+  const reset = await page.evaluate(() => MishaLab.getData());
+  if (reset.history.length || reset.rounds.length || reset.xp || reset.levels.math !== 3 || reset.levels.logic !== 1) {
+    throw new Error('Teacher reset did not clear all progress');
+  }
 
   await browser.close();
   server.close();
-  console.log('Score, automatic progression, locked teacher levels and hand-raise alert passed');
+  console.log('Score, automatic progression, teacher alert and progress reset passed');
 })().catch(error => {
   if (server) server.close();
   console.error(error);
