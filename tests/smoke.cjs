@@ -1,2 +1,86 @@
-const {chromium}=require('/opt/codex/cua_node/lib/node_modules/playwright-core');
-(async()=>{const server=require('http').createServer((req,res)=>{res.setHeader('Content-Type','text/html; charset=utf-8');res.end(require('fs').readFileSync('/workspace/mishalab/index.html'));}).listen(8765,'127.0.0.1');const browser=await chromium.launch({executablePath:'/usr/bin/chromium',headless:true,args:['--no-sandbox']});const page=await browser.newPage();let errors=[];page.on('pageerror',e=>errors.push(e.message));await page.goto('http://127.0.0.1:8765');const results=await page.evaluate(()=>{let api=MishaLab,fail=[],checks=0;for(let d of ['math','logic','geometry','chess'])for(let l=1;l<=10;l++)for(let i=0;i<40;i++){let q=api.generateQuestion(d,l);checks++;if(q.mode==='number'&&!api.checkAnswer(q,q.answer))fail.push(q);if(q.mode==='number'&&q.display){let nums=q.display.match(/\d+/g)?.map(Number)||[];let expected;if(q.type==='add')expected=nums[0]+nums[1];if(q.type==='missing')expected=nums[1]-nums[0];if(q.type==='multiply')expected=nums[0]/nums[1];if(q.type==='fraction')expected=nums[0]/nums[1]*nums[2];if(q.type==='story')expected=nums[0]*nums[1]-nums[2];if(q.type==='pair')expected=(nums[0]+nums[1])/2;if(q.type==='sequence'){let diff=nums[3]-nums[2],prior=nums[2]-nums[1];expected=nums[3]+diff+(diff-prior);}if(expected!==undefined&&q.answer!==expected)fail.push({type:q.type,expected,actual:q.answer});if(api.checkAnswer(q,q.answer+1))fail.push({falsePositive:q.type});}if(q.mode==='chess'){if(!q.answer.length)fail.push(q);for(let to of q.answer)if(!api.attacks(q.piece,q.from,to,q.board))fail.push(q);}if(q.mode==='match'){let sols=[];q.initial.forEach((v,a)=>{if(!v)return;q.initial.forEach((w,b)=>{if(w)return;let board=q.initial.slice();board[a]=0;board[b]=1;if(api.checkAnswer({...q,board,moves:1}))sols.push([a,b]);});});if(!sols.length)fail.push({digits:q.digits});}}let data=api.getData();data.levels.math=3;data.mastery={};data.history=[];for(let i=0;i<3;i++)api.adaptDifficulty({domain:'math',type:'missing',correct:true,attempts:1,hints:0,seconds:20});if(data.levels.math!==4)fail.push('three-success advancement');data.levels.math=3;data.mastery={};for(let i=0;i<3;i++)api.adaptDifficulty({domain:'math',type:'missing',correct:true,attempts:1,hints:1,seconds:20});if(data.levels.math!==3)fail.push('hinted answers advanced');return {checks,fail};});console.log(JSON.stringify(results));if(results.fail.length)throw Error('generator failures');await page.getByRole('button',{name:'האתגר היומי',exact:false}).click();for(let i=0;i<5;i++){await page.locator('[data-action="skip"]').click();await page.locator('[data-action="next"]').click();}await page.locator('[data-action="home"]').first().click();await page.locator('[data-action="teacher"]').click();if(await page.evaluate(()=>MishaLab.getData().rounds.length)!==1)throw Error('round persistence');await page.reload();if(await page.evaluate(()=>MishaLab.getData().rounds.length)!==1)throw Error('reload persistence');await page.locator('[data-lang="ru"]').click();if(await page.locator('html').getAttribute('dir')!=='ltr')throw Error('Russian direction');await page.locator('[data-lang="both"]').click();if(!await page.locator('[lang="he"][dir="rtl"]').count()||!await page.locator('[lang="ru"][dir="ltr"]').count())throw Error('bilingual direction');await page.setViewportSize({width:390,height:844});if(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth))throw Error('mobile overflow');await page.screenshot({path:'/workspace/mishalab/tests/home.png',fullPage:true});if(errors.length)throw Error(errors.join('\n'));console.log('UI, five-task session, storage, languages and mobile checks passed');await browser.close();server.close();})().catch(e=>{console.error(e);process.exit(1)});
+const { chromium } = require('/opt/codex/cua_node/lib/node_modules/playwright-core');
+const http = require('http');
+const fs = require('fs');
+
+let server;
+let browser;
+(async () => {
+  server = http.createServer((req, res) => {
+    res.setHeader('Content-Type', 'text/html; charset=utf-8');
+    res.end(fs.readFileSync('/workspace/mishalab/index.html'));
+  }).listen(8765, '127.0.0.1');
+  browser = await chromium.launch({ executablePath: '/usr/bin/chromium', headless: true, args: ['--no-sandbox'] });
+  const page = await browser.newPage();
+  const errors = [];
+  page.on('pageerror', error => errors.push(error.message));
+  await page.goto('http://127.0.0.1:8765');
+  const results = await page.evaluate(() => {
+    const api = MishaLab, fail = [];
+    let checks = 0;
+    for (const domain of ['math', 'logic', 'geometry', 'chess']) for (let level = 1; level <= 10; level++) for (let i = 0; i < 40; i++) {
+      const q = api.generateQuestion(domain, level);
+      checks++;
+      if (q.mode === 'number' && !api.checkAnswer(q, q.answer)) fail.push(q);
+      if (q.mode === 'number' && q.display) {
+        const nums = q.display.match(/\d+/g)?.map(Number) || [];
+        let expected;
+        if (q.type === 'add') expected = nums[0] + nums[1];
+        if (q.type === 'missing') expected = nums[1] - nums[0];
+        if (q.type === 'multiply') expected = nums[0] / nums[1];
+        if (q.type === 'fraction') expected = nums[0] / nums[1] * nums[2];
+        if (q.type === 'story') expected = nums[0] * nums[1] - nums[2];
+        if (q.type === 'pair') expected = (nums[0] + nums[1]) / 2;
+        if (q.type === 'sequence') { const diff = nums[3] - nums[2], prior = nums[2] - nums[1]; expected = nums[3] + diff + (diff - prior); }
+        if (expected !== undefined && q.answer !== expected) fail.push({ type: q.type, expected, actual: q.answer });
+        if (api.checkAnswer(q, q.answer + 1)) fail.push({ falsePositive: q.type });
+      }
+      if (q.mode === 'chess') {
+        if (!q.answer.length) fail.push(q);
+        for (const to of q.answer) if (!api.attacks(q.piece, q.from, to, q.board)) fail.push(q);
+      }
+      if (q.mode === 'match') {
+        const solutions = [];
+        q.initial.forEach((value, from) => {
+          if (!value) return;
+          q.initial.forEach((target, to) => {
+            if (target) return;
+            const board = q.initial.slice(); board[from] = 0; board[to] = 1;
+            if (api.checkAnswer({ ...q, board, moves: 1 })) solutions.push([from, to]);
+          });
+        });
+        if (!solutions.length) fail.push({ digits: q.digits });
+      }
+    }
+    const data = api.getData();
+    data.levels.math = 3; data.mastery = {}; data.history = [];
+    for (let i = 0; i < 3; i++) api.adaptDifficulty({ domain: 'math', type: 'missing', correct: true, attempts: 1, hints: 0, seconds: 20 });
+    if (data.levels.math !== 4) fail.push('three-success advancement');
+    data.levels.math = 3; data.mastery = {};
+    for (let i = 0; i < 3; i++) api.adaptDifficulty({ domain: 'math', type: 'missing', correct: true, attempts: 1, hints: 1, seconds: 20 });
+    if (data.levels.math !== 3) fail.push('hinted answers advanced');
+    return { checks, fail };
+  });
+  console.log(JSON.stringify(results));
+  if (results.fail.length) throw new Error('generator failures');
+  await page.locator('[data-action="daily"]').click();
+  for (let i = 0; i < 5; i++) { await page.locator('[data-action="skip"]').click(); await page.locator('[data-action="next"]').click(); }
+  await page.locator('[data-action="home"]').first().click();
+  await page.locator('[data-action="teacher"]').click();
+  if (await page.evaluate(() => MishaLab.getData().rounds.length) !== 1) throw new Error('round persistence');
+  await page.reload();
+  if (await page.evaluate(() => MishaLab.getData().rounds.length) !== 1) throw new Error('reload persistence');
+  await page.locator('[data-lang="ru"]').click();
+  if (await page.locator('html').getAttribute('dir') !== 'ltr') throw new Error('Russian direction');
+  await page.locator('[data-lang="both"]').click();
+  if (!await page.locator('[lang="he"][dir="rtl"]').count() || !await page.locator('[lang="ru"][dir="ltr"]').count()) throw new Error('bilingual direction');
+  await page.setViewportSize({ width: 390, height: 844 });
+  if (await page.evaluate(() => document.documentElement.scrollWidth > innerWidth)) throw new Error('mobile overflow');
+  await page.screenshot({ path: '/workspace/mishalab/tests/home.png', fullPage: true });
+  if (errors.length) throw new Error(errors.join('\n'));
+  console.log('UI, five-task session, storage, languages and mobile checks passed');
+  await browser.close(); server.close();
+})().catch(async error => {
+  if (browser) await browser.close().catch(() => {});
+  if (server) server.close();
+  console.error(error); process.exit(1);
+});
