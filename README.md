@@ -2,6 +2,8 @@
 
 יישום תרגול עצמאי בעברית וברוסית. פותחים את `index.html` בדפדפן מודרני; אין התקנה, שירות חיצוני או מפתח API. לחלופין, מתוך תיקיית הפרויקט: `python3 -m http.server 8000`, ואז פותחים את הכתובת המקומית בדפדפן.
 
+[פריסה ל־Vercel](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FSashka2022%2Fmishalab&project-name=mishalab&repository-name=mishalab)
+
 ## מה עובד
 
 - ארבעה מסלולים וסבב מעורב, חמש משימות בכל סבב. המשימה הרביעית במסלול רגיל משלבת תחום אחר.
