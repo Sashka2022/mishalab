@@ -16,9 +16,9 @@ let server;
   const result = await page.evaluate(() => {
     const fail = [];
     const forced = {
-      math: ['add', 'missing', 'multiply', 'sequence', 'fraction', 'estimate', 'story', 'pair', 'multi', 'always', 'research'],
-      logic: ['balance', 'sequence', 'match', 'deduce', 'oddone', 'visualSequence'],
-      geometry: ['shape', 'area', 'symmetry', 'perimeter', 'angle', 'compose', 'hidden']
+      math: ['add', 'subtract', 'missing', 'multiply', 'sequence', 'fraction', 'estimate', 'story', 'twoStep', 'divisibility', 'combinations', 'algebra', 'pair', 'multi', 'always', 'research'],
+      logic: ['balance', 'sequence', 'match', 'deduce', 'oddone', 'visualSequence', 'ordering', 'code', 'truth'],
+      geometry: ['shape', 'area', 'symmetry', 'perimeter', 'angle', 'compose', 'hidden', 'rotation', 'coordinates']
     };
     for (const [domain, types] of Object.entries(forced)) {
       for (const type of types) {
@@ -37,7 +37,7 @@ let server;
       chessTypes.add(q.type);
       if (!q.answer.length || !MishaLab.checkAnswer({ ...q, selected: q.answer[0] })) fail.push(`chess:${q.type}:answer`);
     }
-    for (const type of ['safe', 'mate', 'threat']) if (!chessTypes.has(type)) fail.push(`chess:${type}:missing`);
+    for (const type of ['safe', 'mate', 'threat', 'fork']) if (!chessTypes.has(type)) fail.push(`chess:${type}:missing`);
 
     const data = MishaLab.getData();
     data.levels.math = 3;
