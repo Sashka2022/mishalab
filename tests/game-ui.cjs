@@ -22,6 +22,10 @@ let server;
   const task = await page.evaluate(() => MishaLab.getData().session.task);
   if (task.mode === 'number') await page.locator('#answer').fill(String(task.answer));
   else if (task.mode === 'options') await page.locator(`[data-option="${task.answer}"]`).click();
+  else if (task.mode === 'grid') {
+    for (let i = 0; i < task.answer; i++) await page.locator(`[data-cell="${i}"]`).click();
+  }
+  else if (task.mode === 'chess') await page.locator(`[data-square="${task.answer[0]}"]`).click();
   else throw new Error(`Unexpected first-task mode: ${task.mode}`);
   await page.locator('[data-action="check"]').click();
   const state = await page.evaluate(() => MishaLab.getData());
