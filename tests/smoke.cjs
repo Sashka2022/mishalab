@@ -1,14 +1,10 @@
 const { chromium } = require('/opt/codex/cua_node/lib/node_modules/playwright-core');
-const http = require('http');
-const fs = require('fs');
+const { createStaticServer } = require('./static-server.cjs');
 
 let server;
 let browser;
 (async () => {
-  server = http.createServer((req, res) => {
-    res.setHeader('Content-Type', 'text/html; charset=utf-8');
-    res.end(fs.readFileSync('/workspace/mishalab/index.html'));
-  }).listen(8765, '127.0.0.1');
+  server = createStaticServer(8765);
   browser = await chromium.launch({ executablePath: '/usr/bin/chromium', headless: true, args: ['--no-sandbox'] });
   const page = await browser.newPage();
   const errors = [];
@@ -74,7 +70,13 @@ let browser;
   await page.locator('[data-lang="both"]').click();
   if (!await page.locator('[lang="he"][dir="rtl"]').count() || !await page.locator('[lang="ru"][dir="ltr"]').count()) throw new Error('bilingual direction');
   await page.setViewportSize({ width: 390, height: 844 });
-  if (await page.evaluate(() => document.documentElement.scrollWidth > innerWidth)) throw new Error('mobile overflow');
+  if (await page.evaluate(() => document.documentElement.scrollWidth > innerWidth)) {
+    const offenders = await page.evaluate(() => [...document.querySelectorAll('*')].filter(el => {
+      const box = el.getBoundingClientRect();
+      return box.right > innerWidth + 1 || box.left < -1;
+    }).slice(0, 12).map(el => ({ tag: el.tagName, class: el.className?.baseVal || el.className || '', left: Math.round(el.getBoundingClientRect().left), right: Math.round(el.getBoundingClientRect().right), width: Math.round(el.getBoundingClientRect().width) })));
+    throw new Error(`mobile overflow: ${JSON.stringify(offenders)}`);
+  }
   await page.screenshot({ path: '/workspace/mishalab/tests/home.png', fullPage: true });
   if (errors.length) throw new Error(errors.join('\n'));
   console.log('UI, five-task session, storage, languages and mobile checks passed');

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 420" role="img" aria-labelledby="title desc">
+  <title id="title">מישי הרובוט החוקר</title><desc id="desc">רובוט קטן וחייכן מחזיק מצפן ומפת מסע</desc>
+  <defs>
+    <linearGradient id="body" x1="105" y1="116" x2="255" y2="330" gradientUnits="userSpaceOnUse"><stop stop-color="#F9FCFF"/><stop offset="1" stop-color="#DCEAF4"/></linearGradient>
+    <linearGradient id="glass" x1="120" y1="128" x2="239" y2="224" gradientUnits="userSpaceOnUse"><stop stop-color="#DDF8F3"/><stop offset="1" stop-color="#81D3C0"/></linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="180%"><feDropShadow dx="0" dy="12" stdDeviation="10" flood-color="#203047" flood-opacity=".18"/></filter>
+  </defs>
+  <ellipse cx="180" cy="386" rx="92" ry="18" fill="#203047" opacity=".12"/>
+  <g filter="url(#shadow)" stroke="#203047" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M180 79V49" stroke-width="8"/><circle cx="180" cy="39" r="12" fill="#F5C451" stroke-width="6"/>
+    <rect x="91" y="78" width="178" height="177" rx="58" fill="url(#body)" stroke-width="7"/>
+    <rect x="112" y="112" width="136" height="100" rx="38" fill="url(#glass)" stroke-width="6"/>
+    <circle cx="151" cy="158" r="12" fill="#203047" stroke="none"/><circle cx="209" cy="158" r="12" fill="#203047" stroke="none"/>
+    <circle cx="147" cy="154" r="4" fill="white" stroke="none"/><circle cx="205" cy="154" r="4" fill="white" stroke="none"/>
+    <path d="M153 184c16 14 38 14 54 0" fill="none" stroke-width="6"/>
+    <path d="M115 246c-15 13-22 36-19 69l33 3 18-63" fill="#F47C6C" stroke-width="7"/>
+    <path d="M245 246c16 17 23 40 20 67l-34 5-18-63" fill="#6A61E8" stroke-width="7"/>
+    <rect x="122" y="234" width="116" height="108" rx="38" fill="url(#body)" stroke-width="7"/>
+    <path d="M147 341v35M213 341v35" stroke-width="14"/>
+    <path d="M130 380h39M191 380h39" stroke-width="16"/>
+    <path d="M96 282 46 248M264 281l45-39" fill="none" stroke-width="14"/>
+    <circle cx="42" cy="244" r="18" fill="#F5C451" stroke-width="6"/>
+    <circle cx="310" cy="240" r="31" fill="#FFF8E8" stroke-width="6"/>
+    <path d="m318 229-7 18-18 7 7-18 18-7Z" fill="#6A61E8" stroke-width="3"/>
+    <circle cx="307" cy="242" r="4" fill="#F5C451" stroke-width="2"/>
+    <path d="M134 270c30-12 62-12 92 0v46c-30-12-62-12-92 0v-46Z" fill="#FFF8E8" stroke-width="5"/>
+    <path d="M180 263v48M145 282c13-5 23-6 35-3M215 282c-13-5-23-6-35-3" fill="none" stroke-width="3"/>
+  </g>
+</svg>

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 650" role="img" aria-labelledby="title desc">
+  <title id="title">מפת מסע התגליות</title><desc id="desc">ארבעה איים מאוירים המחוברים במסלול של ספינת אוויר</desc>
+  <defs>
+    <linearGradient id="sky" x1="90" y1="36" x2="840" y2="620" gradientUnits="userSpaceOnUse"><stop stop-color="#EAF7FF"/><stop offset=".55" stop-color="#F6F3FF"/><stop offset="1" stop-color="#FFF5DE"/></linearGradient>
+    <linearGradient id="land1" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#E8E5FF"/><stop offset="1" stop-color="#BEB8FF"/></linearGradient>
+    <linearGradient id="land2" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#DDF5E9"/><stop offset="1" stop-color="#9BD8BE"/></linearGradient>
+    <linearGradient id="land3" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFF0DA"/><stop offset="1" stop-color="#F8BF76"/></linearGradient>
+    <linearGradient id="land4" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#E4ECFA"/><stop offset="1" stop-color="#AFC3E7"/></linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="180%"><feDropShadow dx="0" dy="14" stdDeviation="12" flood-color="#203047" flood-opacity=".16"/></filter>
+  </defs>
+  <rect x="8" y="8" width="904" height="634" rx="52" fill="url(#sky)"/>
+  <g fill="white" opacity=".75"><path d="M93 125c12-21 48-21 60 0 25-8 44 4 48 24H55c4-19 17-29 38-24Z"/><path d="M709 100c10-18 40-18 50 0 21-7 37 3 40 20H676c3-16 14-25 33-20Z"/><path d="M444 540c11-19 43-19 54 0 22-7 39 4 43 21H408c4-17 16-27 36-21Z"/></g>
+  <path d="M171 186C286 105 381 126 438 230c57 104 158 103 277 38M726 300c-32 91-105 122-219 99-121-25-208-2-304 94" fill="none" stroke="#8A6B4A" stroke-width="7" stroke-linecap="round" stroke-dasharray="4 20" opacity=".65"/>
+  <g filter="url(#shadow)" stroke="#203047" stroke-width="6" stroke-linejoin="round">
+    <g transform="translate(65 122)"><path d="M16 91c18-46 72-69 126-56 37 9 67 32 76 65-24 42-61 59-112 56-46-3-78-25-90-65Z" fill="url(#land1)"/><path d="m54 105 33-53 34 53H54Z" fill="#F5C451"/><rect x="113" y="60" width="43" height="45" rx="6" fill="#F47C6C"/><circle cx="165" cy="48" r="20" fill="#FFF8E8"/></g>
+    <g transform="translate(625 180)"><path d="M15 88c20-44 67-64 118-54 43 8 73 30 84 65-22 40-61 58-109 55-46-3-80-25-93-66Z" fill="url(#land2)"/><path d="M57 74h112v63H57z" fill="#FFFDF7"/><path d="M75 88h31v14H91v23h27v-14h22V88h14" fill="none" stroke="#2E9B78" stroke-width="8" stroke-linecap="round"/></g>
+    <g transform="translate(395 344)"><path d="M15 89c18-44 68-67 121-55 41 9 71 31 81 65-23 41-61 59-110 56-47-3-80-25-92-66Z" fill="url(#land3)"/><path d="M60 126h112"/><path d="m73 122 29-51 30 51H73Z" fill="#F5C451"/><circle cx="151" cy="86" r="23" fill="#E8E5FF"/></g>
+    <g transform="translate(90 400)"><path d="M16 87c19-43 69-64 120-53 42 9 72 31 82 65-23 40-60 57-109 55-46-3-80-25-93-67Z" fill="url(#land4)"/><path d="M62 72h109v64H62z" fill="#F7FAFF"/><path d="M62 94h109M89 72v64M116 72v64M143 72v64" stroke="#6E84AE" stroke-width="3"/><path d="M106 120c-6-12-4-24 4-33l-5-12 15 6c13-2 23 5 27 15-10 2-16 7-21 17l9 11h-34l5-4Z" fill="#6A61E8"/></g>
+  </g>
+  <g transform="translate(360 180)" filter="url(#shadow)" stroke="#203047" stroke-linejoin="round">
+    <path d="M21 69c15-58 120-77 167-16 13 17 19 38 16 59H5c-1-15 4-30 16-43Z" fill="#F5C451" stroke-width="6"/>
+    <path d="M46 112h121l-13 48H61l-15-48Z" fill="#F47C6C" stroke-width="6"/>
+    <path d="M76 160h65l-10 25H86l-10-25Z" fill="#FFF8E8" stroke-width="5"/>
+    <path d="M103 112V57" stroke-width="6"/><path d="M104 61c17-12 33-10 48 4-17 10-33 9-48-4Z" fill="#6A61E8" stroke-width="4"/>
+    <circle cx="82" cy="134" r="9" fill="#DDF5E9" stroke-width="4"/><circle cx="132" cy="134" r="9" fill="#DDF5E9" stroke-width="4"/>
+  </g>
+  <g fill="#F5C451" stroke="#203047" stroke-width="2"><path d="m303 75 5 12 13 2-10 9 3 13-11-7-12 7 3-13-10-9 13-2 6-12Z"/><path d="m817 413 4 9 10 2-8 7 2 10-8-5-9 5 2-10-7-7 10-2 4-9Z"/></g>
+</svg>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">סמל מצפן של המעבדה של מישה</title>
+  <defs><linearGradient id="g" x1="8" y1="6" x2="56" y2="58" gradientUnits="userSpaceOnUse"><stop stop-color="#6A61E8"/><stop offset="1" stop-color="#3785C6"/></linearGradient></defs>
+  <path fill="#FFF8E8" stroke="#203047" stroke-width="3" d="M32 4c15.5 0 28 12.5 28 28S47.5 60 32 60 4 47.5 4 32 16.5 4 32 4Z"/>
+  <path fill="url(#g)" stroke="#203047" stroke-width="2.5" stroke-linejoin="round" d="m39.7 24.3-4.2 11.2-11.2 4.2 4.2-11.2 11.2-4.2Z"/>
+  <circle cx="32" cy="32" r="3.5" fill="#F5C451" stroke="#203047" stroke-width="2"/>
+  <path d="M32 9v5M32 50v5M9 32h5M50 32h5" stroke="#203047" stroke-width="3" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 170" role="img" aria-labelledby="title"><title id="title">אי השחמט</title>
+  <path d="M22 112c20-36 58-55 101-54 43 1 77 20 96 53-20 33-55 49-99 49-42 0-77-16-98-48Z" fill="#E4ECFA" stroke="#203047" stroke-width="5"/>
+  <path d="M66 79h108v61H66z" fill="#F7FAFF" stroke="#203047" stroke-width="5"/><path d="M66 98h108M93 79v61M120 79v61M147 79v61M93 98v42M120 98v42M147 98v42" stroke="#6E84AE" stroke-width="3"/>
+  <path d="M112 122c-7-13-5-27 4-37l-6-13 17 6c14-2 25 6 29 17-11 2-18 8-23 19l10 13h-37l6-5Z" fill="#6A61E8" stroke="#203047" stroke-width="5" stroke-linejoin="round"/>
+  <circle cx="137" cy="91" r="3.5" fill="#FFF8E8" stroke="none"/>
+</svg>

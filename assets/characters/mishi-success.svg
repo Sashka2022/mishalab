@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 300" role="img" aria-labelledby="title">
+  <title id="title">מישי חוגג הצלחה</title>
+  <defs><linearGradient id="b" x1="92" y1="60" x2="230" y2="244" gradientUnits="userSpaceOnUse"><stop stop-color="#F9FCFF"/><stop offset="1" stop-color="#DCEAF4"/></linearGradient></defs>
+  <g stroke="#203047" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M160 49V28"/><circle cx="160" cy="20" r="9" fill="#F5C451"/>
+    <rect x="79" y="48" width="162" height="142" rx="51" fill="url(#b)"/>
+    <rect x="101" y="76" width="118" height="80" rx="31" fill="#BDEBDE"/>
+    <path d="m125 116 17 16 34-38" fill="none" stroke="#218469" stroke-width="10"/>
+    <path d="M98 176c-10 18-14 38-12 61M222 176c10 18 14 38 12 61" fill="none" stroke-width="13"/>
+    <path d="M123 188h74v62h-74z" fill="url(#b)"/>
+    <path d="M143 248v28M177 248v28" stroke-width="13"/>
+  </g>
+  <g fill="#F5C451"><path d="m49 52 6 13 14 2-10 10 2 14-12-7-13 7 3-14-11-10 15-2 6-13Z"/><path d="m269 73 4 10 11 1-8 8 2 11-9-6-10 6 3-11-9-8 11-1 5-10Z"/></g>
+</svg>

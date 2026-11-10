@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 170" role="img" aria-labelledby="title"><title id="title">אי הגיאומטריה</title>
+  <path d="M24 112c17-36 54-56 98-54 45 1 78 20 96 53-19 33-53 49-98 49-42 0-78-16-96-48Z" fill="#FFF0DA" stroke="#203047" stroke-width="5"/>
+  <path d="m72 135 35-62 36 62H72Z" fill="#F5C451" stroke="#203047" stroke-width="5"/><rect x="132" y="82" width="47" height="53" rx="7" fill="#F47C6C" stroke="#203047" stroke-width="5"/>
+  <circle cx="176" cy="61" r="23" fill="#E8E5FF" stroke="#203047" stroke-width="5"/><path d="M48 136h150" stroke="#203047" stroke-width="6" stroke-linecap="round"/>
+  <path d="M92 97h29M155 105h48" stroke="white" stroke-width="5" stroke-linecap="round" opacity=".8"/>
+</svg>

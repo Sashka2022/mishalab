@@ -1,13 +1,9 @@
 const { chromium } = require('/opt/codex/cua_node/lib/node_modules/playwright-core');
-const http = require('http');
-const fs = require('fs');
+const { createStaticServer } = require('./static-server.cjs');
 
 let server;
 (async () => {
-  server = http.createServer((req, res) => {
-    res.setHeader('Content-Type', 'text/html; charset=utf-8');
-    res.end(fs.readFileSync('/workspace/mishalab/index.html'));
-  }).listen(8766, '127.0.0.1');
+  server = createStaticServer(8766);
 
   const browser = await chromium.launch({
     executablePath: '/usr/bin/chromium',
