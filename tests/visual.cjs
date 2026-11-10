@@ -25,6 +25,10 @@ let browser;
         viewport: innerWidth,
         map: map && { x: map.x, y: map.y, width: map.width },
         mission: mission && { x: mission.x, y: mission.y, width: mission.width },
+        hotspots: [...document.querySelectorAll('.island-hotspot')].map(button => {
+          const rect = button.getBoundingClientRect();
+          return { track: button.dataset.track, width: rect.width, height: rect.height, label: button.getAttribute('aria-label') };
+        }),
         brokenImages: [...document.images].filter(img => !img.complete || !img.naturalWidth).map(img => img.src),
         primary: getComputedStyle(document.documentElement).getPropertyValue('--purple').trim(),
         bodyText: document.body.innerText
@@ -33,6 +37,8 @@ let browser;
     if (layout.scrollWidth > layout.viewport) throw new Error(`${width}px horizontal overflow`);
     if (layout.brokenImages.length) throw new Error(`${width}px broken art: ${layout.brokenImages.join(', ')}`);
     if (!layout.map || !layout.mission) throw new Error(`${width}px map composition is missing`);
+    if (layout.hotspots.length !== 4 || new Set(layout.hotspots.map(item => item.track)).size !== 4) throw new Error(`${width}px interactive islands are missing`);
+    if (layout.hotspots.some(item => item.width < 44 || item.height < 44 || !item.label)) throw new Error(`${width}px island target is too small or unlabeled`);
     if (width >= 1024 && !(layout.map.width > layout.mission.width && Math.abs(layout.map.y - layout.mission.y) < 4)) throw new Error('Desktop composition does not match the two-column reference');
     if (width <= 768 && !(layout.map.y < layout.mission.y && Math.abs(layout.map.width - layout.mission.width) < 4)) throw new Error(`${width}px composition is not stacked map-first: ${JSON.stringify({ map: layout.map, mission: layout.mission })}`);
     if (layout.primary !== '#6a61e8') throw new Error('Reference palette token mismatch');
@@ -41,6 +47,10 @@ let browser;
 
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto('http://127.0.0.1:8774', { waitUntil: 'networkidle' });
+  await page.locator('.island-hotspot[data-track="math"]').click();
+  await page.locator('.task-shell').waitFor();
+  if (!await page.locator('.quest-head').getByText('חשבון חכם', { exact: true }).count()) throw new Error('Clickable math island did not open the math route');
+  await page.locator('[data-action="home"]').click();
   await page.keyboard.press('Tab');
   await page.keyboard.press('Tab');
   await page.screenshot({ path: '/workspace/mishalab/artifacts/home-focus-390.png', fullPage: false });
@@ -53,7 +63,7 @@ let browser;
   await page.screenshot({ path: '/workspace/mishalab/artifacts/reference-home-map.png', fullPage: false, timeout: 10000 });
 
   if (errors.length) throw new Error(errors.join('\n'));
-  console.log('Reference composition, SVG assets, RTL responsive layouts, focus and read-aloud screenshots passed');
+  console.log('Clickable islands, reference composition, SVG assets, RTL responsive layouts, focus and read-aloud screenshots passed');
   await browser.close();
   server.close();
 })().catch(async error => {
