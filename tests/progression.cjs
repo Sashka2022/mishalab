@@ -35,6 +35,7 @@ let server;
     throw new Error('Automatic next round did not open immediately');
   }
 
+  await page.locator('[data-action="home"]').click();
   await page.locator('[data-action="teacher"]').click();
   if (await page.locator('[data-level]').count() || await page.locator('select').count()) {
     throw new Error('Teacher can still edit levels');

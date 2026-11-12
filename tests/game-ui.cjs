@@ -22,6 +22,25 @@ let server;
     for (let i = 0; i < task.answer; i++) await page.locator(`[data-cell="${i}"]`).click();
   }
   else if (task.mode === 'chess') await page.locator(`[data-square="${task.answer[0]}"]`).click();
+  else if (task.mode === 'match') await page.evaluate(() => {
+    const q = MishaLab.getData().session.task;
+    for (let from = 0; from < q.initial.length; from++) {
+      if (!q.initial[from]) continue;
+      for (let to = 0; to < q.initial.length; to++) {
+        if (q.initial[to]) continue;
+        const board = [...q.initial];
+        board[from] = 0;
+        board[to] = 1;
+        const digits = [0, 1, 2].map(index => MishaLab.SEG.findIndex(segments => segments.every((value, segment) => value === board[index * 7 + segment])));
+        if (digits.every(digit => digit >= 0) && digits[0] + digits[1] === digits[2]) {
+          q.board = board;
+          q.moves = 1;
+          return;
+        }
+      }
+    }
+    throw new Error('No matchstick solution found');
+  });
   else throw new Error(`Unexpected first-task mode: ${task.mode}`);
   await page.locator('[data-action="check"]').click();
   const state = await page.evaluate(() => MishaLab.getData());
