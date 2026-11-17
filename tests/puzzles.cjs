@@ -53,16 +53,24 @@ let browser, server;
           if (b.join() !== q.answer.join()) fail.push('sliding:unsolvable');
           q.board = b;
         } else {
-          const lineRuns = line => (line.join('').match(/1+/g) || ['']).map(s => s.length);
-          const valid = b => Array.from({ length: 4 }, (_, i) => i).every(i => lineRuns(b.slice(i * 4, i * 4 + 4)).join() === q.rowClues[i].join() && lineRuns([b[i], b[i + 4], b[i + 8], b[i + 12]]).join() === q.colClues[i].join());
-          // Exhaust all 65,536 boards for a sample at every level.
+          if (q.n !== 3 || q.variant !== 'copyPattern') fail.push('paint:not-small-copy-board');
+          const missing = q.answer.filter((v, i) => v !== q.initial[i]).length;
+          if (missing < 2 || missing > 3 || !q.initial.some(Boolean)) fail.push('paint:too-many-steps');
+          if (q.initial.some((v, i) => v && !q.answer[i])) fail.push('paint:wrong-starter');
           if (sample === 0) {
-            let solutions = 0;
-            for (let mask = 0; mask < 65536; mask++) if (valid(Array.from({ length: 16 }, (_, i) => mask >> i & 1))) solutions++;
-            if (solutions !== 1) fail.push(`nonogram:solutions:${solutions}`);
+            const given = q.initial.indexOf(1), empty = q.initial.indexOf(0);
+            if (PuzzleGames.act(q, 'tile', given)) fail.push('paint:starter-was-editable');
+            PuzzleGames.act(q, 'tile', empty); PuzzleGames.act(q, 'tile', empty);
+            if (q.board.join() !== q.initial.join() || q.board.includes(-1)) fail.push('paint:not-binary-toggle');
+            PuzzleGames.act(q, 'tile', empty); PuzzleGames.act(q, 'undo');
+            if (q.board.join() !== q.initial.join()) fail.push('paint:undo');
+            // All possible painted patterns: only the visible example is accepted.
+            for (let mask = 0; mask < 512; mask++) {
+              const board = Array.from({ length: 9 }, (_, i) => mask >> i & 1);
+              if (MishaLab.checkAnswer({ ...q, board }) !== (board.join() === q.answer.join())) fail.push('paint:wrong-pattern-accepted');
+            }
           }
-          q.board = q.answer.map(v => v || -1);
-          if (!valid(q.answer)) fail.push('nonogram:bad-clues');
+          q.board = q.answer.slice();
         }
         if (!MishaLab.checkAnswer(q)) fail.push(`${kind}:rejected-solution`);
         q.board[0] = q.type === 'sudoku' || q.type === 'sliding' ? 99 : q.board[0] === 1 ? 0 : 1;
@@ -93,7 +101,7 @@ let browser, server;
         await page.locator(`[data-puzzle-action="tile"][data-puzzle-value="${i}"]`).click();
       }
     } else {
-      for (let i = 0; i < 16; i++) if (q.answer[i]) await page.locator(`[data-puzzle-action="tile"][data-puzzle-value="${i}"]`).click();
+      for (let i = 0; i < q.answer.length; i++) if (q.answer[i] && !q.board[i]) await page.locator(`[data-puzzle-action="tile"][data-puzzle-value="${i}"]`).click();
     }
     await page.locator('[data-action="check"]').click();
     await page.locator('.feedback.success').waitFor();
@@ -101,7 +109,7 @@ let browser, server;
   // Verify all four playable boards, undo, local persistence and manual renewal.
   await page.locator('[data-action="puzzle-auto"]').click();
   for (const kind of ['sudoku', 'lights', 'sliding', 'nonogram']) {
-    await page.locator(`[data-puzzle-kind="${kind}"]`).click();
+    await page.locator(`.puzzle-card[data-puzzle-kind="${kind}"]`).click();
     if (kind === 'lights') {
       const initial = await page.evaluate(() => MishaLab.getData().session.task.board);
       await page.locator('[data-puzzle-action="tile"]').first().click();
@@ -150,7 +158,7 @@ let browser, server;
     await page.setViewportSize({ width, height: width < 768 ? 640 : 900 });
     await page.locator(`[data-lang="${lang}"]`).click();
     for (const kind of ['sudoku', 'lights', 'sliding', 'nonogram']) {
-      await page.locator(`[data-puzzle-kind="${kind}"]`).click();
+      await page.locator(`.puzzle-card[data-puzzle-kind="${kind}"]`).click();
       const box = await page.locator('.puzzle-tile').first().boundingBox();
       assert.ok(box.width >= 43, `Small target ${kind}: ${box.width}`);
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1), false);
@@ -162,5 +170,5 @@ let browser, server;
   }
   assert.deepEqual(errors, []);
   console.log(JSON.stringify({ generated: generated.totals, mixedOrder: seen }));
-  console.log('Unique solutions, legal moves, four board UIs, persistence, automatic/manual renewal and 48 responsive language layouts passed');
+  console.log('Unique sudoku, easy copy patterns, legal moves, four board UIs, persistence, automatic/manual renewal and 48 responsive language layouts passed');
 })().catch(error => { console.error(error); process.exitCode = 1; }).finally(async () => { if (browser) await browser.close(); if (server) server.close(); });

@@ -5,7 +5,7 @@ window.PuzzleGames = (() => {
     sudoku: { name: pair('סודוקו קטן', 'Мини-судоку'), desc: pair('ארבע ספרות, הרבה גילויים', 'Четыре цифры, много открытий'), tiles: [1, 0, 3, 0, 0, 4, 0, 2, 2, 0, 4, 0, 0, 3, 0, 1] },
     lights: { name: pair('כיבוי אורות', 'Погаси огни'), desc: pair('כל לחיצה משנה גם את השכנים', 'Нажатие меняет и соседей'), tiles: [1, 0, 1, 0, 1, 0, 1, 0, 1] },
     sliding: { name: pair('פאזל הזזה', 'Сдвигай плитки'), desc: pair('מקום ריק אחד, דרך חדשה לסדר', 'Одна пустая клетка — путь к порядку'), tiles: [1, 2, 3, 4, 0, 6, 7, 5, 8] },
-    nonogram: { name: pair('ציור לפי מספרים', 'Нонограмма'), desc: pair('רמזים בשוליים מגלים דפוס', 'Подсказки по краям открывают узор'), tiles: [0, 1, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0] }
+    nonogram: { name: pair('משלימים ציור', 'Дорисуй узор'), desc: pair('מסתכלים בדוגמה ומשלימים בצבע', 'Посмотри на образец и раскрась'), tiles: [0, 1, 0, 1, 1, 1, 0, 1, 0] }
   };
   const kinds = Object.keys(catalog);
   const shuffle = values => {
@@ -82,23 +82,20 @@ window.PuzzleGames = (() => {
       q.prompt = pair('סדר את האריחים 1–8 משמאל לימין, מלמעלה למטה. המקום הריק בסוף; לחץ על אריח צמוד אליו.', 'Расположи плитки 1–8 слева направо, сверху вниз. Пустая клетка в конце; нажми соседнюю плитку.');
       q.hints = [pair('רק אריח שצמוד למקום הריק יכול לזוז.', 'Двигаться может только плитка рядом с пустой клеткой.'), pair('התחל בסידור השורה העליונה. אפשר להחזיר מהלך ולנסות דרך אחרת.', 'Начни с верхнего ряда. Можно отменить ход и попробовать другой путь.'), pair(`דרך אפשרית מהלוח ההתחלתי — לחץ על האריחים בסדר: ${q.solution.join(' → ')}.`, `Возможный путь от начального поля — нажимай плитки по порядку: ${q.solution.join(' → ')}.`)];
     } else {
-      // Small exhaustive solver certifies one solution for every generated board.
-      let tries = 0;
-      do {
-        q.answer = Array.from({ length: 16 }, () => Math.random() < (level < 4 ? .7 : .5) ? 1 : 0);
-        if (++tries > 100) q.answer = [1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0];
-        q.rowClues = rowsOf(q.answer, 4).map(runs); q.colClues = colsOf(q.answer, 4).map(runs);
-      } while (!q.answer.some(Boolean) || q.answer.every(Boolean) || countNonogram(q.rowClues, q.colClues) !== 1);
-      q.initial = Array(16).fill(0);
-      q.prompt = pair('צבע תאים לפי רצפי המספרים בשוליים. בין רצפים משאירים רווח. לחיצה נוספת מסמנת ×.', 'Закрась клетки по числам по краям. Между группами оставляй пробел. Повторное нажатие ставит ×.');
-      const first = q.answer.indexOf(1);
-      q.hints = [pair('כל מספר הוא אורך רצף של תאים צבועים. 0 אומר שהשורה או העמודה ריקה.', 'Число — длина группы закрашенных клеток. 0 означает пустую строку или столбец.'), pair('רצף באורך 4 ממלא שורה שלמה. בין שני רצפים חייב להיות לפחות תא ריק.', 'Группа длиной 4 занимает весь ряд. Между группами нужна хотя бы одна пустая клетка.'), pair(`בתא שורה:עמודה ${coordinate(first, 4)} צריך לצבוע. הצלבת רמזי השורות והעמודות קובעת את שאר הדפוס.`, `Клетку строка:столбец ${coordinate(first, 4)} нужно закрасить. Сопоставь подсказки строк и столбцов, чтобы найти остальные.`)];
+      // A visible model replaces numerical clues; every game needs only 2–3 fills.
+      q.variant = 'copyPattern'; q.n = 3;
+      const painted = shuffle(Array.from({ length: 9 }, (_, i) => i)).slice(0, 4 + Math.floor(Math.random() * 3));
+      q.answer = Array(9).fill(0); q.initial = Array(9).fill(0);
+      for (const i of painted) q.answer[i] = 1;
+      for (const i of painted.slice(0, Math.ceil(painted.length / 2))) q.initial[i] = 1;
+      q.prompt = pair('השלם את הציור כמו בדוגמה. לחץ לצביעה; לחץ שוב למחיקה.', 'Дорисуй узор как на образце. Нажми, чтобы закрасить; ещё раз — стереть.');
+      q.hints = [pair('אותו תא מודגש בשני הלוחות. בדוק אם הוא צבוע בדוגמה.', 'Одинаковая клетка выделена на обоих полях. Посмотри, закрашена ли она в образце.'), pair('העתק תא אחד בכל פעם. התאים עם הכוכב כבר מוכנים.', 'Копируй по одной клетке. Клетки со звёздочкой уже готовы.'), pair('אם התא המודגש צבוע בדוגמה — צבע אותו. אם הוא לבן בדוגמה — לחץ כדי למחוק את הצבע.', 'Если выделенная клетка в образце цветная — закрась её. Если белая — нажми, чтобы стереть цвет.')];
     }
     q.board = q.initial.slice();
     return q;
   }
   function check(q) {
-    if (q.type === 'nonogram') return q.board.every(v => [-1, 0, 1].includes(v)) && rowsOf(q.board, q.n).every((row, r) => same(runs(row), q.rowClues[r])) && colsOf(q.board, q.n).every((col, c) => same(runs(col), q.colClues[c]));
+    if (q.type === 'nonogram' && q.variant !== 'copyPattern') return q.board.every(v => [-1, 0, 1].includes(v)) && rowsOf(q.board, q.n).every((row, r) => same(runs(row), q.rowClues[r])) && colsOf(q.board, q.n).every((col, c) => same(runs(col), q.colClues[c]));
     return same(q.board, q.answer);
   }
   function act(q, action, value) {
@@ -109,12 +106,14 @@ window.PuzzleGames = (() => {
     if (action === 'reset') { q.board = q.initial.slice(); q.moves = 0; q.undo = []; q.selected = null; return true; }
     if (action === 'digit' && (q.type !== 'sudoku' || q.selected == null || q.initial[q.selected] || i < 0 || i > 4)) return false;
     if (action === 'tile' && (i < 0 || i >= q.board.length || q.type === 'sudoku')) return false;
+    if (action === 'tile' && q.variant === 'copyPattern' && q.initial[i]) return false;
     if (action === 'tile' && q.type === 'sliding' && !neighbors(q.board.indexOf(0), 3).includes(i)) return false;
     if (!['tile', 'digit'].includes(action)) return false;
     q.undo.push({ board: q.board.slice(), moves: q.moves }); q.undo = q.undo.slice(-100);
     if (action === 'digit') q.board[q.selected] = i;
     else if (q.type === 'lights') toggle(q.board, i, q.n);
     else if (q.type === 'sliding') { const blank = q.board.indexOf(0); [q.board[blank], q.board[i]] = [q.board[i], q.board[blank]]; }
+    else if (q.variant === 'copyPattern') q.board[i] = 1 - q.board[i];
     else q.board[i] = q.board[i] === 0 ? 1 : q.board[i] === 1 ? -1 : 0;
     q.moves++; return true;
   }

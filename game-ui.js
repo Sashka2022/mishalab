@@ -1,0 +1,34 @@
+function gamePreview(kind, large = false) {
+  const tiles = {
+    math: ['2', '+', '3', '=', '?', '5', '8', '−', '4'],
+    logic: ['●', '▲', '●', '▲', '?', '▲', '●', '▲', '●'],
+    geometry: ['▲', '', '◆', '', '●', '', '■', '', '▲'],
+    chess: ['♜', '', '♞', '', '♟', '', '♙', '', '♔']
+  };
+  const item = PuzzleGames.catalog[kind];
+  const values = item ? item.tiles : tiles[kind];
+  const size = Math.sqrt(values.length);
+  return `<span class="game-preview ${kind} ${large ? 'large' : ''}" style="--cells:${size}" aria-hidden="true">${values.map((v, i) => `<i class="${v ? 'filled' : ''} tile-${i}">${item ? kind === 'sudoku' || kind === 'sliding' ? v || '' : '' : v}</i>`).join('')}</span>`;
+}
+function difficultyPicker() {
+  const chosen = data.startDifficulty;
+  const presets = [[1, P('קליל', 'Легко')], [4, P('מעניין', 'Интересно')], [7, P('מאתגר', 'Сложно')], ['auto', P('לפי הקצב שלי', 'В моём темпе')]];
+  return `<section class="difficulty-picker" aria-labelledby="difficulty-title"><div class="difficulty-heading"><h2 id="difficulty-title">${bi(P('איך מתחילים?', 'С чего начнём?'))}</h2><output id="difficulty-output" for="difficulty-range">${bi(chosen == null ? P('רמה אוטומטית', 'Автоуровень') : P(`רמה ${chosen} מתוך 10`, `Уровень ${chosen} из 10`))}</output></div><div class="difficulty-presets" role="group" aria-label="${esc(text(P('רמת פתיחה למשחק חדש', 'Начальный уровень новой игры')))}">${presets.map(([value, label], i) => `<button data-difficulty="${value}" class="${chosen === value || chosen == null && value === 'auto' ? 'active' : ''}" aria-pressed="${chosen === value || chosen == null && value === 'auto'}"><span class="difficulty-dots" aria-hidden="true">${'●'.repeat(i === 3 ? 1 : i + 1)}</span>${bi(label)}</button>`).join('')}</div><div class="difficulty-range"><span aria-hidden="true">1</span><input id="difficulty-range" type="range" min="1" max="10" step="1" value="${chosen || 1}" aria-label="${esc(text(P('בחירת רמת פתיחה מ־1 עד 10', 'Начальный уровень от 1 до 10')))}"><span aria-hidden="true">10</span></div><div class="difficulty-help">${bi(P('הבחירה למשחק חדש. בהמשך, הרמה מתאימה את עצמה אליך.', 'Выбор для новой игры. Дальше уровень подстраивается под тебя.'))}</div></section>`;
+}
+function chooseStartingDifficulty(value, rerender = true) {
+  data.startDifficulty = value === 'auto' ? null : Math.max(1, Math.min(10, Math.round(Number(value) || 1)));
+  saveProgress();
+  if (rerender) { render(); document.querySelector(`[data-difficulty="${value}"]`)?.focus({ preventScroll: true }); }
+  else {
+    document.getElementById('difficulty-output').innerHTML = bi(P(`רמה ${data.startDifficulty} מתוך 10`, `Уровень ${data.startDifficulty} из 10`));
+    document.querySelectorAll('[data-difficulty]').forEach(b => { const active = Number(b.dataset.difficulty) === data.startDifficulty; b.classList.toggle('active', active); b.setAttribute('aria-pressed', String(active)); });
+  }
+}
+function openingChallengePlan(domain) {
+  if (session?.manualStartLevel != null && !session.results.length) return { offset: 0, band: 'steady', forced: null };
+  return challengePlan(domain);
+}
+function renderGameHome() {
+  const continuing = session && session.results.length < 5;
+  return `<div class="arcade-home"><div class="arcade-topline"><span class="arcade-tag">${ico('sparkles')}${bi(P('מקום קטן להרפתקאות גדולות', 'Место для больших приключений'))}</span><span class="arcade-record">${ico('trophy')}${bi(P(`${data.rounds.length} מסעות שהושלמו`, `${data.rounds.length} миссий пройдено`))}</span></div><section class="arcade-hero"><div class="arcade-welcome"><span class="game-label">${bi(P('המעבדה של מישה · משחקים וחושבים', 'Лаборатория Миши · играем и думаем'))}</span><h1>${bi(P('מוכנים לשלב הבא?', 'Готов к новому уровню?'))}</h1><div class="arcade-intro">${bi(P('חידות קטנות. רעיונות גדולים. כל פתרון הוא ניצחון קטן.', 'Маленькие задачи. Большие идеи. Каждое решение — маленькая победа.'))}</div>${difficultyPicker()}<div class="arcade-play-actions"><button class="arcade-play primary" data-action="daily"><span>${ico('play')}${bi(P('מתחילים לשחק', 'Начать игру'))}</span><small>${bi(P('5 שלבים · הפתעות מארבעה עולמות', '5 этапов · четыре мира открытий'))}</small></button>${continuing ? `<button class="arcade-resume" data-action="resume">${ico('route')}${bi(T.resume)}</button>` : ''}</div></div><div class="arcade-scene" aria-label="${esc(text(P('ארבעה משחקים שאפשר לנסות', 'Четыре игры, которые можно попробовать')))}"><div class="scene-grid" aria-hidden="true"></div><span class="scene-star star-a" aria-hidden="true">✦</span><span class="scene-star star-b" aria-hidden="true">✧</span><span class="scene-star star-c" aria-hidden="true">✦</span><span class="scene-level" aria-hidden="true">LEVEL UP!</span><button class="scene-game scene-sliding" data-puzzle-kind="sliding" aria-label="${esc(text(PuzzleGames.catalog.sliding.name))}">${gamePreview('sliding', true)}<span>${bi(P('זוז, אריח!', 'Двигай плитку!'))}</span></button><button class="scene-game scene-sudoku" data-puzzle-kind="sudoku" aria-label="${esc(text(PuzzleGames.catalog.sudoku.name))}">${gamePreview('sudoku')}<span>${bi(P('מצא את החסר', 'Найди пропуск'))}</span></button><button class="scene-game scene-lights" data-puzzle-kind="lights" aria-label="${esc(text(PuzzleGames.catalog.lights.name))}">${gamePreview('lights')}<span>${bi(P('רגע של הברקה', 'Есть идея!'))}</span></button><button class="scene-game scene-paint" data-puzzle-kind="nonogram" aria-label="${esc(text(PuzzleGames.catalog.nonogram.name))}">${gamePreview('nonogram')}<span>${bi(P('טיפה של צבע', 'Капелька цвета'))}</span></button><div class="scene-reward">${ico('star')} <b>+${data.xp || 0}</b> XP</div></div></section><section class="arcade-worlds"><div class="arcade-section-title"><div><span class="game-label">${bi(P('בוחרים הרפתקה', 'Выбираем приключение'))}</span><h2>${bi(P('במה משחקים היום?', 'Во что сегодня играем?'))}</h2></div><span>${bi(P('כל העולמות פתוחים', 'Все миры открыты'))} ${ico('check')}</span></div><div class="arcade-world-grid">${Object.entries(domains).map(([domain, item], i) => `<button class="arcade-world island-hotspot" data-track="${domain}" data-island="${domain}" aria-label="${esc(text(P(`משחק ${item.title.he}`, `Играть: ${item.title.ru}`)))}"><span class="world-number">0${i + 1}</span><span class="world-preview">${gamePreview(domain)}</span><span class="arcade-world-title">${bi(item.title)}</span><span class="arcade-world-desc">${bi(item.desc)}</span><span class="world-play">${ico('play')}${bi(P(`לשחק · רמה ${data.startDifficulty || data.levels[domain]}`, `Играть · уровень ${data.startDifficulty || data.levels[domain]}`))}</span></button>`).join('')}</div></section>${renderPuzzleHome()}<section class="arcade-achievements"><div class="arcade-section-title"><h2>${bi(P('הניצחונות הקטנים שלך', 'Твои маленькие победы'))}</h2><span>${ico('trophy')}</span></div>${badgeHTML()}</section></div>`;
+}
