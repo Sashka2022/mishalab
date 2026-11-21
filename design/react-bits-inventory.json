@@ -1,0 +1,3227 @@
+{
+  "repository": "https://github.com/DavidHDev/react-bits",
+  "revision": "701a8acc34f718b305d1ff0cc7d4700df0e1f1c9",
+  "reviewedAt": "2026-11-21",
+  "method": "Static inventory of canonical src/content JSX implementations; no dependency installation or source execution. Flags identify code references and are not a performance or accessibility certification.",
+  "license": "MIT + Commons Clause; copyright (c) 2026 David Haz",
+  "components": [
+    {
+      "name": "AnimatedContent",
+      "category": "Animations",
+      "path": "src/content/Animations/AnimatedContent/AnimatedContent.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Animations/AnimatedContent/AnimatedContent.jsx",
+      "externalImports": [
+        "gsap",
+        "gsap/ScrollTrigger",
+        "react"
+      ],
+      "lines": 214,
+      "bytes": 5848,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "BlobCursor",
+      "category": "Animations",
+      "path": "src/content/Animations/BlobCursor/BlobCursor.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Animations/BlobCursor/BlobCursor.jsx",
+      "externalImports": [
+        "react",
+        "three",
+        "three/examples/jsm/environments/RoomEnvironment.js"
+      ],
+      "lines": 861,
+      "bytes": 31182,
+      "usesCanvas": false,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "ClickSpark",
+      "category": "Animations",
+      "path": "src/content/Animations/ClickSpark/ClickSpark.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Animations/ClickSpark/ClickSpark.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 420,
+      "bytes": 14707,
+      "usesCanvas": true,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "Crosshair",
+      "category": "Animations",
+      "path": "src/content/Animations/Crosshair/Crosshair.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Animations/Crosshair/Crosshair.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 442,
+      "bytes": 14723,
+      "usesCanvas": true,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "CrystalizedBall",
+      "category": "Animations",
+      "path": "src/content/Animations/CrystalizedBall/CrystalizedBall.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Animations/CrystalizedBall/CrystalizedBall.jsx",
+      "externalImports": [
+        "ogl",
+        "react"
+      ],
+      "lines": 1465,
+      "bytes": 47057,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "Cubes",
+      "category": "Animations",
+      "path": "src/content/Animations/Cubes/Cubes.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Animations/Cubes/Cubes.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 677,
+      "bytes": 22293,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "CursorGrid",
+      "category": "Animations",
+      "path": "src/content/Animations/CursorGrid/CursorGrid.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Animations/CursorGrid/CursorGrid.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 596,
+      "bytes": 20905,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "DitherVeil",
+      "category": "Animations",
+      "path": "src/content/Animations/DitherVeil/DitherVeil.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Animations/DitherVeil/DitherVeil.jsx",
+      "externalImports": [
+        "ogl",
+        "react"
+      ],
+      "lines": 823,
+      "bytes": 25780,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "ElasticMesh",
+      "category": "Animations",
+      "path": "src/content/Animations/ElasticMesh/ElasticMesh.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Animations/ElasticMesh/ElasticMesh.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 1399,
+      "bytes": 49863,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "ElectricBorder",
+      "category": "Animations",
+      "path": "src/content/Animations/ElectricBorder/ElectricBorder.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Animations/ElectricBorder/ElectricBorder.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 778,
+      "bytes": 27681,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "ElectricLogo",
+      "category": "Animations",
+      "path": "src/content/Animations/ElectricLogo/ElectricLogo.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Animations/ElectricLogo/ElectricLogo.jsx",
+      "externalImports": [
+        "ogl",
+        "react"
+      ],
+      "lines": 1018,
+      "bytes": 34132,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "FadeContent",
+      "category": "Animations",
+      "path": "src/content/Animations/FadeContent/FadeContent.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Animations/FadeContent/FadeContent.jsx",
+      "externalImports": [
+        "gsap",
+        "gsap/ScrollTrigger",
+        "react"
+      ],
+      "lines": 378,
+      "bytes": 12255,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "GhostCursor",
+      "category": "Animations",
+      "path": "src/content/Animations/GhostCursor/GhostCursor.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Animations/GhostCursor/GhostCursor.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 946,
+      "bytes": 32445,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "GlareHover",
+      "category": "Animations",
+      "path": "src/content/Animations/GlareHover/GlareHover.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Animations/GlareHover/GlareHover.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 290,
+      "bytes": 9501,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "GlowCursor",
+      "category": "Animations",
+      "path": "src/content/Animations/GlowCursor/GlowCursor.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Animations/GlowCursor/GlowCursor.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 953,
+      "bytes": 32328,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "GradualBlur",
+      "category": "Animations",
+      "path": "src/content/Animations/GradualBlur/GradualBlur.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Animations/GradualBlur/GradualBlur.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 245,
+      "bytes": 8634,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": false
+    },
+    {
+      "name": "HalftoneReveal",
+      "category": "Animations",
+      "path": "src/content/Animations/HalftoneReveal/HalftoneReveal.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Animations/HalftoneReveal/HalftoneReveal.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 838,
+      "bytes": 29151,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "ImageTrail",
+      "category": "Animations",
+      "path": "src/content/Animations/ImageTrail/ImageTrail.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Animations/ImageTrail/ImageTrail.jsx",
+      "externalImports": [
+        "gsap",
+        "react"
+      ],
+      "lines": 254,
+      "bytes": 6658,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "LaserFlow",
+      "category": "Animations",
+      "path": "src/content/Animations/LaserFlow/LaserFlow.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Animations/LaserFlow/LaserFlow.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 913,
+      "bytes": 34984,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "LogoLoop",
+      "category": "Animations",
+      "path": "src/content/Animations/LogoLoop/LogoLoop.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Animations/LogoLoop/LogoLoop.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 1098,
+      "bytes": 36097,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "Magnet",
+      "category": "Animations",
+      "path": "src/content/Animations/Magnet/Magnet.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Animations/Magnet/Magnet.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 240,
+      "bytes": 7714,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "MetaBalls",
+      "category": "Animations",
+      "path": "src/content/Animations/MetaBalls/MetaBalls.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Animations/MetaBalls/MetaBalls.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 627,
+      "bytes": 21384,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "MetallicPaint",
+      "category": "Animations",
+      "path": "src/content/Animations/MetallicPaint/MetallicPaint.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Animations/MetallicPaint/MetallicPaint.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 954,
+      "bytes": 32889,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "Noise",
+      "category": "Animations",
+      "path": "src/content/Animations/Noise/Noise.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Animations/Noise/Noise.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 289,
+      "bytes": 9291,
+      "usesCanvas": true,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "OrbitImages",
+      "category": "Animations",
+      "path": "src/content/Animations/OrbitImages/OrbitImages.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Animations/OrbitImages/OrbitImages.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 837,
+      "bytes": 26250,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "PixelSwap",
+      "category": "Animations",
+      "path": "src/content/Animations/PixelSwap/PixelSwap.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Animations/PixelSwap/PixelSwap.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 435,
+      "bytes": 14541,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "PixelTrail",
+      "category": "Animations",
+      "path": "src/content/Animations/PixelTrail/PixelTrail.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Animations/PixelTrail/PixelTrail.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 739,
+      "bytes": 24357,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": false
+    },
+    {
+      "name": "PixelTransition",
+      "category": "Animations",
+      "path": "src/content/Animations/PixelTransition/PixelTransition.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Animations/PixelTransition/PixelTransition.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 397,
+      "bytes": 13368,
+      "usesCanvas": true,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "Ribbons",
+      "category": "Animations",
+      "path": "src/content/Animations/Ribbons/Ribbons.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Animations/Ribbons/Ribbons.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 526,
+      "bytes": 17273,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": false
+    },
+    {
+      "name": "RippleDistortion",
+      "category": "Animations",
+      "path": "src/content/Animations/RippleDistortion/RippleDistortion.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Animations/RippleDistortion/RippleDistortion.jsx",
+      "externalImports": [
+        "ogl",
+        "react"
+      ],
+      "lines": 443,
+      "bytes": 13218,
+      "usesCanvas": false,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "ScrollExpand",
+      "category": "Animations",
+      "path": "src/content/Animations/ScrollExpand/ScrollExpand.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Animations/ScrollExpand/ScrollExpand.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 240,
+      "bytes": 6646,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "ShapeBlur",
+      "category": "Animations",
+      "path": "src/content/Animations/ShapeBlur/ShapeBlur.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Animations/ShapeBlur/ShapeBlur.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 758,
+      "bytes": 25984,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "SplashCursor",
+      "category": "Animations",
+      "path": "src/content/Animations/SplashCursor/SplashCursor.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Animations/SplashCursor/SplashCursor.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 1019,
+      "bytes": 34754,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "StarBorder",
+      "category": "Animations",
+      "path": "src/content/Animations/StarBorder/StarBorder.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Animations/StarBorder/StarBorder.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 578,
+      "bytes": 20325,
+      "usesCanvas": true,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "StickerPeel",
+      "category": "Animations",
+      "path": "src/content/Animations/StickerPeel/StickerPeel.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Animations/StickerPeel/StickerPeel.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 1041,
+      "bytes": 37991,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "Strands",
+      "category": "Animations",
+      "path": "src/content/Animations/Strands/Strands.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Animations/Strands/Strands.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 676,
+      "bytes": 23389,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "SwarmCursor",
+      "category": "Animations",
+      "path": "src/content/Animations/SwarmCursor/SwarmCursor.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Animations/SwarmCursor/SwarmCursor.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 947,
+      "bytes": 33654,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "TargetCursor",
+      "category": "Animations",
+      "path": "src/content/Animations/TargetCursor/TargetCursor.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Animations/TargetCursor/TargetCursor.jsx",
+      "externalImports": [
+        "react",
+        "react-dom"
+      ],
+      "lines": 371,
+      "bytes": 12623,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "AcidSquares",
+      "category": "Backgrounds",
+      "path": "src/content/Backgrounds/AcidSquares/AcidSquares.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Backgrounds/AcidSquares/AcidSquares.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 960,
+      "bytes": 31445,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "AeroShards",
+      "category": "Backgrounds",
+      "path": "src/content/Backgrounds/AeroShards/AeroShards.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Backgrounds/AeroShards/AeroShards.jsx",
+      "externalImports": [
+        "react",
+        "vgpu"
+      ],
+      "lines": 2230,
+      "bytes": 86095,
+      "usesCanvas": true,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "Antigravity",
+      "category": "Backgrounds",
+      "path": "src/content/Backgrounds/Antigravity/Antigravity.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Backgrounds/Antigravity/Antigravity.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 796,
+      "bytes": 29112,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "Aurora",
+      "category": "Backgrounds",
+      "path": "src/content/Backgrounds/Aurora/Aurora.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Backgrounds/Aurora/Aurora.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 481,
+      "bytes": 16380,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "Balatro",
+      "category": "Backgrounds",
+      "path": "src/content/Backgrounds/Balatro/Balatro.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Backgrounds/Balatro/Balatro.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 651,
+      "bytes": 24151,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "Ballpit",
+      "category": "Backgrounds",
+      "path": "src/content/Backgrounds/Ballpit/Ballpit.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Backgrounds/Ballpit/Ballpit.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 1227,
+      "bytes": 42834,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "Beams",
+      "category": "Backgrounds",
+      "path": "src/content/Backgrounds/Beams/Beams.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Backgrounds/Beams/Beams.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 625,
+      "bytes": 21324,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "CRTWarp",
+      "category": "Backgrounds",
+      "path": "src/content/Backgrounds/CRTWarp/CRTWarp.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Backgrounds/CRTWarp/CRTWarp.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 832,
+      "bytes": 28117,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "ColorBends",
+      "category": "Backgrounds",
+      "path": "src/content/Backgrounds/ColorBends/ColorBends.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Backgrounds/ColorBends/ColorBends.jsx",
+      "externalImports": [
+        "react",
+        "three"
+      ],
+      "lines": 371,
+      "bytes": 12004,
+      "usesCanvas": false,
+      "usesWebGL": true,
+      "reducedMotionReference": false
+    },
+    {
+      "name": "DarkVeil",
+      "category": "Backgrounds",
+      "path": "src/content/Backgrounds/DarkVeil/DarkVeil.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Backgrounds/DarkVeil/DarkVeil.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 563,
+      "bytes": 26413,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "Dither",
+      "category": "Backgrounds",
+      "path": "src/content/Backgrounds/Dither/Dither.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Backgrounds/Dither/Dither.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 668,
+      "bytes": 23343,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "DotField",
+      "category": "Backgrounds",
+      "path": "src/content/Backgrounds/DotField/DotField.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Backgrounds/DotField/DotField.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 651,
+      "bytes": 22743,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "DotGrid",
+      "category": "Backgrounds",
+      "path": "src/content/Backgrounds/DotGrid/DotGrid.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Backgrounds/DotGrid/DotGrid.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 642,
+      "bytes": 21999,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "EvilEye",
+      "category": "Backgrounds",
+      "path": "src/content/Backgrounds/EvilEye/EvilEye.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Backgrounds/EvilEye/EvilEye.jsx",
+      "externalImports": [
+        "ogl",
+        "react"
+      ],
+      "lines": 299,
+      "bytes": 9012,
+      "usesCanvas": false,
+      "usesWebGL": true,
+      "reducedMotionReference": false
+    },
+    {
+      "name": "FaultyTerminal",
+      "category": "Backgrounds",
+      "path": "src/content/Backgrounds/FaultyTerminal/FaultyTerminal.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Backgrounds/FaultyTerminal/FaultyTerminal.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 870,
+      "bytes": 29318,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "Ferrofluid",
+      "category": "Backgrounds",
+      "path": "src/content/Backgrounds/Ferrofluid/Ferrofluid.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Backgrounds/Ferrofluid/Ferrofluid.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 907,
+      "bytes": 31384,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "FloatingLines",
+      "category": "Backgrounds",
+      "path": "src/content/Backgrounds/FloatingLines/FloatingLines.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Backgrounds/FloatingLines/FloatingLines.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 630,
+      "bytes": 22413,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "FluxLines",
+      "category": "Backgrounds",
+      "path": "src/content/Backgrounds/FluxLines/FluxLines.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Backgrounds/FluxLines/FluxLines.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 484,
+      "bytes": 16142,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "Galaxy",
+      "category": "Backgrounds",
+      "path": "src/content/Backgrounds/Galaxy/Galaxy.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Backgrounds/Galaxy/Galaxy.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 591,
+      "bytes": 20620,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "GhostFibers",
+      "category": "Backgrounds",
+      "path": "src/content/Backgrounds/GhostFibers/GhostFibers.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Backgrounds/GhostFibers/GhostFibers.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 1092,
+      "bytes": 38828,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "GradientASCII",
+      "category": "Backgrounds",
+      "path": "src/content/Backgrounds/GradientASCII/GradientASCII.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Backgrounds/GradientASCII/GradientASCII.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 883,
+      "bytes": 31042,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "GradientBlinds",
+      "category": "Backgrounds",
+      "path": "src/content/Backgrounds/GradientBlinds/GradientBlinds.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Backgrounds/GradientBlinds/GradientBlinds.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 587,
+      "bytes": 19527,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "GradientWaves",
+      "category": "Backgrounds",
+      "path": "src/content/Backgrounds/GradientWaves/GradientWaves.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Backgrounds/GradientWaves/GradientWaves.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 633,
+      "bytes": 21190,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "Grainient",
+      "category": "Backgrounds",
+      "path": "src/content/Backgrounds/Grainient/Grainient.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Backgrounds/Grainient/Grainient.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 632,
+      "bytes": 21141,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "GridDistortion",
+      "category": "Backgrounds",
+      "path": "src/content/Backgrounds/GridDistortion/GridDistortion.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Backgrounds/GridDistortion/GridDistortion.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 461,
+      "bytes": 16121,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "GridMotion",
+      "category": "Backgrounds",
+      "path": "src/content/Backgrounds/GridMotion/GridMotion.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Backgrounds/GridMotion/GridMotion.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 339,
+      "bytes": 12478,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "GridScan",
+      "category": "Backgrounds",
+      "path": "src/content/Backgrounds/GridScan/GridScan.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Backgrounds/GridScan/GridScan.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 1034,
+      "bytes": 36504,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "HoloMosaic",
+      "category": "Backgrounds",
+      "path": "src/content/Backgrounds/HoloMosaic/HoloMosaic.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Backgrounds/HoloMosaic/HoloMosaic.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 825,
+      "bytes": 28087,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "Hyperspeed",
+      "category": "Backgrounds",
+      "path": "src/content/Backgrounds/Hyperspeed/Hyperspeed.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Backgrounds/Hyperspeed/Hyperspeed.jsx",
+      "externalImports": [
+        "react",
+        "three"
+      ],
+      "lines": 1049,
+      "bytes": 38013,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "Iridescence",
+      "category": "Backgrounds",
+      "path": "src/content/Backgrounds/Iridescence/Iridescence.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Backgrounds/Iridescence/Iridescence.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 524,
+      "bytes": 17448,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "LetterGlitch",
+      "category": "Backgrounds",
+      "path": "src/content/Backgrounds/LetterGlitch/LetterGlitch.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Backgrounds/LetterGlitch/LetterGlitch.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 940,
+      "bytes": 33044,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "LightPillar",
+      "category": "Backgrounds",
+      "path": "src/content/Backgrounds/LightPillar/LightPillar.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Backgrounds/LightPillar/LightPillar.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 613,
+      "bytes": 20967,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "LightRays",
+      "category": "Backgrounds",
+      "path": "src/content/Backgrounds/LightRays/LightRays.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Backgrounds/LightRays/LightRays.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 566,
+      "bytes": 20234,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "LightTunnel",
+      "category": "Backgrounds",
+      "path": "src/content/Backgrounds/LightTunnel/LightTunnel.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Backgrounds/LightTunnel/LightTunnel.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 531,
+      "bytes": 17942,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "Lightfall",
+      "category": "Backgrounds",
+      "path": "src/content/Backgrounds/Lightfall/Lightfall.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Backgrounds/Lightfall/Lightfall.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 749,
+      "bytes": 26265,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "Lightning",
+      "category": "Backgrounds",
+      "path": "src/content/Backgrounds/Lightning/Lightning.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Backgrounds/Lightning/Lightning.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 644,
+      "bytes": 20434,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "LineWaves",
+      "category": "Backgrounds",
+      "path": "src/content/Backgrounds/LineWaves/LineWaves.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Backgrounds/LineWaves/LineWaves.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 526,
+      "bytes": 17831,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "LiquidChrome",
+      "category": "Backgrounds",
+      "path": "src/content/Backgrounds/LiquidChrome/LiquidChrome.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Backgrounds/LiquidChrome/LiquidChrome.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 659,
+      "bytes": 23721,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "LiquidEther",
+      "category": "Backgrounds",
+      "path": "src/content/Backgrounds/LiquidEther/LiquidEther.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Backgrounds/LiquidEther/LiquidEther.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 786,
+      "bytes": 27127,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "MagicRings",
+      "category": "Backgrounds",
+      "path": "src/content/Backgrounds/MagicRings/MagicRings.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Backgrounds/MagicRings/MagicRings.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 948,
+      "bytes": 33199,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "MagnetLines",
+      "category": "Backgrounds",
+      "path": "src/content/Backgrounds/MagnetLines/MagnetLines.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Backgrounds/MagnetLines/MagnetLines.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 1070,
+      "bytes": 38644,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "MicroSlats",
+      "category": "Backgrounds",
+      "path": "src/content/Backgrounds/MicroSlats/MicroSlats.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Backgrounds/MicroSlats/MicroSlats.jsx",
+      "externalImports": [
+        "ogl",
+        "react"
+      ],
+      "lines": 928,
+      "bytes": 29464,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "MoltenMetal",
+      "category": "Backgrounds",
+      "path": "src/content/Backgrounds/MoltenMetal/MoltenMetal.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Backgrounds/MoltenMetal/MoltenMetal.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 606,
+      "bytes": 19995,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "Orb",
+      "category": "Backgrounds",
+      "path": "src/content/Backgrounds/Orb/Orb.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Backgrounds/Orb/Orb.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 561,
+      "bytes": 19741,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "Particles",
+      "category": "Backgrounds",
+      "path": "src/content/Backgrounds/Particles/Particles.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Backgrounds/Particles/Particles.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 879,
+      "bytes": 31753,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "PatternWaves",
+      "category": "Backgrounds",
+      "path": "src/content/Backgrounds/PatternWaves/PatternWaves.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Backgrounds/PatternWaves/PatternWaves.jsx",
+      "externalImports": [
+        "ogl",
+        "react"
+      ],
+      "lines": 904,
+      "bytes": 29011,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "PixelBlast",
+      "category": "Backgrounds",
+      "path": "src/content/Backgrounds/PixelBlast/PixelBlast.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Backgrounds/PixelBlast/PixelBlast.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 965,
+      "bytes": 31921,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "PixelSnow",
+      "category": "Backgrounds",
+      "path": "src/content/Backgrounds/PixelSnow/PixelSnow.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Backgrounds/PixelSnow/PixelSnow.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 845,
+      "bytes": 30833,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "Plasma",
+      "category": "Backgrounds",
+      "path": "src/content/Backgrounds/Plasma/Plasma.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Backgrounds/Plasma/Plasma.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 490,
+      "bytes": 17132,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "PlasmaWave",
+      "category": "Backgrounds",
+      "path": "src/content/Backgrounds/PlasmaWave/PlasmaWave.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Backgrounds/PlasmaWave/PlasmaWave.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 632,
+      "bytes": 22642,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "Prism",
+      "category": "Backgrounds",
+      "path": "src/content/Backgrounds/Prism/Prism.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Backgrounds/Prism/Prism.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 450,
+      "bytes": 15599,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "PrismaticBurst",
+      "category": "Backgrounds",
+      "path": "src/content/Backgrounds/PrismaticBurst/PrismaticBurst.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Backgrounds/PrismaticBurst/PrismaticBurst.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 887,
+      "bytes": 29896,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "Radar",
+      "category": "Backgrounds",
+      "path": "src/content/Backgrounds/Radar/Radar.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Backgrounds/Radar/Radar.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 919,
+      "bytes": 33735,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "RippleGrid",
+      "category": "Backgrounds",
+      "path": "src/content/Backgrounds/RippleGrid/RippleGrid.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Backgrounds/RippleGrid/RippleGrid.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 496,
+      "bytes": 16942,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "Scanner",
+      "category": "Backgrounds",
+      "path": "src/content/Backgrounds/Scanner/Scanner.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Backgrounds/Scanner/Scanner.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 510,
+      "bytes": 16787,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "ShapeGrid",
+      "category": "Backgrounds",
+      "path": "src/content/Backgrounds/ShapeGrid/ShapeGrid.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Backgrounds/ShapeGrid/ShapeGrid.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 764,
+      "bytes": 25064,
+      "usesCanvas": true,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "ShapeWaves",
+      "category": "Backgrounds",
+      "path": "src/content/Backgrounds/ShapeWaves/ShapeWaves.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Backgrounds/ShapeWaves/ShapeWaves.jsx",
+      "externalImports": [
+        "react",
+        "vgpu"
+      ],
+      "lines": 848,
+      "bytes": 30896,
+      "usesCanvas": true,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "SideRays",
+      "category": "Backgrounds",
+      "path": "src/content/Backgrounds/SideRays/SideRays.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Backgrounds/SideRays/SideRays.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 469,
+      "bytes": 16534,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "Silk",
+      "category": "Backgrounds",
+      "path": "src/content/Backgrounds/Silk/Silk.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Backgrounds/Silk/Silk.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 590,
+      "bytes": 19876,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "SlicedWaves",
+      "category": "Backgrounds",
+      "path": "src/content/Backgrounds/SlicedWaves/SlicedWaves.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Backgrounds/SlicedWaves/SlicedWaves.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 631,
+      "bytes": 22366,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "SoftAurora",
+      "category": "Backgrounds",
+      "path": "src/content/Backgrounds/SoftAurora/SoftAurora.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Backgrounds/SoftAurora/SoftAurora.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 542,
+      "bytes": 18468,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "Threads",
+      "category": "Backgrounds",
+      "path": "src/content/Backgrounds/Threads/Threads.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Backgrounds/Threads/Threads.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 541,
+      "bytes": 18665,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "Topography",
+      "category": "Backgrounds",
+      "path": "src/content/Backgrounds/Topography/Topography.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Backgrounds/Topography/Topography.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 1577,
+      "bytes": 57981,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "Waves",
+      "category": "Backgrounds",
+      "path": "src/content/Backgrounds/Waves/Waves.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Backgrounds/Waves/Waves.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 719,
+      "bytes": 24296,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "WebThreads",
+      "category": "Backgrounds",
+      "path": "src/content/Backgrounds/WebThreads/WebThreads.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Backgrounds/WebThreads/WebThreads.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 688,
+      "bytes": 22738,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "AccordionGallery",
+      "category": "Components",
+      "path": "src/content/Components/AccordionGallery/AccordionGallery.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Components/AccordionGallery/AccordionGallery.jsx",
+      "externalImports": [
+        "gsap",
+        "react"
+      ],
+      "lines": 235,
+      "bytes": 7055,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "AnimatedList",
+      "category": "Components",
+      "path": "src/content/Components/AnimatedList/AnimatedList.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Components/AnimatedList/AnimatedList.jsx",
+      "externalImports": [
+        "@hugeicons/core-free-icons",
+        "@hugeicons/react",
+        "react"
+      ],
+      "lines": 552,
+      "bytes": 20579,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "BorderGlow",
+      "category": "Components",
+      "path": "src/content/Components/BorderGlow/BorderGlow.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Components/BorderGlow/BorderGlow.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 183,
+      "bytes": 6265,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": false
+    },
+    {
+      "name": "BounceCards",
+      "category": "Components",
+      "path": "src/content/Components/BounceCards/BounceCards.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Components/BounceCards/BounceCards.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 318,
+      "bytes": 10261,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "BubbleMenu",
+      "category": "Components",
+      "path": "src/content/Components/BubbleMenu/BubbleMenu.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Components/BubbleMenu/BubbleMenu.jsx",
+      "externalImports": [
+        "gsap",
+        "react"
+      ],
+      "lines": 216,
+      "bytes": 6200,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": false
+    },
+    {
+      "name": "CardNav",
+      "category": "Components",
+      "path": "src/content/Components/CardNav/CardNav.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Components/CardNav/CardNav.jsx",
+      "externalImports": [
+        "@hugeicons/core-free-icons",
+        "@hugeicons/react",
+        "react"
+      ],
+      "lines": 528,
+      "bytes": 17188,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "CardSwap",
+      "category": "Components",
+      "path": "src/content/Components/CardSwap/CardSwap.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Components/CardSwap/CardSwap.jsx",
+      "externalImports": [
+        "@hugeicons/core-free-icons",
+        "@hugeicons/react",
+        "react"
+      ],
+      "lines": 797,
+      "bytes": 26568,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "Carousel",
+      "category": "Components",
+      "path": "src/content/Components/Carousel/Carousel.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Components/Carousel/Carousel.jsx",
+      "externalImports": [
+        "@hugeicons/core-free-icons",
+        "@hugeicons/react",
+        "react"
+      ],
+      "lines": 802,
+      "bytes": 27429,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "ChromaGrid",
+      "category": "Components",
+      "path": "src/content/Components/ChromaGrid/ChromaGrid.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Components/ChromaGrid/ChromaGrid.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 282,
+      "bytes": 9858,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "CircularCarousel",
+      "category": "Components",
+      "path": "src/content/Components/CircularCarousel/CircularCarousel.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Components/CircularCarousel/CircularCarousel.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 964,
+      "bytes": 31920,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "CircularGallery",
+      "category": "Components",
+      "path": "src/content/Components/CircularGallery/CircularGallery.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Components/CircularGallery/CircularGallery.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 1115,
+      "bytes": 40711,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "Counter",
+      "category": "Components",
+      "path": "src/content/Components/Counter/Counter.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Components/Counter/Counter.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 533,
+      "bytes": 17924,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "CurvedInput",
+      "category": "Components",
+      "path": "src/content/Components/CurvedInput/CurvedInput.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Components/CurvedInput/CurvedInput.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 512,
+      "bytes": 16523,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": false
+    },
+    {
+      "name": "DecayCard",
+      "category": "Components",
+      "path": "src/content/Components/DecayCard/DecayCard.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Components/DecayCard/DecayCard.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 504,
+      "bytes": 16491,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "DepthCarousel",
+      "category": "Components",
+      "path": "src/content/Components/DepthCarousel/DepthCarousel.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Components/DepthCarousel/DepthCarousel.jsx",
+      "externalImports": [
+        "gsap",
+        "react"
+      ],
+      "lines": 439,
+      "bytes": 13135,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "Dock",
+      "category": "Components",
+      "path": "src/content/Components/Dock/Dock.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Components/Dock/Dock.jsx",
+      "externalImports": [
+        "react",
+        "react-dom"
+      ],
+      "lines": 1023,
+      "bytes": 36302,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "DomeGallery",
+      "category": "Components",
+      "path": "src/content/Components/DomeGallery/DomeGallery.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Components/DomeGallery/DomeGallery.jsx",
+      "externalImports": [
+        "@use-gesture/react",
+        "react"
+      ],
+      "lines": 653,
+      "bytes": 24888,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": false
+    },
+    {
+      "name": "DriftWall",
+      "category": "Components",
+      "path": "src/content/Components/DriftWall/DriftWall.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Components/DriftWall/DriftWall.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 291,
+      "bytes": 9597,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "ElasticSlider",
+      "category": "Components",
+      "path": "src/content/Components/ElasticSlider/ElasticSlider.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Components/ElasticSlider/ElasticSlider.jsx",
+      "externalImports": [
+        "@hugeicons/core-free-icons",
+        "@hugeicons/react",
+        "react"
+      ],
+      "lines": 633,
+      "bytes": 20881,
+      "usesCanvas": true,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "FlexCarousel",
+      "category": "Components",
+      "path": "src/content/Components/FlexCarousel/FlexCarousel.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Components/FlexCarousel/FlexCarousel.jsx",
+      "externalImports": [
+        "ogl",
+        "react"
+      ],
+      "lines": 1280,
+      "bytes": 41844,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "FlowingMenu",
+      "category": "Components",
+      "path": "src/content/Components/FlowingMenu/FlowingMenu.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Components/FlowingMenu/FlowingMenu.jsx",
+      "externalImports": [
+        "@hugeicons/core-free-icons",
+        "@hugeicons/react",
+        "react"
+      ],
+      "lines": 660,
+      "bytes": 22889,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "FluidGlass",
+      "category": "Components",
+      "path": "src/content/Components/FluidGlass/FluidGlass.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Components/FluidGlass/FluidGlass.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 1431,
+      "bytes": 49237,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "FlyingPosters",
+      "category": "Components",
+      "path": "src/content/Components/FlyingPosters/FlyingPosters.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Components/FlyingPosters/FlyingPosters.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 621,
+      "bytes": 21666,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "Folder",
+      "category": "Components",
+      "path": "src/content/Components/Folder/Folder.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Components/Folder/Folder.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 1932,
+      "bytes": 68678,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "GlassIcons",
+      "category": "Components",
+      "path": "src/content/Components/GlassIcons/GlassIcons.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Components/GlassIcons/GlassIcons.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 1013,
+      "bytes": 35566,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "GlassSurface",
+      "category": "Components",
+      "path": "src/content/Components/GlassSurface/GlassSurface.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Components/GlassSurface/GlassSurface.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 824,
+      "bytes": 28528,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": false
+    },
+    {
+      "name": "GooeyNav",
+      "category": "Components",
+      "path": "src/content/Components/GooeyNav/GooeyNav.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Components/GooeyNav/GooeyNav.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 806,
+      "bytes": 27225,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "HoloCard",
+      "category": "Components",
+      "path": "src/content/Components/HoloCard/HoloCard.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Components/HoloCard/HoloCard.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 677,
+      "bytes": 24108,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "InfiniteMenu",
+      "category": "Components",
+      "path": "src/content/Components/InfiniteMenu/InfiniteMenu.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Components/InfiniteMenu/InfiniteMenu.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 896,
+      "bytes": 31087,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "InfiniteSpiral",
+      "category": "Components",
+      "path": "src/content/Components/InfiniteSpiral/InfiniteSpiral.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Components/InfiniteSpiral/InfiniteSpiral.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 272,
+      "bytes": 9616,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "Lanyard",
+      "category": "Components",
+      "path": "src/content/Components/Lanyard/Lanyard.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Components/Lanyard/Lanyard.jsx",
+      "externalImports": [
+        "react",
+        "three"
+      ],
+      "lines": 1295,
+      "bytes": 47940,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "LineSidebar",
+      "category": "Components",
+      "path": "src/content/Components/LineSidebar/LineSidebar.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Components/LineSidebar/LineSidebar.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 181,
+      "bytes": 5334,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": false
+    },
+    {
+      "name": "MagicBento",
+      "category": "Components",
+      "path": "src/content/Components/MagicBento/MagicBento.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Components/MagicBento/MagicBento.jsx",
+      "externalImports": [
+        ": ",
+        "@hugeicons/core-free-icons",
+        "@hugeicons/react",
+        "react"
+      ],
+      "lines": 1131,
+      "bytes": 39585,
+      "usesCanvas": true,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "Masonry",
+      "category": "Components",
+      "path": "src/content/Components/Masonry/Masonry.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Components/Masonry/Masonry.jsx",
+      "externalImports": [
+        "@hugeicons/core-free-icons",
+        "@hugeicons/react",
+        "react",
+        "react-dom"
+      ],
+      "lines": 1028,
+      "bytes": 35833,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "ModelViewer",
+      "category": "Components",
+      "path": "src/content/Components/ModelViewer/ModelViewer.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Components/ModelViewer/ModelViewer.jsx",
+      "externalImports": [
+        "@react-three/drei",
+        "@react-three/fiber",
+        "react",
+        "three",
+        "three/examples/jsm/loaders/OBJLoader.js"
+      ],
+      "lines": 486,
+      "bytes": 15840,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "MorphSlider",
+      "category": "Components",
+      "path": "src/content/Components/MorphSlider/MorphSlider.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Components/MorphSlider/MorphSlider.jsx",
+      "externalImports": [
+        "gsap",
+        "ogl",
+        "react"
+      ],
+      "lines": 686,
+      "bytes": 19724,
+      "usesCanvas": false,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "OptionWheel",
+      "category": "Components",
+      "path": "src/content/Components/OptionWheel/OptionWheel.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Components/OptionWheel/OptionWheel.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 307,
+      "bytes": 9696,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": false
+    },
+    {
+      "name": "PillNav",
+      "category": "Components",
+      "path": "src/content/Components/PillNav/PillNav.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Components/PillNav/PillNav.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 860,
+      "bytes": 28610,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "PixelCard",
+      "category": "Components",
+      "path": "src/content/Components/PixelCard/PixelCard.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Components/PixelCard/PixelCard.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 591,
+      "bytes": 20041,
+      "usesCanvas": true,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "ProfileCard",
+      "category": "Components",
+      "path": "src/content/Components/ProfileCard/ProfileCard.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Components/ProfileCard/ProfileCard.jsx",
+      "externalImports": [
+        "@hugeicons/core-free-icons",
+        "@hugeicons/react",
+        "react"
+      ],
+      "lines": 370,
+      "bytes": 13157,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "ReflectiveCard",
+      "category": "Components",
+      "path": "src/content/Components/ReflectiveCard/ReflectiveCard.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Components/ReflectiveCard/ReflectiveCard.jsx",
+      "externalImports": [
+        "@hugeicons/core-free-icons",
+        "@hugeicons/react",
+        "react"
+      ],
+      "lines": 1062,
+      "bytes": 36328,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "ScrollStack",
+      "category": "Components",
+      "path": "src/content/Components/ScrollStack/ScrollStack.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Components/ScrollStack/ScrollStack.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 337,
+      "bytes": 11362,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "SpecularButton",
+      "category": "Components",
+      "path": "src/content/Components/SpecularButton/SpecularButton.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Components/SpecularButton/SpecularButton.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 455,
+      "bytes": 15317,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "SpotlightCard",
+      "category": "Components",
+      "path": "src/content/Components/SpotlightCard/SpotlightCard.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Components/SpotlightCard/SpotlightCard.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 288,
+      "bytes": 10294,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "Stack",
+      "category": "Components",
+      "path": "src/content/Components/Stack/Stack.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Components/Stack/Stack.jsx",
+      "externalImports": [
+        "motion/react",
+        "react"
+      ],
+      "lines": 551,
+      "bytes": 20075,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "StaggeredMenu",
+      "category": "Components",
+      "path": "src/content/Components/StaggeredMenu/StaggeredMenu.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Components/StaggeredMenu/StaggeredMenu.jsx",
+      "externalImports": [
+        "gsap",
+        "react"
+      ],
+      "lines": 448,
+      "bytes": 14547,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": false
+    },
+    {
+      "name": "Stepper",
+      "category": "Components",
+      "path": "src/content/Components/Stepper/Stepper.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Components/Stepper/Stepper.jsx",
+      "externalImports": [
+        "@hugeicons/core-free-icons",
+        "@hugeicons/react",
+        "react"
+      ],
+      "lines": 504,
+      "bytes": 19254,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "TiltedCard",
+      "category": "Components",
+      "path": "src/content/Components/TiltedCard/TiltedCard.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Components/TiltedCard/TiltedCard.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 562,
+      "bytes": 19629,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "BellToggle",
+      "category": "Micro",
+      "path": "src/content/Micro/BellToggle/BellToggle.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Micro/BellToggle/BellToggle.jsx",
+      "externalImports": [
+        "@hugeicons/core-free-icons",
+        "@hugeicons/react",
+        "motion/react",
+        "react"
+      ],
+      "lines": 257,
+      "bytes": 8849,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "BranchedMenu",
+      "category": "Micro",
+      "path": "src/content/Micro/BranchedMenu/BranchedMenu.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Micro/BranchedMenu/BranchedMenu.jsx",
+      "externalImports": [
+        "@hugeicons/core-free-icons",
+        "@hugeicons/react",
+        "react"
+      ],
+      "lines": 213,
+      "bytes": 7496,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": false
+    },
+    {
+      "name": "CallChip",
+      "category": "Micro",
+      "path": "src/content/Micro/CallChip/CallChip.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Micro/CallChip/CallChip.jsx",
+      "externalImports": [
+        "@hugeicons/core-free-icons",
+        "@hugeicons/react",
+        "react"
+      ],
+      "lines": 211,
+      "bytes": 7307,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "CodeSlots",
+      "category": "Micro",
+      "path": "src/content/Micro/CodeSlots/CodeSlots.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Micro/CodeSlots/CodeSlots.jsx",
+      "externalImports": [
+        "@hugeicons/core-free-icons",
+        "@hugeicons/react",
+        "motion/react",
+        "react"
+      ],
+      "lines": 459,
+      "bytes": 14555,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "CometDial",
+      "category": "Micro",
+      "path": "src/content/Micro/CometDial/CometDial.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Micro/CometDial/CometDial.jsx",
+      "externalImports": [
+        "motion/react",
+        "react"
+      ],
+      "lines": 381,
+      "bytes": 11660,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "DodgeField",
+      "category": "Micro",
+      "path": "src/content/Micro/DodgeField/DodgeField.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Micro/DodgeField/DodgeField.jsx",
+      "externalImports": [
+        "motion/react",
+        "react"
+      ],
+      "lines": 244,
+      "bytes": 7700,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "FlipCard",
+      "category": "Micro",
+      "path": "src/content/Micro/FlipCard/FlipCard.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Micro/FlipCard/FlipCard.jsx",
+      "externalImports": [
+        "motion/react",
+        "react"
+      ],
+      "lines": 267,
+      "bytes": 8813,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "FlyingButton",
+      "category": "Micro",
+      "path": "src/content/Micro/FlyingButton/FlyingButton.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Micro/FlyingButton/FlyingButton.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 2136,
+      "bytes": 68176,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "FolderFloat",
+      "category": "Micro",
+      "path": "src/content/Micro/FolderFloat/FolderFloat.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Micro/FolderFloat/FolderFloat.jsx",
+      "externalImports": [
+        "matter-js",
+        "react"
+      ],
+      "lines": 415,
+      "bytes": 12981,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "FuseButton",
+      "category": "Micro",
+      "path": "src/content/Micro/FuseButton/FuseButton.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Micro/FuseButton/FuseButton.jsx",
+      "externalImports": [
+        "@hugeicons/core-free-icons",
+        "@hugeicons/react",
+        "react"
+      ],
+      "lines": 255,
+      "bytes": 7766,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": false
+    },
+    {
+      "name": "GlideSelect",
+      "category": "Micro",
+      "path": "src/content/Micro/GlideSelect/GlideSelect.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Micro/GlideSelect/GlideSelect.jsx",
+      "externalImports": [
+        "@hugeicons/core-free-icons",
+        "@hugeicons/react",
+        "react"
+      ],
+      "lines": 321,
+      "bytes": 10695,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": false
+    },
+    {
+      "name": "HoldButton",
+      "category": "Micro",
+      "path": "src/content/Micro/HoldButton/HoldButton.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Micro/HoldButton/HoldButton.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 266,
+      "bytes": 8037,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": false
+    },
+    {
+      "name": "JellyRadio",
+      "category": "Micro",
+      "path": "src/content/Micro/JellyRadio/JellyRadio.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Micro/JellyRadio/JellyRadio.jsx",
+      "externalImports": [
+        "motion/react",
+        "react"
+      ],
+      "lines": 218,
+      "bytes": 6843,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "LatticeLoader",
+      "category": "Micro",
+      "path": "src/content/Micro/LatticeLoader/LatticeLoader.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Micro/LatticeLoader/LatticeLoader.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 163,
+      "bytes": 6075,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": false
+    },
+    {
+      "name": "PaperCrumple",
+      "category": "Micro",
+      "path": "src/content/Micro/PaperCrumple/PaperCrumple.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Micro/PaperCrumple/PaperCrumple.jsx",
+      "externalImports": [
+        "react",
+        "three"
+      ],
+      "lines": 1120,
+      "bytes": 42978,
+      "usesCanvas": false,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "PeekRating",
+      "category": "Micro",
+      "path": "src/content/Micro/PeekRating/PeekRating.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Micro/PeekRating/PeekRating.jsx",
+      "externalImports": [
+        "@hugeicons/core-free-icons",
+        "@hugeicons/react",
+        "react"
+      ],
+      "lines": 309,
+      "bytes": 9818,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "PromptBar",
+      "category": "Micro",
+      "path": "src/content/Micro/PromptBar/PromptBar.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Micro/PromptBar/PromptBar.jsx",
+      "externalImports": [
+        "@hugeicons/core-free-icons",
+        "@hugeicons/react",
+        "motion/react",
+        "react"
+      ],
+      "lines": 725,
+      "bytes": 24478,
+      "usesCanvas": true,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "PulseHeart",
+      "category": "Micro",
+      "path": "src/content/Micro/PulseHeart/PulseHeart.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Micro/PulseHeart/PulseHeart.jsx",
+      "externalImports": [
+        "@hugeicons/core-free-icons",
+        "react"
+      ],
+      "lines": 254,
+      "bytes": 8486,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "RefineFrame",
+      "category": "Micro",
+      "path": "src/content/Micro/RefineFrame/RefineFrame.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Micro/RefineFrame/RefineFrame.jsx",
+      "externalImports": [
+        "@hugeicons/core-free-icons",
+        "@hugeicons/react",
+        "react"
+      ],
+      "lines": 299,
+      "bytes": 9727,
+      "usesCanvas": true,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "RubberSegment",
+      "category": "Micro",
+      "path": "src/content/Micro/RubberSegment/RubberSegment.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Micro/RubberSegment/RubberSegment.jsx",
+      "externalImports": [
+        "motion/react",
+        "react"
+      ],
+      "lines": 360,
+      "bytes": 11297,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "ScrubField",
+      "category": "Micro",
+      "path": "src/content/Micro/ScrubField/ScrubField.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Micro/ScrubField/ScrubField.jsx",
+      "externalImports": [
+        "motion/react",
+        "react"
+      ],
+      "lines": 350,
+      "bytes": 11060,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "Shredder",
+      "category": "Micro",
+      "path": "src/content/Micro/Shredder/Shredder.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Micro/Shredder/Shredder.jsx",
+      "externalImports": [
+        "react",
+        "react-dom"
+      ],
+      "lines": 1025,
+      "bytes": 29067,
+      "usesCanvas": true,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "SlideCommit",
+      "category": "Micro",
+      "path": "src/content/Micro/SlideCommit/SlideCommit.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Micro/SlideCommit/SlideCommit.jsx",
+      "externalImports": [
+        "@hugeicons/core-free-icons",
+        "@hugeicons/react",
+        "motion/react",
+        "react"
+      ],
+      "lines": 364,
+      "bytes": 12621,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "SlingButton",
+      "category": "Micro",
+      "path": "src/content/Micro/SlingButton/SlingButton.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Micro/SlingButton/SlingButton.jsx",
+      "externalImports": [
+        "@hugeicons/core-free-icons",
+        "@hugeicons/react",
+        "motion/react",
+        "react"
+      ],
+      "lines": 414,
+      "bytes": 13335,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "SloshGauge",
+      "category": "Micro",
+      "path": "src/content/Micro/SloshGauge/SloshGauge.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Micro/SloshGauge/SloshGauge.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 299,
+      "bytes": 8829,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "SpringCheck",
+      "category": "Micro",
+      "path": "src/content/Micro/SpringCheck/SpringCheck.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Micro/SpringCheck/SpringCheck.jsx",
+      "externalImports": [
+        "@hugeicons/core-free-icons",
+        "motion/react",
+        "react"
+      ],
+      "lines": 167,
+      "bytes": 5536,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "SquishSwitch",
+      "category": "Micro",
+      "path": "src/content/Micro/SquishSwitch/SquishSwitch.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Micro/SquishSwitch/SquishSwitch.jsx",
+      "externalImports": [
+        "motion/react",
+        "react"
+      ],
+      "lines": 199,
+      "bytes": 6112,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "StatusMark",
+      "category": "Micro",
+      "path": "src/content/Micro/StatusMark/StatusMark.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Micro/StatusMark/StatusMark.jsx",
+      "externalImports": [
+        "motion/react",
+        "react"
+      ],
+      "lines": 157,
+      "bytes": 5087,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "SwipeRow",
+      "category": "Micro",
+      "path": "src/content/Micro/SwipeRow/SwipeRow.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Micro/SwipeRow/SwipeRow.jsx",
+      "externalImports": [
+        "@hugeicons/core-free-icons",
+        "@hugeicons/react",
+        "motion/react",
+        "react"
+      ],
+      "lines": 423,
+      "bytes": 13299,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "SwipeToast",
+      "category": "Micro",
+      "path": "src/content/Micro/SwipeToast/SwipeToast.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Micro/SwipeToast/SwipeToast.jsx",
+      "externalImports": [
+        "@hugeicons/core-free-icons",
+        "@hugeicons/react",
+        "motion/react",
+        "react"
+      ],
+      "lines": 318,
+      "bytes": 10269,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "TearTicket",
+      "category": "Micro",
+      "path": "src/content/Micro/TearTicket/TearTicket.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Micro/TearTicket/TearTicket.jsx",
+      "externalImports": [
+        "motion/react",
+        "react"
+      ],
+      "lines": 609,
+      "bytes": 21210,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "ThoughtLine",
+      "category": "Micro",
+      "path": "src/content/Micro/ThoughtLine/ThoughtLine.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Micro/ThoughtLine/ThoughtLine.jsx",
+      "externalImports": [
+        "@hugeicons/core-free-icons",
+        "@hugeicons/react",
+        "motion/react",
+        "react"
+      ],
+      "lines": 266,
+      "bytes": 9170,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "VoicePill",
+      "category": "Micro",
+      "path": "src/content/Micro/VoicePill/VoicePill.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Micro/VoicePill/VoicePill.jsx",
+      "externalImports": [
+        "@hugeicons/core-free-icons",
+        "@hugeicons/react",
+        "react"
+      ],
+      "lines": 415,
+      "bytes": 12409,
+      "usesCanvas": true,
+      "usesWebGL": false,
+      "reducedMotionReference": false
+    },
+    {
+      "name": "WakeSlider",
+      "category": "Micro",
+      "path": "src/content/Micro/WakeSlider/WakeSlider.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Micro/WakeSlider/WakeSlider.jsx",
+      "externalImports": [
+        "motion/react",
+        "react"
+      ],
+      "lines": 240,
+      "bytes": 7307,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "WarmTooltip",
+      "category": "Micro",
+      "path": "src/content/Micro/WarmTooltip/WarmTooltip.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/Micro/WarmTooltip/WarmTooltip.jsx",
+      "externalImports": [
+        "motion/react",
+        "react",
+        "react-dom"
+      ],
+      "lines": 585,
+      "bytes": 17609,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "ASCIIText",
+      "category": "TextAnimations",
+      "path": "src/content/TextAnimations/ASCIIText/ASCIIText.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/TextAnimations/ASCIIText/ASCIIText.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 580,
+      "bytes": 20014,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "BlurText",
+      "category": "TextAnimations",
+      "path": "src/content/TextAnimations/BlurText/BlurText.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/TextAnimations/BlurText/BlurText.jsx",
+      "externalImports": [
+        " ? ",
+        " || phase === ",
+        ") return undefined;\n    if (trigger === ",
+        ") return;\n    setPhase(",
+        ";\n\nconst BlurText = ({\n  text = ",
+        "motion/react",
+        "react"
+      ],
+      "lines": 397,
+      "bytes": 12715,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": false
+    },
+    {
+      "name": "CircularText",
+      "category": "TextAnimations",
+      "path": "src/content/TextAnimations/CircularText/CircularText.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/TextAnimations/CircularText/CircularText.jsx",
+      "externalImports": [
+        "motion/react",
+        "react"
+      ],
+      "lines": 287,
+      "bytes": 9692,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "CountUp",
+      "category": "TextAnimations",
+      "path": "src/content/TextAnimations/CountUp/CountUp.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/TextAnimations/CountUp/CountUp.jsx",
+      "externalImports": [
+        "motion/react",
+        "react"
+      ],
+      "lines": 449,
+      "bytes": 15407,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "CurvedLoop",
+      "category": "TextAnimations",
+      "path": "src/content/TextAnimations/CurvedLoop/CurvedLoop.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/TextAnimations/CurvedLoop/CurvedLoop.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 411,
+      "bytes": 14252,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "DecryptedText",
+      "category": "TextAnimations",
+      "path": "src/content/TextAnimations/DecryptedText/DecryptedText.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/TextAnimations/DecryptedText/DecryptedText.jsx",
+      "externalImports": [
+        "motion/react",
+        "react"
+      ],
+      "lines": 594,
+      "bytes": 18368,
+      "usesCanvas": true,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "DepthText",
+      "category": "TextAnimations",
+      "path": "src/content/TextAnimations/DepthText/DepthText.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/TextAnimations/DepthText/DepthText.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 357,
+      "bytes": 12098,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "EchoText",
+      "category": "TextAnimations",
+      "path": "src/content/TextAnimations/EchoText/EchoText.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/TextAnimations/EchoText/EchoText.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 445,
+      "bytes": 15665,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "FallingText",
+      "category": "TextAnimations",
+      "path": "src/content/TextAnimations/FallingText/FallingText.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/TextAnimations/FallingText/FallingText.jsx",
+      "externalImports": [
+        "matter-js",
+        "react"
+      ],
+      "lines": 564,
+      "bytes": 20366,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "FoldText",
+      "category": "TextAnimations",
+      "path": "src/content/TextAnimations/FoldText/FoldText.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/TextAnimations/FoldText/FoldText.jsx",
+      "externalImports": [
+        "gsap",
+        "gsap/ScrollTrigger",
+        "react"
+      ],
+      "lines": 349,
+      "bytes": 11719,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "FuzzyText",
+      "category": "TextAnimations",
+      "path": "src/content/TextAnimations/FuzzyText/FuzzyText.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/TextAnimations/FuzzyText/FuzzyText.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 508,
+      "bytes": 17640,
+      "usesCanvas": true,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "GlitchText",
+      "category": "TextAnimations",
+      "path": "src/content/TextAnimations/GlitchText/GlitchText.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/TextAnimations/GlitchText/GlitchText.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 369,
+      "bytes": 11641,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "GradientText",
+      "category": "TextAnimations",
+      "path": "src/content/TextAnimations/GradientText/GradientText.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/TextAnimations/GradientText/GradientText.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 200,
+      "bytes": 6750,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "MaskedHeading",
+      "category": "TextAnimations",
+      "path": "src/content/TextAnimations/MaskedHeading/MaskedHeading.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/TextAnimations/MaskedHeading/MaskedHeading.jsx",
+      "externalImports": [
+        "gsap",
+        "react"
+      ],
+      "lines": 624,
+      "bytes": 18973,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "ParticleText",
+      "category": "TextAnimations",
+      "path": "src/content/TextAnimations/ParticleText/ParticleText.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/TextAnimations/ParticleText/ParticleText.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 799,
+      "bytes": 28419,
+      "usesCanvas": true,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "RotatingText",
+      "category": "TextAnimations",
+      "path": "src/content/TextAnimations/RotatingText/RotatingText.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/TextAnimations/RotatingText/RotatingText.jsx",
+      "externalImports": [
+        "motion/react",
+        "react"
+      ],
+      "lines": 338,
+      "bytes": 11238,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "ScrambledText",
+      "category": "TextAnimations",
+      "path": "src/content/TextAnimations/ScrambledText/ScrambledText.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/TextAnimations/ScrambledText/ScrambledText.jsx",
+      "externalImports": [
+        "gsap",
+        "gsap/ScrambleTextPlugin",
+        "gsap/SplitText",
+        "react"
+      ],
+      "lines": 375,
+      "bytes": 12091,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "ScrollFloat",
+      "category": "TextAnimations",
+      "path": "src/content/TextAnimations/ScrollFloat/ScrollFloat.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/TextAnimations/ScrollFloat/ScrollFloat.jsx",
+      "externalImports": [
+        "gsap",
+        "gsap/ScrollTrigger",
+        "react"
+      ],
+      "lines": 257,
+      "bytes": 8353,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "ScrollReveal",
+      "category": "TextAnimations",
+      "path": "src/content/TextAnimations/ScrollReveal/ScrollReveal.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/TextAnimations/ScrollReveal/ScrollReveal.jsx",
+      "externalImports": [
+        "gsap",
+        "gsap/ScrollTrigger",
+        "react"
+      ],
+      "lines": 305,
+      "bytes": 9618,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "ScrollVelocity",
+      "category": "TextAnimations",
+      "path": "src/content/TextAnimations/ScrollVelocity/ScrollVelocity.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/TextAnimations/ScrollVelocity/ScrollVelocity.jsx",
+      "externalImports": [
+        "motion/react",
+        "react"
+      ],
+      "lines": 322,
+      "bytes": 9797,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "ShinyText",
+      "category": "TextAnimations",
+      "path": "src/content/TextAnimations/ShinyText/ShinyText.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/TextAnimations/ShinyText/ShinyText.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 364,
+      "bytes": 11226,
+      "usesCanvas": true,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "Shuffle",
+      "category": "TextAnimations",
+      "path": "src/content/TextAnimations/Shuffle/Shuffle.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/TextAnimations/Shuffle/Shuffle.jsx",
+      "externalImports": [
+        "@gsap/react",
+        "gsap",
+        "gsap/ScrollTrigger",
+        "gsap/SplitText",
+        "react"
+      ],
+      "lines": 623,
+      "bytes": 21026,
+      "usesCanvas": true,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "SplitFlapText",
+      "category": "TextAnimations",
+      "path": "src/content/TextAnimations/SplitFlapText/SplitFlapText.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/TextAnimations/SplitFlapText/SplitFlapText.jsx",
+      "externalImports": [
+        ": round(1 + 0.08 * flat),\n    ",
+        ": round(1 - 0.42 * flat - 0.3 * deep),\n    ",
+        "react"
+      ],
+      "lines": 410,
+      "bytes": 13052,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "SplitText",
+      "category": "TextAnimations",
+      "path": "src/content/TextAnimations/SplitText/SplitText.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/TextAnimations/SplitText/SplitText.jsx",
+      "externalImports": [
+        "@gsap/react",
+        "gsap",
+        "gsap/ScrollTrigger",
+        "gsap/SplitText",
+        "react"
+      ],
+      "lines": 428,
+      "bytes": 13221,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "StrokeText",
+      "category": "TextAnimations",
+      "path": "src/content/TextAnimations/StrokeText/StrokeText.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/TextAnimations/StrokeText/StrokeText.jsx",
+      "externalImports": [
+        "gsap",
+        "gsap/ScrollTrigger",
+        "react"
+      ],
+      "lines": 431,
+      "bytes": 13090,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "TechText",
+      "category": "TextAnimations",
+      "path": "src/content/TextAnimations/TechText/TechText.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/TextAnimations/TechText/TechText.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 1005,
+      "bytes": 36436,
+      "usesCanvas": true,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "TextCursor",
+      "category": "TextAnimations",
+      "path": "src/content/TextAnimations/TextCursor/TextCursor.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/TextAnimations/TextCursor/TextCursor.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 394,
+      "bytes": 12912,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "TextLoop",
+      "category": "TextAnimations",
+      "path": "src/content/TextAnimations/TextLoop/TextLoop.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/TextAnimations/TextLoop/TextLoop.jsx",
+      "externalImports": [
+        "gsap",
+        "react"
+      ],
+      "lines": 627,
+      "bytes": 20437,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "TextPressure",
+      "category": "TextAnimations",
+      "path": "src/content/TextAnimations/TextPressure/TextPressure.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/TextAnimations/TextPressure/TextPressure.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 397,
+      "bytes": 12614,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "TextType",
+      "category": "TextAnimations",
+      "path": "src/content/TextAnimations/TextType/TextType.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/TextAnimations/TextType/TextType.jsx",
+      "externalImports": [
+        "gsap",
+        "react"
+      ],
+      "lines": 395,
+      "bytes": 11968,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "TrueFocus",
+      "category": "TextAnimations",
+      "path": "src/content/TextAnimations/TrueFocus/TrueFocus.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/TextAnimations/TrueFocus/TrueFocus.jsx",
+      "externalImports": [
+        "motion/react",
+        "react"
+      ],
+      "lines": 202,
+      "bytes": 6899,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "VariableProximity",
+      "category": "TextAnimations",
+      "path": "src/content/TextAnimations/VariableProximity/VariableProximity.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/TextAnimations/VariableProximity/VariableProximity.jsx",
+      "externalImports": [
+        "react"
+      ],
+      "lines": 418,
+      "bytes": 13342,
+      "usesCanvas": false,
+      "usesWebGL": false,
+      "reducedMotionReference": true
+    },
+    {
+      "name": "WarpText",
+      "category": "TextAnimations",
+      "path": "src/content/TextAnimations/WarpText/WarpText.jsx",
+      "source": "https://github.com/DavidHDev/react-bits/blob/701a8acc34f718b305d1ff0cc7d4700df0e1f1c9/src/content/TextAnimations/WarpText/WarpText.jsx",
+      "externalImports": [
+        "ogl",
+        "react"
+      ],
+      "lines": 688,
+      "bytes": 21382,
+      "usesCanvas": true,
+      "usesWebGL": true,
+      "reducedMotionReference": true
+    }
+  ]
+}
