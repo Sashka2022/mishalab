@@ -1,10 +1,10 @@
-/* Five deterministic courses: 100 stages × 10 exercises each. No network required. */
+/* Four deterministic courses (100 × 10), plus a separate curated Atlas quiz. */
 window.LearningGames = (() => {
   const p = (he, ru) => ({ he, ru });
   const catalog = {
     matches: { title: p('קסם הגפרורים', 'Магия спичек'), desc: p('מזיזים גפרור ומפצחים את החידה', 'Переложи спичку и реши загадку'), color: 'amber', domain: 'logic', art: 'matches' },
     origami: { title: p('סטודיו אוריגמי', 'Студия оригами'), desc: p('מקפלים, מנקבים ומגלים מה נפתח', 'Складывай и открывай узоры'), color: 'mint', domain: 'geometry', art: 'origami' },
-    trivia: { title: p('חכמים בתמונות', 'Умные картинки'), desc: p('מגלים את העולם דרך איורים', 'Узнаём мир по рисункам'), color: 'sky', domain: 'logic', art: 'trivia' },
+    trivia: { title: p('אטלס הסקרנות', 'Атлас любопытства'), desc: p('גלויות, דגלים ותגליות על העולם', 'Открытки, флаги и открытия о мире'), color: 'sky', domain: 'logic', art: 'trivia', mode: 'atlas', stageCount: 10, perStage: 8 },
     hebrew: { title: p('עברית קטנה', 'Иврит шаг за шагом'), desc: p('אותיות, מילים וקצת קסם', 'Буквы, слова и немного волшебства'), color: 'rose', domain: 'logic', art: 'hebrew' },
     maze: { title: p('הרפתקת מבוכים', 'Приключения в лабиринте'), desc: p('מוצאים דרך אל הכוכב', 'Найди дорогу к звезде'), color: 'violet', domain: 'logic', art: 'maze' }
   };
@@ -123,40 +123,6 @@ window.LearningGames = (() => {
       prompt: p('איזה קיפול ייצור את הצורה שבדוגמה? בחר קו קיפול וראה מה קורה.', 'Какой сгиб даст фигуру из образца? Выбери линию и посмотри на результат.'),
       hints: [p('הקו המקווקו הוא מקום הקיפול. החץ מראה איזה צד זז.', 'Пунктир — линия сгиба. Стрелка показывает, какая сторона движется.'), p('השווה את המיקום והצורה, וגם איזה צד של הנייר רואים.', 'Сравни положение и форму, а также видимую сторону бумаги.'), p('בחר קיפול, השווה את התוצאה לדוגמה ונסה אותו גם עם דף אמיתי.', 'Выбери сгиб, сравни результат с образцом и попробуй сложить настоящий лист.') ] };
   }
-  const habitats = {
-    sea: ['fish','dolphin','octopus','whale','seahorse','jellyfish'],
-    forest: ['owl','fox','squirrel','deer','woodpecker'],
-    savanna: ['lion','giraffe','zebra','elephant'],
-    polar: ['polarBear','emperorPenguin','walrus'],
-    desert: ['camel','fennec','scorpion']
-  };
-  const coverings = { feathers: ['owl','hen','duck','woodpecker','emperorPenguin'], fur: ['cat','dog','rabbit','fox','lion','polarBear','squirrel'], scales: ['fish','snake','lizard'] };
-  const routes = { road: ['car','bus','bicycle','truck'], sea: ['boat','sailboat','submarine'], air: ['plane','helicopter','balloon'], rails: ['train','tram'], space: ['rocket'] };
-  const products = [['bee','honey'], ['cow','milk'], ['hen','egg'], ['sheep','wool'], ['appleTree','apple'], ['caterpillar','butterfly'], ['wheat','bread'], ['orangeTree','orange'], ['oliveTree','oil']];
-  function relationQuestion(groups, rng, category, reverse = false) {
-    const categories = Object.keys(groups), correct = pick(categories, rng), item = pick(groups[correct], rng);
-    const wrong = shuffle(categories.filter(v => v !== correct), rng).slice(0, 3);
-    const options = shuffle([correct, ...wrong].map(group => ({ art: reverse ? pick(groups[group], rng) : group, category: group })), rng);
-    return { family: category, picture: reverse ? correct : item, options, answer: options.findIndex(o => o.category === correct), relation: correct, visualOnly: true, prompt: p('בחר את האיור המתאים.', 'Выбери подходящий рисунок.') };
-  }
-  function createTrivia(serial, rng) {
-    let q;
-    if (serial % 5 === 0) q = relationQuestion(habitats, rng, 'habitat', serial % 10 === 0 || serial > 800);
-    else if (serial % 5 === 1) q = relationQuestion(coverings, rng, 'covering', true);
-    else if (serial % 5 === 2) q = relationQuestion(routes, rng, 'transport', true);
-    else if (serial % 5 === 3) {
-      const selected = pick(products, rng), reverse = serial % 10 === 3, distractors = shuffle(products.filter(v => v !== selected), rng).slice(0, 3);
-      const options = shuffle([selected, ...distractors].map(v => ({ art: v[reverse ? 0 : 1], product: v[1] })), rng);
-      q = { family: 'source', picture: selected[reverse ? 1 : 0], options, answer: options.findIndex(o => o.product === selected[1]), relation: selected.join(':'), visualOnly: true, prompt: p('בחר את האיור המתאים.', 'Выбери подходящий рисунок.') };
-    } else {
-      const items = ['apple','carrot','pear','banana','flower','tree','house','boat','plane','car','fish','cat','rabbit','butterfly','star','moon','sun','ball','book','key','cup','umbrella','clock','kite'];
-      const correct = pick(items, rng), options = shuffle([correct, ...shuffle(items.filter(v => v !== correct), rng).slice(0, 3)], rng).map(art => ({ art, silhouette: true }));
-      q = { family: 'shadow', picture: correct, options, answer: options.findIndex(o => o.art === correct), visualOnly: true, prompt: p('מצא את הצל של האיור.', 'Найди тень рисунка.') };
-    }
-    const right = q.options[q.answer].art;
-    q.hints = [p('הסתכל בפרטים של האיורים והשווה ביניהם.', 'Рассмотри детали рисунков и сравни их.'), p('חשוב איזה קשר יש בין האיור הגדול לאפשרויות.', 'Подумай, что связывает большой рисунок с вариантами.'), p(`האיור המתאים הוא: ${LearningArt.label(right).he}.`, `Подходящий рисунок: ${LearningArt.label(right).ru}.`)];
-    return q;
-  }
   const words = [
     ['apple','תפוח'],['fish','דג'],['house','בית'],['tree','עץ'],['flower','פרח'],['sun','שמש'],['moon','ירח'],['star','כוכב'],['cat','חתול'],['dog','כלב'],['rabbit','ארנב'],['cow','פרה'],['sheep','כבש'],['duck','ברווז'],['hen','תרנגולת'],['bee','דבורה'],['butterfly','פרפר'],['lion','אריה'],['elephant','פיל'],['giraffe','ג׳ירפה'],['camel','גמל'],['fox','שועל'],['owl','ינשוף'],['snake','נחש'],['car','מכונית'],['bus','אוטובוס'],['train','רכבת'],['boat','סירה'],['plane','מטוס'],['bicycle','אופניים'],['ball','כדור'],['book','ספר'],['key','מפתח'],['cup','כוס'],['umbrella','מטרייה'],['clock','שעון'],['kite','עפיפון'],['carrot','גזר'],['pear','אגס'],['banana','בננה'],['egg','ביצה'],['milk','חלב'],['honey','דבש'],['wool','צמר']
   ];
@@ -210,19 +176,18 @@ window.LearningGames = (() => {
   function contentKey(game, q) {
     if (game === 'matches') return JSON.stringify([q.initial, q.operator]);
     if (game === 'maze') return JSON.stringify(q.passages.map(row => row.slice().sort((a,b)=>a-b)));
-    if (game === 'trivia') return JSON.stringify([q.family, q.picture, q.options.map(o=>o.art).sort()]);
     if (game === 'hebrew') return JSON.stringify([q.variant, q.picture, q.word, q.letter, q.masked, q.tiles?.slice().sort(), q.options?.map(o=>o.he).sort()]);
     return JSON.stringify([q.variant, paperKey(q.paper), q.target&&paperKey(q.target), q.point, q.options.map(o=>o.paper?paperKey(o.paper):o.holes).sort()]);
   }
   function create(game, stage, index) {
-    if (!catalog[game] || !Number.isInteger(stage) || stage < 1 || stage > 100 || !Number.isInteger(index) || index < 0 || index >= 10) throw new Error('Invalid course, stage or exercise');
+    if (!catalog[game] || catalog[game].mode === 'atlas' || !Number.isInteger(stage) || stage < 1 || stage > 100 || !Number.isInteger(index) || index < 0 || index >= 10) throw new Error('Invalid course, stage or exercise');
     const serial = (stage-1)*10+index, deck = courseCache[game] ||= [], seen = courseKeys[game] ||= new Set();
     for (let cursor=deck.length;cursor<=serial;cursor++) {
       const level=Math.floor(cursor/10)+1, seed=71237+cursor*137+Object.keys(catalog).indexOf(game)*1000003;
       let generated, key, attempts=0;
       do {
         const rng=random(seed+attempts*4201);
-        generated=game==='matches'?createMatches(cursor):game==='origami'?createOrigami(level,cursor,rng):game==='trivia'?createTrivia(cursor,rng):game==='hebrew'?createHebrew(level,cursor,rng):createMaze(level,rng);
+        generated=game==='matches'?createMatches(cursor):game==='origami'?createOrigami(level,cursor,rng):game==='hebrew'?createHebrew(level,cursor,rng):createMaze(level,rng);
         key=contentKey(game,generated);
         if(++attempts>500)throw new Error(`Could not create a distinct exercise: ${game}:${cursor}`);
       } while(seen.has(key));
@@ -267,5 +232,5 @@ window.LearningGames = (() => {
     }
     return false;
   }
-  return { catalog, create, check, act, contentKey, random, SEG, matchBank, foldPaper, area, pointIn, punch, paperKey, mazePath, habitats, coverings, routes, products, words };
+  return { catalog, create, check, act, contentKey, random, SEG, matchBank, foldPaper, area, pointIn, punch, paperKey, mazePath, words };
 })();

@@ -9,9 +9,13 @@ window.LearningUI = (() => {
   }
   const course = () => LearningGames.catalog[state().activeGame];
   const run = () => state().sessions[state().activeGame];
-  const completedCount = game => Object.values(state().progress[game] || {}).filter(v => v.best === 10).length;
+  const completedCount = game => game === 'trivia' ? AtlasQuiz.completedCount() : Object.values(state().progress[game] || {}).filter(v => v.best === 10).length;
   function home() {
-    return `<section class="learning-library"><div class="arcade-section-title"><div><span class="game-label">${bi(pair('עוד עולמות, עוד גילויים', 'Новые миры, новые открытия'))}</span><h2>${bi(pair('חמישה משחקים. אלף תרגילים בכל אחד.', 'Пять игр. По тысяче заданий в каждой.'))}</h2></div><span class="lg-library-count">${bi(pair('100 שלבים × 10 תרגילים', '100 уровней × 10 заданий'))}</span></div><div class="lg-course-grid">${Object.entries(LearningGames.catalog).map(([game, item]) => { const saved = state().sessions[game]; return `<button class="lg-course-card ${item.color}" data-lg-action="open" data-lg-value="${game}"><span class="lg-course-art">${art(item.art)}</span><b>${bi(item.title)}</b><span class="lg-course-desc">${bi(item.desc)}</span><span class="lg-course-count">${bi(pair('100 שלבים · 10 תרגילים בכל שלב', '100 уровней · по 10 заданий'))}</span><span class="lg-course-progress"><i style="--progress:${completedCount(game)}%"></i></span><span class="lg-course-play">${ico('play')}${bi(saved?.status === 'playing' ? pair(`המשך שלב ${saved.stage}`, `Продолжить уровень ${saved.stage}`) : pair('לבחירת שלב', 'Выбрать уровень'))}<small>${completedCount(game)}/100 ${ico('star')}</small></span></button>`; }).join('')}</div><div class="lg-library-note">${bi(pair('למשחקים החדשים בוחרים שלב מ־1 עד 100. כל שלב הוא מסע של עשר משימות.', 'В новых играх выбирай уровень от 1 до 100. Каждый уровень — десять заданий.'))}</div></section>`;
+    return `<section class="learning-library"><div class="arcade-section-title"><div><span class="game-label">${bi(pair('עוד עולמות, עוד גילויים', 'Новые миры, новые открытия'))}</span><h2>${bi(pair('עוד משחקים למוח סקרן', 'Игры для любознательного ума'))}</h2></div></div><div class="lg-course-grid">${Object.entries(LearningGames.catalog).map(([game, item]) => {
+      const atlas = item.mode === 'atlas', saved = atlas ? null : state().sessions[game], total = item.stageCount || 100, perStage = item.perStage || 10;
+      const count = completedCount(game);
+      return `<button class="lg-course-card ${item.color}" data-lg-action="open" data-lg-value="${game}"><span class="lg-course-art">${atlas ? '<img src="assets/atlas-cover.svg" alt="" width="220" height="150">' : art(item.art)}</span><b>${bi(item.title)}</b><span class="lg-course-desc">${bi(item.desc)}</span><span class="lg-course-count">${bi(atlas ? pair('10 סבבים · 8 שאלות בכל סבב', '10 раундов · по 8 вопросов') : pair(`${total} שלבים · ${perStage} תרגילים בכל שלב`, `${total} уровней · по ${perStage} заданий`))}</span><span class="lg-course-progress"><i style="--progress:${count/total*100}%"></i></span><span class="lg-course-play">${ico('play')}${bi(atlas ? pair('פותחים את האטלס', 'Открыть атлас') : saved?.status === 'playing' ? pair(`המשך שלב ${saved.stage}`, `Продолжить уровень ${saved.stage}`) : pair('לבחירת שלב', 'Выбрать уровень'))}<small>${count}/${total} ${ico('star')}</small></span></button>`;
+    }).join('')}</div><div class="lg-library-note">${bi(pair('בוחרים משחק ושלב. ההתקדמות נשמרת במכשיר שלך.', 'Выбирай игру и уровень. Прогресс сохраняется на твоём устройстве.'))}</div></section>`;
   }
   function menu() {
     const item = course(), game = state().activeGame, saved = run(), progress = state().progress[game] || {};
@@ -110,6 +114,7 @@ window.LearningUI = (() => {
   }
   function render() { if (!course()) return home(); return state().view==='menu'?menu():run()?.status==='complete'?summary():task(); }
   function open(game) {
+    if (game === 'trivia') { AtlasQuiz.open(); return; }
     if (!LearningGames.catalog[game]) return;
     pause(); state().activeGame=game;state().view='menu';screen='learning';feedback=null;saveProgress();renderPage();
   }
@@ -181,7 +186,7 @@ window.LearningUI = (() => {
     if(state().view!=='menu'&&run()?.status!=='complete'&&data.readAloud&&q&&narrated!==q.id+':'+q.hint+':'+q.notice){narrated=q.id+':'+q.hint+':'+q.notice;speakParts(q.notice?[q.correct?T.success:q.finished?T.skipped:T.retry]:q.hint?[q.hints[q.hint-1]]:[q.prompt]);}
   }
   function teacherPanel() {
-    return `<section class="panel"><h2>${bi(pair('התקדמות בחמשת המשחקים החדשים', 'Прогресс в пяти новых играх'))}</h2><div class="lg-teacher-grid">${Object.entries(LearningGames.catalog).map(([game,item])=>{const current=state().sessions[game];return `<div class="stat"><b>${bi(item.title)}</b><strong>${completedCount(game)}/100</strong><small>${bi(pair('שלבים שנפתרו במלואם', 'Полностью пройденные уровни'))}</small>${current?`<small>${bi(pair(`שלב אחרון: ${current.stage} · תרגיל ${current.index+1}`,`Последний уровень: ${current.stage} · задание ${current.index+1}`))}</small>`:''}</div>`;}).join('')}</div></section>`;
+    return `<section class="panel"><h2>${bi(pair('התקדמות במשחקי הגילוי', 'Прогресс в играх-открытиях'))}</h2><div class="lg-teacher-grid">${Object.entries(LearningGames.catalog).map(([game,item])=>{const atlas=item.mode==='atlas',current=atlas?null:state().sessions[game];return `<div class="stat"><b>${bi(item.title)}</b><strong>${completedCount(game)}/${item.stageCount||100}</strong><small>${bi(atlas?pair('סבבים שהושלמו', 'Завершённые раунды'):pair('שלבים שנפתרו במלואם', 'Полностью пройденные уровни'))}</small>${current?`<small>${bi(pair(`שלב אחרון: ${current.stage} · תרגיל ${current.index+1}`,`Последний уровень: ${current.stage} · задание ${current.index+1}`))}</small>`:''}</div>`;}).join('')}</div></section>`;
   }
   document.addEventListener('keydown',event=>{
     if(screen!=='learning')return;

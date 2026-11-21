@@ -1,0 +1,1372 @@
+{
+  "reviewedAt": "2026-11-21",
+  "method": "Editorial review against public pages and indexed passages from museums, NASA, UNESCO, government institutions, Britannica and scientific/educational institutions; bilingual and single-answer review.",
+  "sources": [
+    {
+      "id": "eiffel",
+      "url": "https://www.toureiffel.paris/en/the-monument/history",
+      "questionIds": [
+        "atlas-01"
+      ]
+    },
+    {
+      "id": "colosseum",
+      "url": "https://colosseo.it/en/area/the-colosseum/",
+      "questionIds": [
+        "atlas-09"
+      ]
+    },
+    {
+      "id": "haifa",
+      "url": "https://ganbahai.org.il/en/haifa/",
+      "questionIds": [
+        "atlas-03"
+      ]
+    },
+    {
+      "id": "kotel",
+      "url": "https://thekotel.org/en/western-wall/",
+      "questionIds": [
+        "atlas-11"
+      ]
+    },
+    {
+      "id": "taj",
+      "url": "https://whc.unesco.org/en/list/252/",
+      "questionIds": [
+        "atlas-17"
+      ]
+    },
+    {
+      "id": "liberty",
+      "url": "https://www.nps.gov/stli/learn/historyculture/index.htm",
+      "questionIds": [
+        "atlas-18"
+      ]
+    },
+    {
+      "id": "wall",
+      "url": "https://whc.unesco.org/en/list/438/",
+      "questionIds": [
+        "atlas-25"
+      ]
+    },
+    {
+      "id": "ben",
+      "url": "https://www.parliament.uk/about/living-heritage/building/palace/big-ben/facts-figures/",
+      "questionIds": [
+        "atlas-26"
+      ]
+    },
+    {
+      "id": "giza",
+      "url": "https://whc.unesco.org/en/list/86/",
+      "questionIds": [
+        "atlas-33"
+      ]
+    },
+    {
+      "id": "petra",
+      "url": "https://whc.unesco.org/en/list/326/",
+      "questionIds": [
+        "atlas-34"
+      ]
+    },
+    {
+      "id": "opera",
+      "url": "https://whc.unesco.org/en/list/166/",
+      "questionIds": [
+        "atlas-41"
+      ]
+    },
+    {
+      "id": "pisa",
+      "url": "https://whc.unesco.org/en/list/395/",
+      "questionIds": [
+        "atlas-42"
+      ]
+    },
+    {
+      "id": "moai",
+      "url": "https://whc.unesco.org/en/list/715/",
+      "questionIds": [
+        "atlas-49"
+      ]
+    },
+    {
+      "id": "acropolis",
+      "url": "https://whc.unesco.org/en/list/404/",
+      "questionIds": [
+        "atlas-50"
+      ]
+    },
+    {
+      "id": "sagrada",
+      "url": "https://sagradafamilia.org/en/history-of-the-temple",
+      "questionIds": [
+        "atlas-57"
+      ]
+    },
+    {
+      "id": "belem",
+      "url": "https://whc.unesco.org/en/list/263/",
+      "questionIds": [
+        "atlas-58"
+      ]
+    },
+    {
+      "id": "machu",
+      "url": "https://whc.unesco.org/en/list/274/",
+      "questionIds": [
+        "atlas-65"
+      ]
+    },
+    {
+      "id": "angkor",
+      "url": "https://whc.unesco.org/en/list/668/",
+      "questionIds": [
+        "atlas-66"
+      ]
+    },
+    {
+      "id": "chichen",
+      "url": "https://whc.unesco.org/en/list/483/",
+      "questionIds": [
+        "atlas-73"
+      ]
+    },
+    {
+      "id": "fuji",
+      "url": "https://whc.unesco.org/en/list/1418/",
+      "questionIds": [
+        "atlas-74"
+      ]
+    },
+    {
+      "id": "japan-flag",
+      "url": "https://www.cao.go.jp/en/flag_anthem.html",
+      "questionIds": [
+        "atlas-02"
+      ]
+    },
+    {
+      "id": "swiss-flag",
+      "url": "https://www.eda.admin.ch/aboutswitzerland/en/home/gesellschaft/traditionen/fahne.html",
+      "questionIds": [
+        "atlas-10"
+      ]
+    },
+    {
+      "id": "france-flag",
+      "url": "https://www.elysee.fr/en/french-presidency/the-french-flag",
+      "questionIds": [
+        "atlas-19"
+      ]
+    },
+    {
+      "id": "italy-flag",
+      "url": "https://www.quirinale.it/page/tricolore_en",
+      "questionIds": [
+        "atlas-27"
+      ]
+    },
+    {
+      "id": "canada-flag",
+      "url": "https://www.canada.ca/en/canadian-heritage/services/flag-canada-description.html",
+      "questionIds": [
+        "atlas-35"
+      ]
+    },
+    {
+      "id": "uk-flag",
+      "url": "https://www.royal.uk/union-jack",
+      "questionIds": [
+        "atlas-43"
+      ]
+    },
+    {
+      "id": "greece-flag",
+      "url": "https://www.britannica.com/topic/flag-of-Greece",
+      "questionIds": [
+        "atlas-51"
+      ]
+    },
+    {
+      "id": "india-flag",
+      "url": "https://eoikhartoum.gov.in/national-symbols.php",
+      "questionIds": [
+        "atlas-59"
+      ]
+    },
+    {
+      "id": "australia-flag",
+      "url": "https://www.pmc.gov.au/honours-and-symbols/australian-national-symbols/australian-national-flag",
+      "questionIds": [
+        "atlas-62"
+      ]
+    },
+    {
+      "id": "nepal-flag",
+      "url": "https://www.britannica.com/topic/flag-of-Nepal",
+      "questionIds": [
+        "atlas-67"
+      ]
+    },
+    {
+      "id": "israel-flag",
+      "url": "https://www.gov.il/en/pages/the-flag-and-the-emblem",
+      "questionIds": [
+        "atlas-75"
+      ]
+    },
+    {
+      "id": "netherlands-flag",
+      "url": "https://www.britannica.com/topic/flag-of-the-Netherlands",
+      "questionIds": [
+        "atlas-76"
+      ]
+    },
+    {
+      "id": "eilat",
+      "url": "https://www.britannica.com/place/Elat",
+      "questionIds": [
+        "atlas-04",
+        "atlas-77"
+      ]
+    },
+    {
+      "id": "egypt",
+      "url": "https://www.britannica.com/place/Egypt",
+      "questionIds": [
+        "atlas-06"
+      ]
+    },
+    {
+      "id": "brazil",
+      "url": "https://www.britannica.com/place/Brazil",
+      "questionIds": [
+        "atlas-12"
+      ]
+    },
+    {
+      "id": "dead-sea",
+      "url": "https://www.britannica.com/place/Dead-Sea",
+      "questionIds": [
+        "atlas-16"
+      ]
+    },
+    {
+      "id": "kinneret",
+      "url": "https://www.britannica.com/place/Sea-of-Galilee",
+      "questionIds": [
+        "atlas-20"
+      ]
+    },
+    {
+      "id": "nile",
+      "url": "https://www.britannica.com/place/Nile-River",
+      "questionIds": [
+        "atlas-21"
+      ]
+    },
+    {
+      "id": "negev",
+      "url": "https://www.britannica.com/place/Negev",
+      "questionIds": [
+        "atlas-28"
+      ]
+    },
+    {
+      "id": "hawaii",
+      "url": "https://www.britannica.com/place/Hawaii-state",
+      "questionIds": [
+        "atlas-29"
+      ]
+    },
+    {
+      "id": "carmel",
+      "url": "https://www.britannica.com/place/Mount-Carmel-mountain-ridge-Israel",
+      "questionIds": [
+        "atlas-36"
+      ]
+    },
+    {
+      "id": "equator",
+      "url": "https://www.britannica.com/science/Equator",
+      "questionIds": [
+        "atlas-37"
+      ]
+    },
+    {
+      "id": "jordan",
+      "url": "https://www.britannica.com/place/Jordan-River",
+      "questionIds": [
+        "atlas-44"
+      ]
+    },
+    {
+      "id": "amazon",
+      "url": "https://www.britannica.com/place/Amazon-River",
+      "questionIds": [
+        "atlas-45"
+      ]
+    },
+    {
+      "id": "haifa-city",
+      "url": "https://www.britannica.com/place/Haifa",
+      "questionIds": [
+        "atlas-68",
+        "atlas-77"
+      ]
+    },
+    {
+      "id": "tiberias",
+      "url": "https://www.britannica.com/place/Tiberias",
+      "questionIds": [
+        "atlas-68",
+        "atlas-77"
+      ]
+    },
+    {
+      "id": "tel-aviv",
+      "url": "https://www.britannica.com/place/Tel-Aviv-Yafo",
+      "questionIds": [
+        "atlas-52",
+        "atlas-77"
+      ]
+    },
+    {
+      "id": "hula",
+      "url": "https://www.parks.org.il/en/reserve-park/hula-nature-reserve/",
+      "questionIds": [
+        "atlas-60"
+      ]
+    },
+    {
+      "id": "japan",
+      "url": "https://www.britannica.com/place/Japan",
+      "questionIds": [
+        "atlas-61"
+      ]
+    },
+    {
+      "id": "pacific",
+      "url": "https://oceanservice.noaa.gov/facts/biggestocean.html",
+      "questionIds": [
+        "atlas-69"
+      ]
+    },
+    {
+      "id": "suez",
+      "url": "https://www.britannica.com/topic/Suez-Canal",
+      "questionIds": [
+        "atlas-78"
+      ]
+    },
+    {
+      "id": "moon",
+      "url": "https://science.nasa.gov/moon/facts/",
+      "questionIds": [
+        "atlas-05"
+      ]
+    },
+    {
+      "id": "sun",
+      "url": "https://science.nasa.gov/sun/facts/",
+      "questionIds": [
+        "atlas-13"
+      ]
+    },
+    {
+      "id": "mars",
+      "url": "https://science.nasa.gov/mars/facts/",
+      "questionIds": [
+        "atlas-22"
+      ]
+    },
+    {
+      "id": "earth",
+      "url": "https://science.nasa.gov/earth/facts/",
+      "questionIds": [
+        "atlas-38"
+      ]
+    },
+    {
+      "id": "saturn",
+      "url": "https://science.nasa.gov/saturn/facts/",
+      "questionIds": [
+        "atlas-46"
+      ]
+    },
+    {
+      "id": "iss",
+      "url": "https://www.nasa.gov/international-space-station/space-station-facts-and-figures/",
+      "questionIds": [
+        "atlas-79"
+      ]
+    },
+    {
+      "id": "jupiter",
+      "url": "https://science.nasa.gov/jupiter/facts/",
+      "questionIds": [
+        "atlas-80"
+      ]
+    },
+    {
+      "id": "piano",
+      "url": "https://www.britannica.com/art/piano",
+      "questionIds": [
+        "atlas-07"
+      ]
+    },
+    {
+      "id": "giraffe",
+      "url": "https://animals.sandiegozoo.org/animals/giraffe",
+      "questionIds": [
+        "atlas-08"
+      ]
+    },
+    {
+      "id": "camera",
+      "url": "https://photographpreservationprogram.hsites.harvard.edu/harvards-history-photography-timeline-text-only",
+      "questionIds": [
+        "atlas-14"
+      ]
+    },
+    {
+      "id": "microwave",
+      "url": "https://americanhistory.si.edu/explore/exhibitions/food/online/new-and-improved/help-home-cook/cook-today-tomorrows-way",
+      "questionIds": [
+        "atlas-14"
+      ]
+    },
+    {
+      "id": "mobile",
+      "url": "https://blog.sciencemuseum.org.uk/mobile-technology-past-present-and-future/",
+      "questionIds": [
+        "atlas-14"
+      ]
+    },
+    {
+      "id": "colour",
+      "url": "https://www.nga.gov/educational-resources/elements-art/elements-art-color",
+      "questionIds": [
+        "atlas-15",
+        "atlas-40"
+      ]
+    },
+    {
+      "id": "magnet",
+      "url": "https://www.britannica.com/science/magnet",
+      "questionIds": [
+        "atlas-23"
+      ]
+    },
+    {
+      "id": "beethoven",
+      "url": "https://www.britannica.com/biography/Ludwig-van-Beethoven",
+      "questionIds": [
+        "atlas-24"
+      ]
+    },
+    {
+      "id": "ice",
+      "url": "https://www.lpi.usra.edu/education/explore/ice/background/allAboutWater/",
+      "questionIds": [
+        "atlas-30"
+      ]
+    },
+    {
+      "id": "wright",
+      "url": "https://www.nps.gov/wrbr/learn/historyculture/thefirstflight.htm",
+      "questionIds": [
+        "atlas-31",
+        "atlas-71"
+      ]
+    },
+    {
+      "id": "mona",
+      "url": "https://www.louvre.fr/en/explore/the-palace/from-the-mona-lisa-to-the-wedding-feast-at-cana",
+      "questionIds": [
+        "atlas-32"
+      ]
+    },
+    {
+      "id": "bell",
+      "url": "https://guides.loc.gov/chronicling-america-telephone-invention",
+      "questionIds": [
+        "atlas-39"
+      ]
+    },
+    {
+      "id": "thermometer",
+      "url": "https://www.britannica.com/technology/thermometer",
+      "questionIds": [
+        "atlas-47"
+      ]
+    },
+    {
+      "id": "mozart",
+      "url": "https://www.britannica.com/biography/Wolfgang-Amadeus-Mozart",
+      "questionIds": [
+        "atlas-48"
+      ]
+    },
+    {
+      "id": "compass",
+      "url": "https://www.britannica.com/technology/compass-navigational-instrument",
+      "questionIds": [
+        "atlas-53"
+      ]
+    },
+    {
+      "id": "lightning",
+      "url": "https://www.weather.gov/safety/lightning-science-thunder",
+      "questionIds": [
+        "atlas-54"
+      ]
+    },
+    {
+      "id": "gutenberg",
+      "url": "https://www.britannica.com/biography/Johannes-Gutenberg",
+      "questionIds": [
+        "atlas-55"
+      ]
+    },
+    {
+      "id": "starry",
+      "url": "https://www.moma.org/collection/works/79802",
+      "questionIds": [
+        "atlas-56"
+      ]
+    },
+    {
+      "id": "evaporation",
+      "url": "https://www.usgs.gov/special-topics/water-science-school/science/evaporation-and-water-cycle",
+      "questionIds": [
+        "atlas-63"
+      ]
+    },
+    {
+      "id": "bat",
+      "url": "https://www.si.edu/spotlight/bats/batfacts",
+      "questionIds": [
+        "atlas-64"
+      ]
+    },
+    {
+      "id": "photosynthesis",
+      "url": "https://www.britannica.com/science/photosynthesis",
+      "questionIds": [
+        "atlas-70"
+      ]
+    },
+    {
+      "id": "locomotive",
+      "url": "https://museum.wales/blog/1012/",
+      "questionIds": [
+        "atlas-71"
+      ]
+    },
+    {
+      "id": "sculpture",
+      "url": "https://www.tate.org.uk/art/art-terms/s/sculpture",
+      "questionIds": [
+        "atlas-72"
+      ]
+    },
+    {
+      "id": "haifa-terraces",
+      "url": "https://www.enjoyingisrael.com/attractions/16807/the-bah%C3%A1-%C3%AD-gardens-in-haifa",
+      "questionIds": [
+        "atlas-03"
+      ]
+    },
+    {
+      "id": "moonlight",
+      "url": "https://science.nasa.gov/moon/moonlight/",
+      "questionIds": [
+        "atlas-05"
+      ]
+    },
+    {
+      "id": "sun-kids",
+      "url": "https://spaceplace.nasa.gov/all-about-the-sun/en/",
+      "questionIds": [
+        "atlas-13"
+      ]
+    },
+    {
+      "id": "fuji-height",
+      "url": "https://www.fujisan-3776.jp/en/value/index.html",
+      "questionIds": [
+        "atlas-74"
+      ]
+    },
+    {
+      "id": "sputnik",
+      "url": "https://www.nasa.gov/history/dawn-of-the-space-age/",
+      "questionIds": [
+        "atlas-71"
+      ]
+    },
+    {
+      "id": "dead-sea-float",
+      "url": "https://science.nasa.gov/earth/earth-observatory/getting-saltier-145373/",
+      "questionIds": [
+        "atlas-16"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "atlas-01",
+      "sources": [
+        "eiffel"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true
+    },
+    {
+      "id": "atlas-02",
+      "sources": [
+        "japan-flag"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true
+    },
+    {
+      "id": "atlas-03",
+      "sources": [
+        "haifa",
+        "haifa-terraces"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true
+    },
+    {
+      "id": "atlas-04",
+      "sources": [
+        "eilat"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true
+    },
+    {
+      "id": "atlas-05",
+      "sources": [
+        "moon",
+        "moonlight"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true
+    },
+    {
+      "id": "atlas-06",
+      "sources": [
+        "egypt"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true,
+      "note": "Most of Egypt is in Africa; Sinai is in Asia. The question explicitly asks for the majority."
+    },
+    {
+      "id": "atlas-07",
+      "sources": [
+        "piano"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true
+    },
+    {
+      "id": "atlas-08",
+      "sources": [
+        "giraffe"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true
+    },
+    {
+      "id": "atlas-09",
+      "sources": [
+        "colosseum"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true
+    },
+    {
+      "id": "atlas-10",
+      "sources": [
+        "swiss-flag"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true
+    },
+    {
+      "id": "atlas-11",
+      "sources": [
+        "kotel"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true
+    },
+    {
+      "id": "atlas-12",
+      "sources": [
+        "brazil"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true
+    },
+    {
+      "id": "atlas-13",
+      "sources": [
+        "sun",
+        "sun-kids"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true
+    },
+    {
+      "id": "atlas-14",
+      "sources": [
+        "camera",
+        "microwave",
+        "mobile"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true,
+      "note": "Chronology compared: nineteenth-century photography, twentieth-century microwave ovens and mobile phones."
+    },
+    {
+      "id": "atlas-15",
+      "sources": [
+        "colour"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true
+    },
+    {
+      "id": "atlas-16",
+      "sources": [
+        "dead-sea",
+        "dead-sea-float"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true
+    },
+    {
+      "id": "atlas-17",
+      "sources": [
+        "taj"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true
+    },
+    {
+      "id": "atlas-18",
+      "sources": [
+        "liberty"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true
+    },
+    {
+      "id": "atlas-19",
+      "sources": [
+        "france-flag"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true
+    },
+    {
+      "id": "atlas-20",
+      "sources": [
+        "kinneret"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true
+    },
+    {
+      "id": "atlas-21",
+      "sources": [
+        "nile"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true
+    },
+    {
+      "id": "atlas-22",
+      "sources": [
+        "mars"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true
+    },
+    {
+      "id": "atlas-23",
+      "sources": [
+        "magnet"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true
+    },
+    {
+      "id": "atlas-24",
+      "sources": [
+        "beethoven"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true
+    },
+    {
+      "id": "atlas-25",
+      "sources": [
+        "wall"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true
+    },
+    {
+      "id": "atlas-26",
+      "sources": [
+        "ben"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true
+    },
+    {
+      "id": "atlas-27",
+      "sources": [
+        "italy-flag"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true
+    },
+    {
+      "id": "atlas-28",
+      "sources": [
+        "negev"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true
+    },
+    {
+      "id": "atlas-29",
+      "sources": [
+        "hawaii"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true
+    },
+    {
+      "id": "atlas-30",
+      "sources": [
+        "ice"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true,
+      "note": "Pure-water freezing point at ordinary pressure; do not generalise to salt water or supercooling."
+    },
+    {
+      "id": "atlas-31",
+      "sources": [
+        "wright"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true
+    },
+    {
+      "id": "atlas-32",
+      "sources": [
+        "mona"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true
+    },
+    {
+      "id": "atlas-33",
+      "sources": [
+        "giza"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true
+    },
+    {
+      "id": "atlas-34",
+      "sources": [
+        "petra"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true
+    },
+    {
+      "id": "atlas-35",
+      "sources": [
+        "canada-flag"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true
+    },
+    {
+      "id": "atlas-36",
+      "sources": [
+        "carmel"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true
+    },
+    {
+      "id": "atlas-37",
+      "sources": [
+        "equator"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true
+    },
+    {
+      "id": "atlas-38",
+      "sources": [
+        "earth"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true
+    },
+    {
+      "id": "atlas-39",
+      "sources": [
+        "bell"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true,
+      "note": "Bell is associated with the telephone patent of 1876; no exclusive sole-inventor claim."
+    },
+    {
+      "id": "atlas-40",
+      "sources": [
+        "colour"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true,
+      "note": "Traditional RYB paint system, distinguished explicitly from RGB light."
+    },
+    {
+      "id": "atlas-41",
+      "sources": [
+        "opera"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true
+    },
+    {
+      "id": "atlas-42",
+      "sources": [
+        "pisa"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true,
+      "note": "Photo reviewed: cathedral is prominent; question asks about the cathedral, not recognition of a tiny tower."
+    },
+    {
+      "id": "atlas-43",
+      "sources": [
+        "uk-flag"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true
+    },
+    {
+      "id": "atlas-44",
+      "sources": [
+        "jordan"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true
+    },
+    {
+      "id": "atlas-45",
+      "sources": [
+        "amazon"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true
+    },
+    {
+      "id": "atlas-46",
+      "sources": [
+        "saturn"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true,
+      "note": "Saturn has conspicuous rings; question does not claim it is the only planet with rings."
+    },
+    {
+      "id": "atlas-47",
+      "sources": [
+        "thermometer"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true
+    },
+    {
+      "id": "atlas-48",
+      "sources": [
+        "mozart"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true,
+      "note": "Salzburg is in present-day Austria; historical borders are not assumed."
+    },
+    {
+      "id": "atlas-49",
+      "sources": [
+        "moai"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true
+    },
+    {
+      "id": "atlas-50",
+      "sources": [
+        "acropolis"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true
+    },
+    {
+      "id": "atlas-51",
+      "sources": [
+        "greece-flag"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true
+    },
+    {
+      "id": "atlas-52",
+      "sources": [
+        "tel-aviv"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true
+    },
+    {
+      "id": "atlas-53",
+      "sources": [
+        "compass"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true
+    },
+    {
+      "id": "atlas-54",
+      "sources": [
+        "lightning"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true
+    },
+    {
+      "id": "atlas-55",
+      "sources": [
+        "gutenberg"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true,
+      "note": "Gutenberg developed metal movable-type printing in Europe; no claim to have invented all printing."
+    },
+    {
+      "id": "atlas-56",
+      "sources": [
+        "starry"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true,
+      "note": "Photo is the 1889 Starry Night, not Starry Night over the Rhone (1888)."
+    },
+    {
+      "id": "atlas-57",
+      "sources": [
+        "sagrada"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true
+    },
+    {
+      "id": "atlas-58",
+      "sources": [
+        "belem"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true
+    },
+    {
+      "id": "atlas-59",
+      "sources": [
+        "india-flag"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true
+    },
+    {
+      "id": "atlas-60",
+      "sources": [
+        "hula"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true
+    },
+    {
+      "id": "atlas-61",
+      "sources": [
+        "japan"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true
+    },
+    {
+      "id": "atlas-62",
+      "sources": [
+        "australia-flag"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true
+    },
+    {
+      "id": "atlas-63",
+      "sources": [
+        "evaporation"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true,
+      "note": "Invisible water vapour is distinguished from visible condensed droplets."
+    },
+    {
+      "id": "atlas-64",
+      "sources": [
+        "bat"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true
+    },
+    {
+      "id": "atlas-65",
+      "sources": [
+        "machu"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true
+    },
+    {
+      "id": "atlas-66",
+      "sources": [
+        "angkor"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true
+    },
+    {
+      "id": "atlas-67",
+      "sources": [
+        "nepal-flag"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true
+    },
+    {
+      "id": "atlas-68",
+      "sources": [
+        "haifa-city",
+        "tiberias"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true,
+      "note": "Haifa and Tiberias are at nearly the same latitude; Tiberias lies east of Haifa."
+    },
+    {
+      "id": "atlas-69",
+      "sources": [
+        "pacific"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true
+    },
+    {
+      "id": "atlas-70",
+      "sources": [
+        "photosynthesis"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true
+    },
+    {
+      "id": "atlas-71",
+      "sources": [
+        "locomotive",
+        "wright",
+        "sputnik"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true,
+      "note": "1804 locomotive precedes 1903 powered flight and 1957 artificial satellite."
+    },
+    {
+      "id": "atlas-72",
+      "sources": [
+        "sculpture"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true,
+      "note": "Freestanding sculpture specified; avoids ambiguity about reliefs attached to walls."
+    },
+    {
+      "id": "atlas-73",
+      "sources": [
+        "chichen"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true
+    },
+    {
+      "id": "atlas-74",
+      "sources": [
+        "fuji",
+        "fuji-height"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true
+    },
+    {
+      "id": "atlas-75",
+      "sources": [
+        "israel-flag"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true
+    },
+    {
+      "id": "atlas-76",
+      "sources": [
+        "netherlands-flag"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true
+    },
+    {
+      "id": "atlas-77",
+      "sources": [
+        "eilat",
+        "haifa-city",
+        "tel-aviv",
+        "tiberias"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true,
+      "note": "Map and accessible air-distance comparison both give Eilat as the farthest city."
+    },
+    {
+      "id": "atlas-78",
+      "sources": [
+        "suez"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true,
+      "note": "Suez joins Mediterranean and Red Sea; both distractors are actual canals."
+    },
+    {
+      "id": "atlas-79",
+      "sources": [
+        "iss"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true
+    },
+    {
+      "id": "atlas-80",
+      "sources": [
+        "jupiter"
+      ],
+      "answerReviewed": true,
+      "factReviewed": true,
+      "translationReviewed": true
+    }
+  ]
+}

@@ -12,17 +12,13 @@ let server,browser;
       await page.locator(`[data-lang="${lang}"]`).click();
       assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false,`${width}:${lang}:home`);
       if(width===1440&&lang==='both')await page.locator('.learning-library').screenshot({path:'/workspace/mishalab/artifacts/learning-library.png'});
-      for(const game of['matches','origami','trivia','hebrew','maze']){
+      for(const game of['matches','origami','hebrew','maze']){
         await page.locator(`[data-lg-action="open"][data-lg-value="${game}"]`).click();
         assert.equal(await page.locator('[data-lg-action="stage"]').count(),100);
         const stageBox=await page.locator('[data-lg-action="stage"]').first().boundingBox();assert.ok(stageBox.width>=44&&stageBox.height>=44);
         for(const stage of[1,100]){
           await page.locator(`[data-lg-action="stage"][data-lg-value="${stage}"]`).click();
           assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false,`${width}:${lang}:${game}:${stage}`);
-          if(game==='trivia'){
-            assert.equal((await page.locator('.lg-trivia-options').innerText()).trim(),'');
-            const box=await page.locator('.lg-trivia-options button').first().boundingBox();assert.ok(box.width>=44&&box.height>=44);
-          }
           if(game==='hebrew'&&stage===100){
             for(let i=0;i<4;i++){await page.locator('[data-lg-action="skip"]').click();await page.locator('[data-lg-action="next"]').click();}
             const tiles=await page.locator('[data-lg-action="letter"]').all();for(const tile of tiles){const b=await tile.boundingBox();assert.ok(b.width>=44&&b.height>=44);}
@@ -39,5 +35,5 @@ let server,browser;
     }
   }
   const preview=await browser.newPage({viewport:{width:1440,height:1000}});await preview.goto('http://127.0.0.1:8793');await preview.locator('.learning-library').screenshot({path:'/workspace/mishalab/artifacts/learning-library.png'});await preview.close();
-  assert.deepEqual(errors,[]);console.log('90 game/stage/language/viewport combinations, 100-stage selectors, pictured-only trivia, Hebrew letter targets and advanced origami screenshots passed');
+  assert.deepEqual(errors,[]);console.log('72 game/stage/language/viewport combinations, 100-stage selectors, Hebrew letter targets and advanced origami screenshots passed');
 })().catch(e=>{console.error(e);process.exitCode=1;}).finally(async()=>{if(browser)await browser.close();if(server)server.close();});

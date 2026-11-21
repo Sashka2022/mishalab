@@ -12,7 +12,7 @@ let server, browser;
     const fail=[], report={}, last={};
     const area = polygon => Math.abs(polygon.reduce((sum, p, i) => { const next=polygon[(i+1)%polygon.length]; return sum+p[0]*next[1]-next[0]*p[1]; },0))/2;
     const inspectPaper=(paper,label)=>{const total=paper.reduce((sum,l)=>sum+area(l.poly),0);if(Math.abs(total-1)>1e-6)fail.push(`${label}:paper-area:${total}`);for(const layer of paper){if(layer.poly.some(p=>!p.every(Number.isFinite)))fail.push(`${label}:invalid-coordinate`);if(layer.matrix){const[a,b,c,d]=layer.matrix;if(Math.abs(Math.abs(a*d-b*c)-1)>1e-7)fail.push(`${label}:not-a-rigid-fold`);}}};
-    for(const game of Object.keys(LearningGames.catalog)){
+    for(const game of Object.keys(LearningGames.catalog).filter(game=>LearningGames.catalog[game].mode!=='atlas')){
       const unique=new Set(),ids=new Set(),variants={};
       for(let stage=1;stage<=100;stage++)for(let index=0;index<10;index++){
         const q=LearningGames.create(game,stage,index);ids.add(q.id);unique.add(LearningGames.contentKey(game,q));variants[q.variant||q.family||game]=(variants[q.variant||q.family||game]||0)+1;
@@ -39,20 +39,6 @@ let server, browser;
             if(new Set(q.options.map(o=>JSON.stringify(o.holes))).size!==4)fail.push(`${q.id}:ambiguous-hole-pattern`);
             if(JSON.stringify(q.options[q.answer].holes)!==JSON.stringify(q.holes))fail.push(`${q.id}:wrong-hole-answer`);
           }
-          q.selected=q.answer;if(!LearningGames.check(q))fail.push(`${q.id}:answer`);
-        }else if(game==='trivia'){
-          if(!q.visualOnly||new Set(q.options.map(o=>o.art)).size!==q.options.length)fail.push(`${q.id}:not-pictorial-or-duplicate`);
-          LearningArt.render(q.picture);for(const option of q.options)LearningArt.render(option.art);
-          const groups=q.family==='habitat'?LearningGames.habitats:q.family==='covering'?LearningGames.coverings:q.family==='transport'?LearningGames.routes:null;
-          if(groups){
-            const category=Object.keys(groups).includes(q.picture)?q.picture:Object.keys(groups).find(key=>groups[key].includes(q.picture));
-            const right=q.options.filter(o=>o.art===category||groups[category].includes(o.art));
-            if(right.length!==1||right[0].art!==q.options[q.answer].art)fail.push(`${q.id}:ambiguous-relation`);
-          }else if(q.family==='source'){
-            const matches=LearningGames.products.filter(pair=>pair.includes(q.picture));
-            const other=matches.flatMap(pair=>pair.filter(v=>v!==q.picture));
-            if(q.options.filter(o=>other.includes(o.art)).length!==1||!other.includes(q.options[q.answer].art))fail.push(`${q.id}:wrong-product-relation`);
-          }else if(q.options[q.answer].art!==q.picture)fail.push(`${q.id}:wrong-shadow`);
           q.selected=q.answer;if(!LearningGames.check(q))fail.push(`${q.id}:answer`);
         }else if(game==='hebrew'){
           if(q.picture)LearningArt.render(q.picture);
@@ -88,7 +74,7 @@ let server, browser;
   assert.deepEqual(catalog.fail,[]);
   // A fresh browser visiting level 100 gets the exact same lesson without history or random state.
   const fresh=await browser.newPage();await fresh.goto('http://127.0.0.1:8792');
-  const randomAccess=await fresh.evaluate(()=>Object.fromEntries(Object.keys(LearningGames.catalog).map(game=>[game,LearningGames.create(game,100,9)])));
+  const randomAccess=await fresh.evaluate(()=>Object.fromEntries(Object.keys(LearningGames.catalog).filter(game=>LearningGames.catalog[game].mode!=='atlas').map(game=>[game,LearningGames.create(game,100,9)])));
   assert.deepEqual(randomAccess,catalog.last);await fresh.close();
 
   async function openStage(game,stage){await page.locator(`[data-lg-action="open"][data-lg-value="${game}"]`).click();assert.equal(await page.locator('[data-lg-action="stage"]').count(),100);await page.locator(`[data-lg-action="stage"][data-lg-value="${stage}"]`).click();}
@@ -127,11 +113,10 @@ let server, browser;
   assert.equal((await current()).variant,'build');await solve();
   await page.locator('[data-action="home"]').first().click();
   // Automatic advancement respects the ten-exercise stage and the shared pause switch.
-  await page.clock.install();await openStage('trivia',3);await page.locator('[data-action="puzzle-auto"]').click();await solve();await page.clock.runFor(4100);assert.equal((await current()).index,1);
+  await page.clock.install();await openStage('matches',3);await page.locator('[data-action="puzzle-auto"]').click();await solve();await page.clock.runFor(4100);assert.equal((await current()).index,1);
   await solve();await page.locator('[data-action="puzzle-auto"]').click();await page.clock.runFor(6000);assert.equal((await current()).index,1);
-  const textPresent=await page.locator('.lg-trivia-options').innerText();assert.equal(textPresent.trim(),'');
   await page.locator('[data-action="home"]').first().click();await page.locator('[data-action="teacher"]').click();assert.equal(await page.locator('.lg-teacher-grid .stat').count(),5);
   assert.deepEqual(errors,[]);
   console.log(JSON.stringify(catalog.report));
-  console.log('5,000 distinct deterministic exercises, physical folding, solvable puzzles, five complete ten-task stages, stage 100, save/resume, Hebrew building, pictured trivia and automatic advancement passed');
+  console.log('4,000 distinct deterministic exercises, physical folding, solvable puzzles, four complete ten-task stages, stage 100, save/resume, Hebrew building, and automatic advancement passed');
 })().catch(error=>{console.error(error);process.exitCode=1;}).finally(async()=>{if(browser)await browser.close();if(server)server.close();});
