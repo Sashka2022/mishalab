@@ -12,7 +12,7 @@ let server;
   });
   const page = await browser.newPage();
   await page.goto('http://127.0.0.1:8766');
-  await page.locator('[data-action="daily"]').click();
+  await page.locator('[data-track="math"]').first().click();await page.locator('[data-session-action="begin"]').click();
   for (let i = 0; i < 5; i++) {
     await page.locator('[data-action="skip"]').click();
     await page.locator('[data-action="next"]').click();
@@ -30,7 +30,7 @@ let server;
     throw new Error('Manual level controls are still shown');
   }
   await page.locator('[data-action="raise-hand"]').click();
-  await page.locator('[data-action="next-round"]').click();
+  await page.locator('[data-action="next-round"]').click();await page.locator('[data-session-action="begin"]').click();
   if (!await page.locator('[data-action="skip"]').count()) {
     throw new Error('Automatic next round did not open immediately');
   }

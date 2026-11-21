@@ -109,7 +109,7 @@ let browser, server;
   // Verify all four playable boards, undo, local persistence and manual renewal.
   await page.locator('[data-action="puzzle-auto"]').click();
   for (const kind of ['sudoku', 'lights', 'sliding', 'nonogram']) {
-    await page.locator(`.puzzle-card[data-puzzle-kind="${kind}"]`).click();
+    await page.locator(`.puzzle-card[data-puzzle-kind="${kind}"]`).click();await page.locator('[data-session-action="begin"]').click();
     if (kind === 'lights') {
       const initial = await page.evaluate(() => MishaLab.getData().session.task.board);
       await page.locator('[data-puzzle-action="tile"]').first().click();
@@ -126,7 +126,7 @@ let browser, server;
   }
   await page.clock.install();
   await page.locator('[data-action="puzzle-auto"]').click();
-  await page.locator('[data-puzzle-kind="mixed"]').click();
+  await page.locator('[data-puzzle-kind="mixed"]').click();await page.locator('[data-session-action="begin"]').click();
   const seen = [];
   for (let i = 0; i < 5; i++) {
     seen.push(await page.evaluate(() => MishaLab.getData().session.task.type));
@@ -136,6 +136,9 @@ let browser, server;
   assert.equal(new Set(seen.slice(0, 4)).size, 4);
   assert.equal(await page.evaluate(() => MishaLab.getData().rounds.at(-1).track), 'puzzles');
   await page.clock.runFor(3100);
+  assert.equal(await page.evaluate(()=>MishaLab.getData().session.results.length),5);
+  assert.equal(await page.locator('.session-review').count(),1);
+  await page.locator('[data-action="next-round"]').click();await page.locator('[data-session-action="begin"]').click();
   assert.equal(await page.evaluate(() => MishaLab.getData().session.results.length), 0);
   await solveCurrent();
   const finishedSignature = await page.evaluate(() => MishaLab.getData().session.task.signature);
@@ -158,7 +161,7 @@ let browser, server;
     await page.setViewportSize({ width, height: width < 768 ? 640 : 900 });
     await page.locator(`[data-lang="${lang}"]`).click();
     for (const kind of ['sudoku', 'lights', 'sliding', 'nonogram']) {
-      await page.locator(`.puzzle-card[data-puzzle-kind="${kind}"]`).click();
+      await page.locator(`.puzzle-card[data-puzzle-kind="${kind}"]`).click();await page.locator('[data-session-action="begin"]').click();
       const box = await page.locator('.puzzle-tile').first().boundingBox();
       assert.ok(box.width >= 43, `Small target ${kind}: ${box.width}`);
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1), false);

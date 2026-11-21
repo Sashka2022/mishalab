@@ -7,8 +7,8 @@ window.LearningUI = (() => {
     data.learning.progress ||= {}; data.learning.sessions ||= {};
     return data.learning;
   }
-  const course = () => LearningGames.catalog[state().activeGame];
-  const run = () => state().sessions[state().activeGame];
+  const course = () => LearningGames.catalog[PlaySession.isLearning()?PlaySession.entry().key:state().activeGame];
+  const run = () => PlaySession.isLearning()?PlaySession.learningRun():state().sessions[state().activeGame];
   const completedCount = game => game === 'trivia' ? AtlasQuiz.completedCount() : Object.values(state().progress[game] || {}).filter(v => v.best === 10).length;
   function home() {
     return `<section class="learning-library"><div class="arcade-section-title"><div><span class="game-label">${bi(pair('עוד עולמות, עוד גילויים', 'Новые миры, новые открытия'))}</span><h2>${bi(pair('עוד משחקים למוח סקרן', 'Игры для любознательного ума'))}</h2></div></div><div class="lg-course-grid">${Object.entries(LearningGames.catalog).map(([game, item]) => {
@@ -110,9 +110,9 @@ window.LearningUI = (() => {
   }
   function summary() {
     const s = run(), item = course(), score = s.answers.filter(v => v.correct).length;
-    return `<section class="hero lg-course-summary ${item.color}"><span class="lg-summary-stars" aria-hidden="true">${score===10?'★ ★ ★':score>=7?'★ ★':'★'}</span><h1>${bi(pair(`שלב ${s.stage} הסתיים!`, `Уровень ${s.stage} завершён!`))}</h1><h2>${bi(item.title)}</h2><div class="lg-summary-score">${score}<small>/10</small></div><div>${bi(pair('תרגילים שנפתרו', 'Решено заданий'))}</div><div class="lg-summary-total">${bi(pair(`${completedCount(s.game)} מתוך 100 שלבים הושלמו במלואם`, `Полностью пройдено ${completedCount(s.game)} из 100 уровней`))}</div><div class="lg-summary-actions">${s.stage<100?`<button class="primary" data-lg-action="stage" data-lg-value="${s.stage+1}">${bi(pair('לשלב הבא', 'Следующий уровень'))}${ico('play')}</button>`:''}<button data-lg-action="stage" data-lg-value="${s.stage}">${bi(pair('לנסות את השלב שוב', 'Попробовать ещё раз'))}</button><button data-lg-action="menu">${bi(pair('לבחירת שלב', 'Выбрать уровень'))}</button><button data-action="home">${ico('home')}${bi(T.home)}</button></div></section>`;
+    return `<section class="hero lg-course-summary ${item.color}"><span class="lg-summary-stars" aria-hidden="true">${score===10?'★ ★ ★':score>=7?'★ ★':'★'}</span><h1>${bi(pair(`שלב ${s.stage} הסתיים!`, `Уровень ${s.stage} завершён!`))}</h1><h2>${bi(item.title)}</h2><div class="lg-summary-score">${score}<small>/10</small></div><div>${bi(pair('תרגילים שנפתרו', 'Решено заданий'))}</div><div class="lg-summary-total">${bi(pair(`${completedCount(s.game)} מתוך 100 שלבים הושלמו במלואם`, `Полностью пройдено ${completedCount(s.game)} из 100 уровней`))}</div><div class="lg-summary-actions">${SessionReview.jumpButton()}${s.stage<100?`<button class="primary" data-lg-action="stage" data-lg-value="${s.stage+1}">${bi(pair('לשלב הבא', 'Следующий уровень'))}${ico('play')}</button>`:''}<button data-lg-action="stage" data-lg-value="${s.stage}">${bi(pair('לנסות את השלב שוב', 'Попробовать ещё раз'))}</button><button data-lg-action="menu">${bi(pair('לבחירת שלב', 'Выбрать уровень'))}</button><button data-action="home">${ico('home')}${bi(T.home)}</button></div></section>${SessionReview.render(s.answers,item.title)}`;
   }
-  function render() { if (!course()) return home(); return state().view==='menu'?menu():run()?.status==='complete'?summary():task(); }
+  function render() { if (PlaySession.isLearning()) return task(); if (!course()) return home(); return state().view==='menu'?menu():run()?.status==='complete'?summary():task(); }
   function open(game) {
     if (game === 'trivia') { AtlasQuiz.open(); return; }
     if (!LearningGames.catalog[game]) return;
@@ -122,13 +122,13 @@ window.LearningUI = (() => {
     narrated=null;
     if (!Number.isInteger(stage)||stage<1||stage>100) return;
     const game=state().activeGame;
-    state().sessions[game]={game,stage,index:0,answers:[],status:'playing',task:LearningGames.create(game,stage,0)};
+    state().sessions[game]={game,stage,started:Date.now(),index:0,answers:[],status:'playing',task:LearningGames.create(game,stage,0)};
     state().view='task';screen='learning';saveProgress();renderPage();
   }
   function finish(correct) {
     const s=run(),q=s.task;if(q.finished)return;
     q.finished=true;q.correct=correct;q.notice=correct?'success':'skip';
-    s.answers.push({id:q.id,correct,hints:q.hint,attempts:q.attempts});
+    s.answers.push(SessionReview.snapshot(q,{id:q.id,correct,skipped:!correct,hints:q.hint,attempts:q.attempts}));
     if(correct){data.xp=(data.xp||0)+24;state().solvedTotal=(state().solvedTotal||0)+1;}
     const independent=correct&&q.attempts===1&&!q.hint;
     data.currentStreak=independent?(data.currentStreak||0)+1:0;data.bestStreak=Math.max(data.bestStreak||0,data.currentStreak);
@@ -138,8 +138,8 @@ window.LearningUI = (() => {
     saveProgress();
   }
   function next() {
-    const s=run();if(!s?.task.finished)return;
-    if(s.index===9){s.status='complete';const all=state().progress[s.game]||={},old=all[s.stage],score=s.answers.filter(v=>v.correct).length;all[s.stage]={best:Math.max(old?.best||0,score),attempts:(old?.attempts||0)+1,at:new Date().toISOString()};}
+    const s=run();if(!s?.task.finished)return;if(PlaySession.isLearning()){PlaySession.next();return;}
+    if(s.index===9){s.status='complete';SessionReview.archive(`learning:${s.game}:${s.stage}:${s.started||s.task.id}`,course().title,s.answers,s.stage);const all=state().progress[s.game]||={},old=all[s.stage],score=s.answers.filter(v=>v.correct).length;all[s.stage]={best:Math.max(old?.best||0,score),attempts:(old?.attempts||0)+1,at:new Date().toISOString()};}
     else{s.index++;s.task=LearningGames.create(s.game,s.stage,s.index);}
     saveProgress();renderPage();
   }
@@ -160,7 +160,7 @@ window.LearningUI = (() => {
     if(b.disabled)return true;
     const action=b.dataset.lgAction,value=b.dataset.lgValue;
     if(action==='open'){open(value);return true;}
-    if(screen!=='learning')return true;
+    if(screen!=='learning'&&!PlaySession.isLearning())return true;
     if(action==='stage'){startStage(Number(value));return true;}
     if(action==='menu'){state().view='menu';saveProgress();renderPage();return true;}
     if(action==='resume'){state().view='task';saveProgress();renderPage();return true;}
@@ -180,20 +180,20 @@ window.LearningUI = (() => {
     autoNextTimer=setTimeout(()=>{if(!document.hidden&&screen==='learning'&&run()?.task===task&&data.puzzleAuto!==false)next();},4000);
   }
   function afterRender() {
-    if(screen!=='learning')return;
+    if(screen!=='learning'&&!PlaySession.isLearning())return;
     schedule();
     const q=run()?.task;
-    if(state().view!=='menu'&&run()?.status!=='complete'&&data.readAloud&&q&&narrated!==q.id+':'+q.hint+':'+q.notice){narrated=q.id+':'+q.hint+':'+q.notice;speakParts(q.notice?[q.correct?T.success:q.finished?T.skipped:T.retry]:q.hint?[q.hints[q.hint-1]]:[q.prompt]);}
+    if((PlaySession.isLearning()||state().view!=='menu')&&run()?.status!=='complete'&&data.readAloud&&q&&narrated!==q.id+':'+q.hint+':'+q.notice){narrated=q.id+':'+q.hint+':'+q.notice;speakParts(q.notice?[q.correct?T.success:q.finished?T.skipped:T.retry]:q.hint?[q.hints[q.hint-1]]:[q.prompt]);}
   }
   function teacherPanel() {
     return `<section class="panel"><h2>${bi(pair('התקדמות במשחקי הגילוי', 'Прогресс в играх-открытиях'))}</h2><div class="lg-teacher-grid">${Object.entries(LearningGames.catalog).map(([game,item])=>{const atlas=item.mode==='atlas',current=atlas?null:state().sessions[game];return `<div class="stat"><b>${bi(item.title)}</b><strong>${completedCount(game)}/${item.stageCount||100}</strong><small>${bi(atlas?pair('סבבים שהושלמו', 'Завершённые раунды'):pair('שלבים שנפתרו במלואם', 'Полностью пройденные уровни'))}</small>${current?`<small>${bi(pair(`שלב אחרון: ${current.stage} · תרגיל ${current.index+1}`,`Последний уровень: ${current.stage} · задание ${current.index+1}`))}</small>`:''}</div>`;}).join('')}</div></section>`;
   }
   document.addEventListener('keydown',event=>{
-    if(screen!=='learning')return;
+    if(screen!=='learning'&&!PlaySession.isLearning())return;
     const target=event.target.closest('[data-lg-action="match"]');
     if(target&&(event.key==='Enter'||event.key===' ')){event.preventDefault();target.dispatchEvent(new MouseEvent('click',{bubbles:true}));return;}
     const q=run()?.task, direction={ArrowUp:'up',ArrowDown:'down',ArrowLeft:'left',ArrowRight:'right'}[event.key];
-    if(state().view!=='menu'&&run()?.status==='playing'&&q?.game==='maze'&&direction&&!event.target.matches('input,textarea,select')){event.preventDefault();if(LearningGames.act(q,'move',direction)){q.notice=null;saveProgress();renderPage(`[data-lg-action="move"][data-lg-value="${direction}"]`);}}
+    if((PlaySession.isLearning()||state().view!=='menu')&&run()?.status==='playing'&&q?.game==='maze'&&direction&&!event.target.matches('input,textarea,select')){event.preventDefault();if(LearningGames.act(q,'move',direction)){q.notice=null;saveProgress();renderPage(`[data-lg-action="move"][data-lg-value="${direction}"]`);}}
   });
   document.addEventListener('visibilitychange',()=>{if(!document.hidden)schedule();});
   const completedTotal=()=>Object.keys(LearningGames.catalog).reduce((sum,game)=>sum+completedCount(game),0);

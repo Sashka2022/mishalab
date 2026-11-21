@@ -54,14 +54,14 @@ let browser;
   });
   if (result.fail.length) throw new Error(JSON.stringify(result));
 
-  await page.locator('[data-action="daily"]').click();
-  if (!await page.locator('.daily-theme').count()) throw new Error('Daily theme is not visible in the mission');
+  await page.locator('[data-action="daily"]').click();await page.locator('[data-session-action="begin"]').click();
+  if (!await page.locator('.journey-toolbar').count()) throw new Error('Mixed journey title is missing');
   if (!await page.locator('.challenge-band').count()) throw new Error('Adaptive challenge band is not visible');
-  const mission = await page.evaluate(() => MishaLab.getData().session);
-  if (new Set(mission.dailyOrder).size !== 4 || !Number.isInteger(mission.themeIndex)) throw new Error('Daily mission metadata is missing');
+  const mission = await page.evaluate(() => PlaySession.state());
+  if (new Set(mission.entries.map(e=>e.key)).size !== 13 || !Number.isInteger(mission.cycle)) throw new Error('Full mixed-game itinerary is missing');
 
   console.log(JSON.stringify(result));
-  console.log('Automatic renewal, anti-repeat memory, adaptive mix and daily themes passed');
+  console.log('Automatic renewal, anti-repeat memory, adaptive mix and full mixed-game itinerary passed');
   await browser.close();
   server.close();
 })().catch(async error => {

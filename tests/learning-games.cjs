@@ -77,7 +77,7 @@ let server, browser;
   const randomAccess=await fresh.evaluate(()=>Object.fromEntries(Object.keys(LearningGames.catalog).filter(game=>LearningGames.catalog[game].mode!=='atlas').map(game=>[game,LearningGames.create(game,100,9)])));
   assert.deepEqual(randomAccess,catalog.last);await fresh.close();
 
-  async function openStage(game,stage){await page.locator(`[data-lg-action="open"][data-lg-value="${game}"]`).click();assert.equal(await page.locator('[data-lg-action="stage"]').count(),100);await page.locator(`[data-lg-action="stage"][data-lg-value="${stage}"]`).click();}
+  async function openStage(game,stage){await page.locator(`[data-lg-action="open"][data-lg-value="${game}"]`).click();await page.locator('[data-session-action="browse"]').click();assert.equal(await page.locator('[data-lg-action="stage"]').count(),100);await page.locator(`[data-lg-action="stage"][data-lg-value="${stage}"]`).click();}
   async function current(){return page.evaluate(()=>LearningUI.state().sessions[LearningUI.state().activeGame].task);}
   async function solve(){
     let q=await current();
@@ -91,9 +91,9 @@ let server, browser;
   for(const game of Object.keys(catalog.report)){
     await openStage(game,1);
     for(let i=0;i<10;i++){assert.equal((await current()).index,i);await solve();await page.locator('[data-lg-action="next"]').click();}
-    await page.locator('.lg-course-summary').waitFor();
+    await page.locator('.lg-course-summary').waitFor();assert.equal(await page.locator('.session-review .review-exercise').count(),10);
     assert.equal(await page.evaluate(game=>LearningUI.state().progress[game][1].best,game),10);
-    await page.reload();await page.locator(`[data-lg-action="open"][data-lg-value="${game}"]`).click();
+    await page.reload();await page.locator(`[data-lg-action="open"][data-lg-value="${game}"]`).click();await page.locator('[data-session-action="browse"]').click();
     assert.equal(await page.locator('[data-lg-action="stage"][data-lg-value="1"]').getAttribute('class').then(s=>s.includes('completed')),true);
     await page.locator('[data-lg-action="stage"][data-lg-value="100"]').click();
     await solve();await page.locator('[data-lg-action="next"]').click();
@@ -103,10 +103,10 @@ let server, browser;
   // Partial board input survives reloading and is not awarded XP twice.
   await openStage('matches',7);const before=await current();
   await page.locator(`[data-lg-action="match"][data-lg-value="${before.solutionMove[0]}"]`).click();
-  await page.reload();await page.locator('[data-lg-action="open"][data-lg-value="matches"]').click();await page.locator('[data-lg-action="resume"]').click();
+  await page.reload();await page.locator('[data-lg-action="open"][data-lg-value="matches"]').click();await page.locator('[data-session-action="browse"]').click();await page.locator('[data-lg-action="resume"]').click();
   assert.equal((await current()).source,before.solutionMove[0]);
   await page.locator(`[data-lg-action="match"][data-lg-value="${before.solutionMove[1]}"]`).click();await page.locator('[data-lg-action="check"]').click();
-  const xp=await page.evaluate(()=>MishaLab.getData().xp);await page.reload();await page.locator('[data-lg-action="open"][data-lg-value="matches"]').click();await page.locator('[data-lg-action="resume"]').click();assert.equal(await page.evaluate(()=>MishaLab.getData().xp),xp);
+  const xp=await page.evaluate(()=>MishaLab.getData().xp);await page.reload();await page.locator('[data-lg-action="open"][data-lg-value="matches"]').click();await page.locator('[data-session-action="browse"]').click();await page.locator('[data-lg-action="resume"]').click();assert.equal(await page.evaluate(()=>MishaLab.getData().xp),xp);
   await page.locator('[data-action="home"]').first().click();
   // Later Hebrew stages include building a word from letters, including unused distractors.
   await openStage('hebrew',80);for(let i=0;i<4;i++){await page.locator('[data-lg-action="skip"]').click();await page.locator('[data-lg-action="next"]').click();}

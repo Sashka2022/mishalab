@@ -50,7 +50,7 @@ let browser;
       const page = await browser.newPage({ viewport });
       await page.goto('http://127.0.0.1:8776', { waitUntil: 'networkidle' });
       await page.evaluate(currentDomain => { MishaLab.getData().levels[currentDomain] = 10; }, domain);
-      await page.locator(`.island-hotspot[data-track="${domain}"]`).click();
+      await page.locator(`.island-hotspot[data-track="${domain}"]`).click();await page.locator('[data-session-action="begin"]').click();
       await page.locator('.task-shell').waitFor();
       await inspect(page, `${viewport.width}x${viewport.height}:${domain}:question`);
       if (viewport.width === 390 && domain === 'math') await page.screenshot({ path: '/workspace/mishalab/artifacts/task-math-390x844.png' });

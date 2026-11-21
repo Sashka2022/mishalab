@@ -10,7 +10,7 @@ let server;
   const page = await browser.newPage();
   await page.goto('http://127.0.0.1:8769');
   if (await page.locator('.achievement').count() !== 5) throw new Error('Badge shelf is missing');
-  await page.locator('[data-action="daily"]').click();
+  await page.locator('[data-track="math"]').first().click();await page.locator('[data-session-action="begin"]').click();
   if (!await page.locator('#runClock').count()) throw new Error('Run clock is missing');
   await page.waitForTimeout(1100);
   if (await page.locator('#runClock').textContent() === '00:00') throw new Error('Run clock did not advance');

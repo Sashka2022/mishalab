@@ -58,7 +58,7 @@ let browser;
   });
   console.log(JSON.stringify(results));
   if (results.fail.length) throw new Error('generator failures');
-  await page.locator('[data-action="daily"]').click();
+  await page.locator('[data-track="math"]').first().click();await page.locator('[data-session-action="begin"]').click();
   for (let i = 0; i < 5; i++) { await page.locator('[data-action="skip"]').click(); await page.locator('[data-action="next"]').click(); }
   await page.locator('[data-action="home"]').first().click();
   await page.locator('[data-action="teacher"]').click();

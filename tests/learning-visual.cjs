@@ -13,7 +13,7 @@ let server,browser;
       assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false,`${width}:${lang}:home`);
       if(width===1440&&lang==='both')await page.locator('.learning-library').screenshot({path:'/workspace/mishalab/artifacts/learning-library.png'});
       for(const game of['matches','origami','hebrew','maze']){
-        await page.locator(`[data-lg-action="open"][data-lg-value="${game}"]`).click();
+        await page.locator(`[data-lg-action="open"][data-lg-value="${game}"]`).click();await page.locator('[data-session-action="browse"]').click();
         assert.equal(await page.locator('[data-lg-action="stage"]').count(),100);
         const stageBox=await page.locator('[data-lg-action="stage"]').first().boundingBox();assert.ok(stageBox.width>=44&&stageBox.height>=44);
         for(const stage of[1,100]){

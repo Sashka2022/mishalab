@@ -24,7 +24,7 @@ let server, browser;
   await page.evaluate(old => { LearningUI.state().sessions.trivia=old; LearningUI.state().progress.trivia={100:{best:10}}; saveProgress(); },old);
   const oldStyle = await page.locator('[data-lg-value="matches"]').evaluate(el=>({color:getComputedStyle(el).color,border:getComputedStyle(el).borderRadius}));
   assert.match(await page.locator('[data-lg-value="trivia"]').innerText(),/אטלס הסקרנות/);
-  await page.locator('[data-lg-value="trivia"]').click();
+  await page.locator('[data-lg-value="trivia"]').click();await page.locator('[data-session-action="browse"]').click();
   assert.equal(await page.locator('[data-atlas-action="start"]').count(),10);
   assert.deepEqual(await page.evaluate(()=>AtlasQuiz.state().progress),{});
   assert.equal(await page.evaluate(()=>AtlasQuiz.state().activeRound),null);
@@ -87,7 +87,7 @@ let server, browser;
     assert.equal(await page.locator('.atlas-remember li').count(),2);
     assert.equal(await page.evaluate(()=>AtlasQuiz.state().progress[1].best),7);
     await page.screenshot({path:`artifacts/atlas-summary-${lang}-${width}.png`,fullPage:true});
-    await page.reload();assert.equal(await page.locator('.atlas-score').count(),1);
+    await page.reload();assert.equal(await page.locator('.atlas-score').count(),1);assert.equal(await page.evaluate(()=>data.sessionReports.at(-1).results.length),8);
   }
   // All 80 questions and every media asset are actually rendered, decoded and usable on a phone.
   await page.locator('[data-lang="both"]').click();
@@ -133,7 +133,7 @@ let server, browser;
   assert.equal(await page.evaluate(()=>document.body.classList.contains('atlas-screen')),false);
   assert.deepEqual(await page.evaluate(()=>LearningUI.state().sessions.trivia),old);
   assert.deepEqual(await page.locator('[data-lg-value="matches"]').evaluate(el=>({color:getComputedStyle(el).color,border:getComputedStyle(el).borderRadius})),oldStyle);
-  await page.locator('[data-lg-value="matches"]').click();assert.equal(await page.locator('[data-lg-action="stage"]').count(),100);
+  await page.locator('[data-lg-value="matches"]').click();await page.locator('[data-session-action="browse"]').click();assert.equal(await page.locator('[data-lg-action="stage"]').count(),100);
   await page.locator('[data-lg-action="stage"][data-lg-value="1"]').click();assert.equal(await page.locator('.lg-match-board').count(),1);
   assert.equal(await page.evaluate(()=>LearningUI.state().sessions.matches.task.game),'matches');
   assert.deepEqual(failures,[]);assert.deepEqual(errors,[]);

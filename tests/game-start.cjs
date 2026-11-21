@@ -20,12 +20,13 @@ let browser, server;
       if (target === 'daily') await page.locator('[data-action="daily"]').click();
       else if (target === 'puzzles') await page.locator('[data-puzzle-kind="mixed"]').click();
       else await page.locator(`.arcade-world[data-track="${target}"]`).click();
-      assert.equal(await page.evaluate(() => MishaLab.getData().session.task.level), difficulty, `${target}:opening-level`);
+      await page.locator(`.launch-levels [data-value="${difficulty}"]`).click();await page.locator('[data-session-action="begin"]').click();
+      assert.equal(await page.evaluate(() => PlaySession.isCore()?session.task.level:MishaLab.getData().session.task.level), difficulty, `${target}:opening-level`);
       await page.locator('[data-action="home"]').first().click();
     }
   }
   await page.locator('[data-difficulty="4"]').click();
-  await page.locator('.arcade-world[data-track="math"]').click();
+  await page.locator('.arcade-world[data-track="math"]').click();await page.locator('.launch-levels [data-value="4"]').click();await page.locator('[data-session-action="begin"]').click();
   const original = await page.evaluate(() => MishaLab.getData().session.task.signature);
   await page.locator('[data-action="home"]').first().click();
   await page.locator('[data-difficulty="7"]').click();

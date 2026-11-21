@@ -33,7 +33,7 @@ let browser;
   let spoken = await page.evaluate(() => window.__spoken);
   if (!spoken.some(x => x.lang === 'he-IL') || !spoken.some(x => x.lang === 'ru-RU')) throw new Error('Bilingual home narration is missing');
 
-  await page.locator('[data-action="daily"]').click();
+  await page.locator('[data-track="math"]').first().click();await page.locator('[data-session-action="begin"]').click();
   const prompt = await page.evaluate(() => MishaLab.getData().session.task.prompt);
   spoken = await page.evaluate(() => window.__spoken);
   if (!spoken.some(x => x.text.includes(prompt.he)) || !spoken.some(x => x.text.includes(prompt.ru))) throw new Error('New task was not narrated in both languages');
