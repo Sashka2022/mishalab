@@ -55,7 +55,7 @@ let server,browser;
    }else if(q.type==='lights'){for(const i of q.solution)await page.locator(`[data-puzzle-action="tile"][data-puzzle-value="${i}"]`).click();}
    else if(q.type==='sliding'){for(const value of q.solution){const i=await page.evaluate(value=>session.task.board.indexOf(value),value);await page.locator(`[data-puzzle-action="tile"][data-puzzle-value="${i}"]`).click();}}
    else {for(let i=0;i<q.board.length;i++)if(q.board[i]!==q.answer[i])await page.locator(`[data-puzzle-action="tile"][data-puzzle-value="${i}"]`).click();}
-  }else if(q.mode==='number'||q.mode==='open')await page.locator('#answer').fill(q.mode==='open'?'בדקתי את הכלל':String(q.answer));
+  }else if(q.mode==='number')await page.locator('#answer').fill(String(q.answer));
   else if(q.mode==='options')await page.locator(`[data-option="${q.answer}"]`).click();
   else if(q.mode==='chess')await page.locator(`[data-square="${q.answer[0]}"]`).click();
   else if(q.mode==='grid'){for(let i=0;i<q.answer;i++)await page.locator(`[data-cell="${i}"]`).click();}

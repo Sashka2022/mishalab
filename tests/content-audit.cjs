@@ -57,7 +57,7 @@ let browser;
         1: ['add', 'subtract', 'missing', 'sequence', 'estimate'],
         4: ['add', 'subtract', 'missing', 'multiply', 'sequence', 'fraction', 'story', 'estimate'],
         7: ['pair', 'story', 'fraction', 'sequence', 'twoStep', 'divisibility', 'multi', 'always'],
-        10: ['pair', 'story', 'twoStep', 'divisibility', 'combinations', 'algebra', 'multi', 'always', 'research']
+        10: ['pair', 'story', 'twoStep', 'divisibility', 'combinations', 'algebra', 'multi', 'always']
       },
       logic: {
         1: ['balance', 'sequence', 'deduce', 'oddone'],

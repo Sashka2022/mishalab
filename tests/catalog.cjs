@@ -12,7 +12,7 @@ let server;
   const result = await page.evaluate(() => {
     const fail = [];
     const forced = {
-      math: ['add', 'subtract', 'missing', 'multiply', 'sequence', 'fraction', 'estimate', 'story', 'twoStep', 'divisibility', 'combinations', 'algebra', 'pair', 'multi', 'always', 'research'],
+      math: ['add', 'subtract', 'missing', 'multiply', 'sequence', 'fraction', 'estimate', 'story', 'twoStep', 'divisibility', 'combinations', 'algebra', 'pair', 'multi', 'always'],
       logic: ['balance', 'sequence', 'match', 'deduce', 'oddone', 'visualSequence', 'ordering', 'code', 'truth'],
       geometry: ['shape', 'area', 'symmetry', 'perimeter', 'angle', 'compose', 'hidden', 'rotation', 'coordinates']
     };

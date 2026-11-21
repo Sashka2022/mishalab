@@ -44,6 +44,7 @@ window.AtlasQuiz = (() => {
   function open() {
     pause(); clearTimeout(autoNextTimer); window.speechSynthesis?.cancel();
     screen = 'atlas'; feedback = null; narrated = '';
+    try { sessionStorage.setItem('misha-atlas-entry', '1'); } catch (_) {}
     history.replaceState(null, '', location.pathname + location.search + '#atlas');
     redraw(); window.scrollTo(0, 0);
   }

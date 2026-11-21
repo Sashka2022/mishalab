@@ -32,3 +32,5 @@
 .review-preview { max-width:420px;margin:12px 0;pointer-events:none; }
 .review-preview>img { display:block;width:100%;max-height:260px;object-fit:contain;background:#f6f3eb; }
 .review-preview .visual { padding:10px;margin:0; }.review-preview .visual svg { max-width:320px;max-height:240px; }.review-preview .puzzle-tools,.review-preview .puzzle-keypad { display:none; }.review-preview .board { width:min(100%,330px); }.review-preview .board .square { font-size:clamp(18px,4vw,30px);min-width:0;min-height:0; }.review-preview .lg-paper { display:inline-block;max-width:45%; }.review-detail { font-weight:600;color:#766184; }
+
+.puzzle-level-entry { display:flex;align-items:center;justify-content:center;gap:8px;margin-top:14px;font-weight:700;color:#69448f;min-height:44px; }

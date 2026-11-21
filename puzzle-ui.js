@@ -4,7 +4,7 @@ function puzzleAutoControl() {
 function renderPuzzleHome() {
   return `<section class="worlds-panel puzzle-lab"><div class="section-head"><div><div class="eyebrow">${bi(P('חושבים עם הידיים', 'Думаем и играем'))}</div><h2>${bi(P('מעבדת החידות', 'Лаборатория головоломок'))}</h2><div class="puzzle-summary">${bi(P('לוחות חדשים בכל פעם · רמזים בקצב שלך · בלי שעון עצר', 'Каждый раз новые поля · подсказки в твоём темпе · без обратного отсчёта'))}</div></div></div><div class="puzzle-catalog">${PuzzleGames.kinds.map(kind => {
     const item = PuzzleGames.catalog[kind];
-    return `<button class="puzzle-card" data-puzzle-kind="${kind}">${gamePreview(kind)}<b>${bi(item.name)}</b><span class="meta">${bi(item.desc)}</span></button>`;
+    return `<button class="puzzle-card" data-puzzle-kind="${kind}">${gamePreview(kind)}<b>${bi(item.name)}</b><span class="meta">${bi(item.desc)}</span><span class="puzzle-level-entry">${ico('play')}${bi(P('בחירת רמה ומשחק', 'Выбрать уровень и играть'))}</span></button>`;
   }).join('')}</div><div class="puzzle-start row"><button class="primary" data-puzzle-kind="mixed">${ico('sparkles')}${bi(P('הפתע אותי — ערבוב חידות', 'Удиви меня — разные головоломки'))}</button>${puzzleAutoControl()}</div><div class="tiny puzzle-note">${bi(P('במצב ערבוב סוג החידה מתחלף בכל פתרון. אפשר לכבות את החידוש ולעבור ידנית.', 'В смешанном режиме тип меняется после каждого решения. Автопереход можно выключить и продолжать вручную.'))}</div></section>`;
 }
 function renderPuzzleBoard(q) {

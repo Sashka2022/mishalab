@@ -17,7 +17,9 @@ window.PlaySession = (() => {
   function title(target) {return target.kind==='general'?pair('המסע הכללי','Большое путешествие'):SessionReview.label(target.key);}
   function openLaunch(target) {
     pause();detach();clearTimeout(autoNextTimer);window.speechSynthesis?.cancel();
-    launch={...target,level:data.gameLevels?.[target.key]||data.startDifficulty||1};screen='launch';feedback=null;window.render();window.scrollTo(0,0);document.getElementById('launch-title')?.focus();
+    const savedStage=data.learning?.sessions?.[target.key]?.stage;
+    const suggested=target.kind==='core'?data.levels[target.key]:target.kind==='puzzle'?data.levels.logic:target.kind==='learning'&&savedStage?1+Math.floor((savedStage-1)/11):target.kind==='atlas'?AtlasQuiz.state().activeRound:null;
+    launch={...target,level:Math.max(1,Math.min(10,data.gameLevels?.[target.key]||data.startDifficulty||suggested||1))};screen='launch';feedback=null;window.render();window.scrollTo(0,0);document.getElementById('launch-title')?.focus();
   }
   function startLaunch() {
     const target={...launch};if(!target)return;
