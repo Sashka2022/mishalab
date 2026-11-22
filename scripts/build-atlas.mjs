@@ -24,6 +24,10 @@ for (const q of bank.questions) {
   assert(checked?.answerReviewed && checked?.factReviewed && checked?.translationReviewed, `${q.id}: editorial review required`);
   assert(q.sources.every(url => checked.sources.some(id => review.sources.some(r => r.id === id && r.url === url))), `${q.id}: source review must cover question sources`);
   assert(q.sources.length && q.sources.every(url => new URL(url).protocol === 'https:'), `${q.id}: factual sources required`);
+  if (q.hints !== undefined) {
+    assert(Array.isArray(q.hints) && q.hints.length === 3 && q.hints.every(bilingual), `${q.id}: three bilingual graded hints required`);
+    assert(Array.isArray(q.accessibleHints) && q.accessibleHints.length === q.hints.length && q.accessibleHints.every(bilingual), `${q.id}: matching bilingual accessible hints required`);
+  } else assert(q.accessibleHints === undefined, `${q.id}: accessible hints require visual hints`);
   if (q.media) {
     assert(bilingual(q.alt) && bilingual(q.accessiblePrompt), `${q.id}: neutral alt and accessible parallel question required`);
     for (const lang of ['he','ru']) assert(media.some(m => m.id === (q.media.startsWith('map-') ? q.media + '-' + lang : q.media)), `${q.id}: missing local media`);

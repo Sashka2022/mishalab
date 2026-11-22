@@ -124,3 +124,15 @@ body.atlas-screen { background:#f5f0e4; color:#243f57; }
 }
 @media(prefers-reduced-motion:reduce) { .atlas-page .atlas-button { transition:none; } }
 .atlas-page .atlas-primary:disabled .sub { color:#5d656a; }
+
+/* Optional observation support belongs to the Atlas question, never global controls. */
+.atlas-page .atlas-hint { margin:0 0 18px;padding:13px 16px;border-inline-start:4px solid var(--atlas-orange);background:#f8f0dc;line-height:1.55; }
+.atlas-page .atlas-hint strong { display:block;margin-bottom:5px;font-size:14px; }
+.atlas-page .atlas-hint div { font-size:17px; }
+.atlas-page .atlas-practice-note { margin:0 0 16px;padding:11px 14px;border:1px dashed #a1754d;border-radius:4px;font-size:15px;line-height:1.55;background:#fff9ec; }
+.atlas-page .atlas-hint-button:disabled { color:#69716f;border-color:#a0a5a0;box-shadow:none; }
+.atlas-page .atlas-practice-button { border-style:dashed; }
+@media(max-width:680px) {
+ .atlas-page .atlas-hint { padding:11px 13px; }
+ .atlas-page .atlas-question-actions>.atlas-practice-button { flex-basis:100%; }
+}

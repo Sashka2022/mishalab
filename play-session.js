@@ -66,7 +66,7 @@ window.PlaySession = (() => {
     if(e.kind==='core'||e.kind==='puzzle')return e.run.results[0];
     if(e.kind==='learning')return e.run.answers[0];
     const q=AtlasQuestions.questions.find(q=>q.id===e.questionId),a=e.run.answers[0];
-    return a?SessionReview.snapshot({...q,level:e.level},{correct:a.correct,attempts:1,hints:0},q.category):null;
+    return a?AtlasQuiz.resultSnapshot(q,a,e.run,e.level,0):null;
   }
   function next(skip=false) {
     if(!active())return;const s=state(),e=entry();let result=currentResult();
