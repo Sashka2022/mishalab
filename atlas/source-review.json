@@ -616,6 +616,13 @@
       "questionIds": [
         "atlas-16"
       ]
+    },
+    {
+      "id": "cardinal-directions",
+      "url": "https://education.nationalgeographic.org/resource/cardinal-directions-and-maps/",
+      "questionIds": [
+        "atlas-53"
+      ]
     }
   ],
   "questions": [
@@ -645,7 +652,8 @@
       ],
       "answerReviewed": true,
       "factReviewed": true,
-      "translationReviewed": true
+      "translationReviewed": true,
+      "reviewedAt": "2026-11-22"
     },
     {
       "id": "atlas-04",
@@ -1104,11 +1112,14 @@
     {
       "id": "atlas-53",
       "sources": [
-        "compass"
+        "compass",
+        "cardinal-directions"
       ],
       "answerReviewed": true,
       "factReviewed": true,
-      "translationReviewed": true
+      "translationReviewed": true,
+      "reviewedAt": "2026-11-22",
+      "notes": "Reworded as a self-contained N-direction question; National Geographic section 3 explicitly states that N stands for north. Answer index and meaning remain unchanged."
     },
     {
       "id": "atlas-54",

@@ -323,14 +323,14 @@
       ],
       "answer": 1,
       "fact": {
-        "he": "בגנים הבהאים בחיפה יש 19 מדרגות גן.",
-        "ru": "В Бахайских садах Хайфы 19 террас."
+        "he": "בגנים הבהאים בחיפה יש 19 טרסות — מפלסים של גנים.",
+        "ru": "В Бахайских садах Хайфы 19 террас — уровней с садами."
       },
       "sources": [
         "https://ganbahai.org.il/en/haifa/",
         "https://www.enjoyingisrael.com/attractions/16807/the-bah%C3%A1-%C3%AD-gardens-in-haifa"
       ],
-      "reviewedAt": "2026-11-21",
+      "reviewedAt": "2026-11-22",
       "media": "haifa-gardens",
       "alt": {
         "he": "גנים מדורגים על מדרון ובמרכזם כיפה מוזהבת",
@@ -2154,32 +2154,33 @@
       "round": 7,
       "category": "geography",
       "prompt": {
-        "he": "לאיזה כיוון מצביעה בדרך כלל המחט המסומנת במצפן?",
-        "ru": "Куда обычно указывает отмеченный конец стрелки компаса?"
+        "he": "איזה כיוון מסמנת האות N במצפן?",
+        "ru": "Какое направление обозначает буква N на компасе?"
       },
       "options": [
         {
           "he": "צפון",
-          "ru": "На север"
+          "ru": "Север"
         },
         {
           "he": "דרום",
-          "ru": "На юг"
+          "ru": "Юг"
         },
         {
           "he": "מערב",
-          "ru": "На запад"
+          "ru": "Запад"
         }
       ],
       "answer": 0,
       "fact": {
-        "he": "מחט המצפן מושפעת מהשדה המגנטי של כדור הארץ.",
-        "ru": "На стрелку компаса действует магнитное поле Земли."
+        "he": "האות N מסמנת צפון, North באנגלית.",
+        "ru": "Буква N обозначает север — North по-английски."
       },
       "sources": [
-        "https://www.britannica.com/technology/compass-navigational-instrument"
+        "https://www.britannica.com/technology/compass-navigational-instrument",
+        "https://education.nationalgeographic.org/resource/cardinal-directions-and-maps/"
       ],
-      "reviewedAt": "2026-11-21"
+      "reviewedAt": "2026-11-22"
     },
     {
       "id": "atlas-54",
