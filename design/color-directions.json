@@ -1,0 +1,492 @@
+{
+  "recommended": "explorer-notebook",
+  "method": "WCAG sRGB relative luminance; normal-text comparison target 4.5:1; ratios computed from exact hex values and rounded only for display. Borders are decorative, not text colours.",
+  "directions": [
+    {
+      "id": "explorer-notebook",
+      "title": {
+        "he": "מחברת המגלים",
+        "ru": "Блокнот исследователя"
+      },
+      "recommended": true,
+      "tokens": {
+        "paper": "#FFF5E4",
+        "ink": "#203845",
+        "primary": "#245A66",
+        "onPrimary": "#FFF5E4",
+        "accent": "#A74429",
+        "surface": "#F0DFB9",
+        "border": "#B9A77F",
+        "muted": "#5C665D",
+        "success": "#2F6948",
+        "successSurface": "#E5EEDC"
+      },
+      "reason": {
+        "he": "נייר חם, דיו פטרול וסימני עיפרון אדומים נותנים תחושה של מחברת פרטית של מישה. הכיוון מחבר מפות, קיפולים וחידות בלי להפוך את הלמידה לתבנית של לוח מחוונים.",
+        "ru": "Тёплая бумага, чернила цвета морской волны и красные карандашные отметки напоминают личный блокнот Миши. Такой стиль объединяет карты, оригами и задачи без ощущения стандартной панели."
+      },
+      "materials": {
+        "he": "נייר שנהב, קו דיו דק, תוויות קטלוג, כתם אוקר קטן.",
+        "ru": "Бумага цвета слоновой кости, тонкая чернильная линия, подписи-каталоги и небольшая охристая метка."
+      },
+      "contrast": {
+        "inkOnPaper": 11.34,
+        "inkOnSurface": 9.32,
+        "onPrimaryOnPrimary": 7.12,
+        "primaryOnPaper": 7.12,
+        "primaryOnSurface": 5.85,
+        "accentOnPaper": 5.55,
+        "accentOnSurface": 4.56,
+        "mutedOnPaper": 5.53,
+        "mutedOnSurface": 4.54,
+        "successOnSuccessSurface": 5.44
+      },
+      "contrastPairs": [
+        {
+          "id": "inkOnPaper",
+          "label": {
+            "he": "דיו על נייר",
+            "ru": "Чернила на бумаге"
+          },
+          "foreground": "ink",
+          "background": "paper",
+          "ratio": 11.34,
+          "required": 4.5,
+          "passes": true
+        },
+        {
+          "id": "inkOnSurface",
+          "label": {
+            "he": "דיו על משטח צבעוני",
+            "ru": "Чернила на цветной панели"
+          },
+          "foreground": "ink",
+          "background": "surface",
+          "ratio": 9.32,
+          "required": 4.5,
+          "passes": true
+        },
+        {
+          "id": "onPrimaryOnPrimary",
+          "label": {
+            "he": "טקסט בכפתור ראשי",
+            "ru": "Текст основной кнопки"
+          },
+          "foreground": "onPrimary",
+          "background": "primary",
+          "ratio": 7.12,
+          "required": 4.5,
+          "passes": true
+        },
+        {
+          "id": "primaryOnPaper",
+          "label": {
+            "he": "קישור על נייר",
+            "ru": "Ссылка на бумаге"
+          },
+          "foreground": "primary",
+          "background": "paper",
+          "ratio": 7.12,
+          "required": 4.5,
+          "passes": true
+        },
+        {
+          "id": "primaryOnSurface",
+          "label": {
+            "he": "קישור על משטח",
+            "ru": "Ссылка на панели"
+          },
+          "foreground": "primary",
+          "background": "surface",
+          "ratio": 5.85,
+          "required": 4.5,
+          "passes": true
+        },
+        {
+          "id": "accentOnPaper",
+          "label": {
+            "he": "הדגשה על נייר",
+            "ru": "Акцент на бумаге"
+          },
+          "foreground": "accent",
+          "background": "paper",
+          "ratio": 5.55,
+          "required": 4.5,
+          "passes": true
+        },
+        {
+          "id": "accentOnSurface",
+          "label": {
+            "he": "הדגשה על משטח",
+            "ru": "Акцент на панели"
+          },
+          "foreground": "accent",
+          "background": "surface",
+          "ratio": 4.56,
+          "required": 4.5,
+          "passes": true
+        },
+        {
+          "id": "mutedOnPaper",
+          "label": {
+            "he": "טקסט משני על נייר",
+            "ru": "Вторичный текст на бумаге"
+          },
+          "foreground": "muted",
+          "background": "paper",
+          "ratio": 5.53,
+          "required": 4.5,
+          "passes": true
+        },
+        {
+          "id": "mutedOnSurface",
+          "label": {
+            "he": "טקסט משני על משטח",
+            "ru": "Вторичный текст на панели"
+          },
+          "foreground": "muted",
+          "background": "surface",
+          "ratio": 4.54,
+          "required": 4.5,
+          "passes": true
+        },
+        {
+          "id": "successOnSuccessSurface",
+          "label": {
+            "he": "טקסט הצלחה על תג הצלחה",
+            "ru": "Текст успешного результата"
+          },
+          "foreground": "success",
+          "background": "successSurface",
+          "ratio": 5.44,
+          "required": 4.5,
+          "passes": true
+        }
+      ]
+    },
+    {
+      "id": "sun-workshop",
+      "title": {
+        "he": "סדנת השמש",
+        "ru": "Солнечная мастерская"
+      },
+      "recommended": false,
+      "tokens": {
+        "paper": "#FFF8E8",
+        "ink": "#492E28",
+        "primary": "#A13E2B",
+        "onPrimary": "#FFF8E8",
+        "accent": "#3155A6",
+        "surface": "#F6DB8D",
+        "border": "#C59A6C",
+        "muted": "#715A49",
+        "success": "#386544",
+        "successSurface": "#E8EFCF"
+      },
+      "reason": {
+        "he": "טרקוטה, צהוב נייר וקובלט מזכירים סדנת יצירה וקופסת משחקים מודפסת. זו החלופה האנרגטית ביותר; כדאי לרכז את האדום בכפתורים ולשמור את אזור השאלה על נייר בהיר.",
+        "ru": "Терракотовый, бумажно-жёлтый и кобальтовый напоминают мастерскую и печатную коробку с играми. Это самый энергичный вариант: красный лучше оставить кнопкам, а вопрос — светлой бумаге."
+      },
+      "materials": {
+        "he": "קרטון חם, פסי צבע שטוחים, חותמות קובלט ופינות ישרות.",
+        "ru": "Тёплый картон, ровные цветные полосы, кобальтовые отметки и прямые углы."
+      },
+      "contrast": {
+        "inkOnPaper": 11.64,
+        "inkOnSurface": 9.05,
+        "onPrimaryOnPrimary": 6.13,
+        "primaryOnPaper": 6.13,
+        "primaryOnSurface": 4.77,
+        "accentOnPaper": 6.66,
+        "accentOnSurface": 5.18,
+        "mutedOnPaper": 6.09,
+        "mutedOnSurface": 4.73,
+        "successOnSuccessSurface": 5.68
+      },
+      "contrastPairs": [
+        {
+          "id": "inkOnPaper",
+          "label": {
+            "he": "דיו על נייר",
+            "ru": "Чернила на бумаге"
+          },
+          "foreground": "ink",
+          "background": "paper",
+          "ratio": 11.64,
+          "required": 4.5,
+          "passes": true
+        },
+        {
+          "id": "inkOnSurface",
+          "label": {
+            "he": "דיו על משטח צבעוני",
+            "ru": "Чернила на цветной панели"
+          },
+          "foreground": "ink",
+          "background": "surface",
+          "ratio": 9.05,
+          "required": 4.5,
+          "passes": true
+        },
+        {
+          "id": "onPrimaryOnPrimary",
+          "label": {
+            "he": "טקסט בכפתור ראשי",
+            "ru": "Текст основной кнопки"
+          },
+          "foreground": "onPrimary",
+          "background": "primary",
+          "ratio": 6.13,
+          "required": 4.5,
+          "passes": true
+        },
+        {
+          "id": "primaryOnPaper",
+          "label": {
+            "he": "קישור על נייר",
+            "ru": "Ссылка на бумаге"
+          },
+          "foreground": "primary",
+          "background": "paper",
+          "ratio": 6.13,
+          "required": 4.5,
+          "passes": true
+        },
+        {
+          "id": "primaryOnSurface",
+          "label": {
+            "he": "קישור על משטח",
+            "ru": "Ссылка на панели"
+          },
+          "foreground": "primary",
+          "background": "surface",
+          "ratio": 4.77,
+          "required": 4.5,
+          "passes": true
+        },
+        {
+          "id": "accentOnPaper",
+          "label": {
+            "he": "הדגשה על נייר",
+            "ru": "Акцент на бумаге"
+          },
+          "foreground": "accent",
+          "background": "paper",
+          "ratio": 6.66,
+          "required": 4.5,
+          "passes": true
+        },
+        {
+          "id": "accentOnSurface",
+          "label": {
+            "he": "הדגשה על משטח",
+            "ru": "Акцент на панели"
+          },
+          "foreground": "accent",
+          "background": "surface",
+          "ratio": 5.18,
+          "required": 4.5,
+          "passes": true
+        },
+        {
+          "id": "mutedOnPaper",
+          "label": {
+            "he": "טקסט משני על נייר",
+            "ru": "Вторичный текст на бумаге"
+          },
+          "foreground": "muted",
+          "background": "paper",
+          "ratio": 6.09,
+          "required": 4.5,
+          "passes": true
+        },
+        {
+          "id": "mutedOnSurface",
+          "label": {
+            "he": "טקסט משני על משטח",
+            "ru": "Вторичный текст на панели"
+          },
+          "foreground": "muted",
+          "background": "surface",
+          "ratio": 4.73,
+          "required": 4.5,
+          "passes": true
+        },
+        {
+          "id": "successOnSuccessSurface",
+          "label": {
+            "he": "טקסט הצלחה על תג הצלחה",
+            "ru": "Текст успешного результата"
+          },
+          "foreground": "success",
+          "background": "successSurface",
+          "ratio": 5.68,
+          "required": 4.5,
+          "passes": true
+        }
+      ]
+    },
+    {
+      "id": "forest-club",
+      "title": {
+        "he": "מועדון היער",
+        "ru": "Лесной клуб"
+      },
+      "recommended": false,
+      "tokens": {
+        "paper": "#F2F7EA",
+        "ink": "#263D2D",
+        "primary": "#2B6146",
+        "onPrimary": "#F2F7EA",
+        "accent": "#775A8A",
+        "surface": "#D9E8CD",
+        "border": "#A7B99A",
+        "muted": "#53654F",
+        "success": "#285C43",
+        "successSurface": "#DCEBD7"
+      },
+      "reason": {
+        "he": "ירוק יער, נייר מרווה ונגיעת שזיף יוצרים מועדון רגוע לחקר העולם. מתאים למפות ולתגליות, אך לא כדאי להוסיף חיות ועצים בכל מסך כי המשחקים עוסקים גם במספרים ובשפה.",
+        "ru": "Лесной зелёный, шалфейная бумага и немного сливового создают спокойный клуб открытий. Стиль подходит картам, но не стоит заполнять каждый экран деревьями и зверями: здесь есть и математика, и язык."
+      },
+      "materials": {
+        "he": "נייר מרווה, דיו ירוק כהה, מסגרות של כרטיסי שדה ונגיעת שזיף.",
+        "ru": "Шалфейная бумага, тёмно-зелёные чернила, рамки полевых карточек и сливовая метка."
+      },
+      "contrast": {
+        "inkOnPaper": 10.78,
+        "inkOnSurface": 9.16,
+        "onPrimaryOnPrimary": 6.64,
+        "primaryOnPaper": 6.64,
+        "primaryOnSurface": 5.64,
+        "accentOnPaper": 5.33,
+        "accentOnSurface": 4.53,
+        "mutedOnPaper": 5.77,
+        "mutedOnSurface": 4.9,
+        "successOnSuccessSurface": 6.26
+      },
+      "contrastPairs": [
+        {
+          "id": "inkOnPaper",
+          "label": {
+            "he": "דיו על נייר",
+            "ru": "Чернила на бумаге"
+          },
+          "foreground": "ink",
+          "background": "paper",
+          "ratio": 10.78,
+          "required": 4.5,
+          "passes": true
+        },
+        {
+          "id": "inkOnSurface",
+          "label": {
+            "he": "דיו על משטח צבעוני",
+            "ru": "Чернила на цветной панели"
+          },
+          "foreground": "ink",
+          "background": "surface",
+          "ratio": 9.16,
+          "required": 4.5,
+          "passes": true
+        },
+        {
+          "id": "onPrimaryOnPrimary",
+          "label": {
+            "he": "טקסט בכפתור ראשי",
+            "ru": "Текст основной кнопки"
+          },
+          "foreground": "onPrimary",
+          "background": "primary",
+          "ratio": 6.64,
+          "required": 4.5,
+          "passes": true
+        },
+        {
+          "id": "primaryOnPaper",
+          "label": {
+            "he": "קישור על נייר",
+            "ru": "Ссылка на бумаге"
+          },
+          "foreground": "primary",
+          "background": "paper",
+          "ratio": 6.64,
+          "required": 4.5,
+          "passes": true
+        },
+        {
+          "id": "primaryOnSurface",
+          "label": {
+            "he": "קישור על משטח",
+            "ru": "Ссылка на панели"
+          },
+          "foreground": "primary",
+          "background": "surface",
+          "ratio": 5.64,
+          "required": 4.5,
+          "passes": true
+        },
+        {
+          "id": "accentOnPaper",
+          "label": {
+            "he": "הדגשה על נייר",
+            "ru": "Акцент на бумаге"
+          },
+          "foreground": "accent",
+          "background": "paper",
+          "ratio": 5.33,
+          "required": 4.5,
+          "passes": true
+        },
+        {
+          "id": "accentOnSurface",
+          "label": {
+            "he": "הדגשה על משטח",
+            "ru": "Акцент на панели"
+          },
+          "foreground": "accent",
+          "background": "surface",
+          "ratio": 4.53,
+          "required": 4.5,
+          "passes": true
+        },
+        {
+          "id": "mutedOnPaper",
+          "label": {
+            "he": "טקסט משני על נייר",
+            "ru": "Вторичный текст на бумаге"
+          },
+          "foreground": "muted",
+          "background": "paper",
+          "ratio": 5.77,
+          "required": 4.5,
+          "passes": true
+        },
+        {
+          "id": "mutedOnSurface",
+          "label": {
+            "he": "טקסט משני על משטח",
+            "ru": "Вторичный текст на панели"
+          },
+          "foreground": "muted",
+          "background": "surface",
+          "ratio": 4.9,
+          "required": 4.5,
+          "passes": true
+        },
+        {
+          "id": "successOnSuccessSurface",
+          "label": {
+            "he": "טקסט הצלחה על תג הצלחה",
+            "ru": "Текст успешного результата"
+          },
+          "foreground": "success",
+          "background": "successSurface",
+          "ratio": 6.26,
+          "required": 4.5,
+          "passes": true
+        }
+      ]
+    }
+  ]
+}
