@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>מישי והמדבקות — דוגמת איורים לאישור</title>
+  <style>
+    :root { --paper:#FFF8E8; --ink:#203047; --mint:#DDF5E9; --line:#DCEAF4; --white:#FFFFFF; }
+    * { box-sizing:border-box; }
+    body { margin:0; padding:32px; background:var(--paper); color:var(--ink); font-family:Arial,sans-serif; }
+    header { max-width:1680px; margin:0 auto 28px; }
+    h1 { margin:0 0 12px; font-size:30px; }
+    header p { max-width:1000px; margin:8px 0; font-size:18px; line-height:1.6; }
+    .note { display:inline-block; padding:6px 12px; border:1px solid var(--ink); border-radius:12px; background:var(--mint); font-size:16px; }
+    main { display:grid; grid-template-columns:repeat(3, 544px); gap:24px; justify-content:center; }
+    figure { margin:0; padding:16px; border:1px solid var(--line); border-radius:24px; background:var(--white); }
+    figcaption { display:flex; justify-content:space-between; align-items:baseline; gap:12px; margin-bottom:8px; line-height:1.5; }
+    figcaption strong { font-size:22px; }
+    figcaption span { font-size:16px; }
+    .robot-render svg { width:100%; height:100%; }
+    .large { display:block; width:512px; height:512px; object-fit:contain; }
+    .small-row { display:flex; gap:20px; align-items:center; margin-top:8px; border-top:1px solid var(--line); padding-top:12px; }
+    .small { display:block; width:64px; height:64px; object-fit:contain; }
+    .small-row p { margin:0; font-size:16px; line-height:1.5; }
+    footer { max-width:1680px; margin:24px auto 0; font-size:16px; line-height:1.6; }
+    a { color:var(--ink); }
+    @media(max-width:1750px) { main { grid-template-columns:repeat(2,544px); } }
+    @media(max-width:1170px) { main { grid-template-columns:minmax(0,544px); } }
+    @media(max-width:610px) { body { padding:16px; } figure { padding:12px; } .large { width:100%; height:auto; aspect-ratio:1; } h1 { font-size:26px; } }
+  </style>
+</head>
+<body>
+  <header>
+    <p class="note">24 מדבקות · חמש הבעות · הכיוון אושר</p>
+    <h1>מישי חושב, ומדבקות קטנות של גילוי</h1>
+    <p>24 מדבקות וחמש הבעות, לצד מישי המקורי. כל איור מופיע בגודל 512 ובגודל 64 פיקסלים. הכיוון אושר לאחר בדיקת דוגמת סדרה א׳ והבעת „חושב”.</p>
+    <p lang="ru" dir="ltr">24 наклейки и пять выражений рядом с исходным Миши. Каждая иллюстрация показана в размерах 512 и 64 пикселя. Направление одобрено после просмотра первой серии и выражения «думает».</p>
+  </header>
+  <main>
+<figure data-sample="original">
+      <figcaption><strong>מישי המקורי</strong><span lang="ru" dir="ltr">Исходный Миши</span></figcaption>
+      <img class="large" src="../assets/characters/mishi-explorer.svg" alt="מישי המקורי להשוואה" width="512" height="512">
+      <div class="small-row"><img class="small" src="../assets/characters/mishi-explorer.svg" alt="מישי המקורי בגודל קטן" width="64" height="64"><p>מקור להשוואת הגוף והקו<br><span lang="ru" dir="ltr">512 / 64 px</span></p></div>
+    </figure>
+<figure data-sample="idle">
+      <figcaption><strong>מישי סקרן</strong><span lang="ru" dir="ltr">Любопытный Миши</span></figcaption>
+      <div class="large robot-render" data-mood="idle" aria-label="מישי סקרן" role="img"></div>
+      <div class="small-row"><div class="small robot-render" data-mood="idle" aria-label="מישי סקרן" role="img"></div><p>גוף משותף · פנים וזרועות מתחלפות<br><span lang="ru" dir="ltr">512 / 64 px</span></p></div>
+    </figure>
+<figure data-sample="think">
+      <figcaption><strong>מישי חושב</strong><span lang="ru" dir="ltr">Миши думает</span></figcaption>
+      <div class="large robot-render" data-mood="think" aria-label="מישי חושב" role="img"></div>
+      <div class="small-row"><div class="small robot-render" data-mood="think" aria-label="מישי חושב" role="img"></div><p>גוף משותף · פנים וזרועות מתחלפות<br><span lang="ru" dir="ltr">512 / 64 px</span></p></div>
+    </figure>
+<figure data-sample="success">
+      <figcaption><strong>מישי מצליח</strong><span lang="ru" dir="ltr">Успех Миши</span></figcaption>
+      <div class="large robot-render" data-mood="success" aria-label="מישי מצליח" role="img"></div>
+      <div class="small-row"><div class="small robot-render" data-mood="success" aria-label="מישי מצליח" role="img"></div><p>גוף משותף · פנים וזרועות מתחלפות<br><span lang="ru" dir="ltr">512 / 64 px</span></p></div>
+    </figure>
+<figure data-sample="cheer">
+      <figcaption><strong>מישי מעודד</strong><span lang="ru" dir="ltr">Миши радуется</span></figcaption>
+      <div class="large robot-render" data-mood="cheer" aria-label="מישי מעודד" role="img"></div>
+      <div class="small-row"><div class="small robot-render" data-mood="cheer" aria-label="מישי מעודד" role="img"></div><p>גוף משותף · פנים וזרועות מתחלפות<br><span lang="ru" dir="ltr">512 / 64 px</span></p></div>
+    </figure>
+<figure data-sample="sleepy">
+      <figcaption><strong>מישי ישנוני</strong><span lang="ru" dir="ltr">Сонный Миши</span></figcaption>
+      <div class="large robot-render" data-mood="sleepy" aria-label="מישי ישנוני" role="img"></div>
+      <div class="small-row"><div class="small robot-render" data-mood="sleepy" aria-label="מישי ישנוני" role="img"></div><p>גוף משותף · פנים וזרועות מתחלפות<br><span lang="ru" dir="ltr">512 / 64 px</span></p></div>
+    </figure>
+<figure data-sample="microscope">
+      <figcaption><strong>מיקרוסקופ</strong><span lang="ru" dir="ltr">Микроскоп</span></figcaption>
+      <img class="large" src="../assets/stickers/sticker-01-microscope.svg" alt="מיקרוסקופ" width="512" height="512">
+      <div class="small-row"><img class="small" src="../assets/stickers/sticker-01-microscope.svg" alt="מיקרוסקופ בגודל קטן" width="64" height="64"><p>מדבקה 1 · אוסף התגליות<br><span lang="ru" dir="ltr">512 / 64 px</span></p></div>
+    </figure>
+<figure data-sample="test-tube">
+      <figcaption><strong>מבחנה</strong><span lang="ru" dir="ltr">Пробирка</span></figcaption>
+      <img class="large" src="../assets/stickers/sticker-02-test-tube.svg" alt="מבחנה" width="512" height="512">
+      <div class="small-row"><img class="small" src="../assets/stickers/sticker-02-test-tube.svg" alt="מבחנה בגודל קטן" width="64" height="64"><p>מדבקה 2 · אוסף התגליות<br><span lang="ru" dir="ltr">512 / 64 px</span></p></div>
+    </figure>
+<figure data-sample="magnet">
+      <figcaption><strong>מגנט</strong><span lang="ru" dir="ltr">Магнит</span></figcaption>
+      <img class="large" src="../assets/stickers/sticker-03-magnet.svg" alt="מגנט" width="512" height="512">
+      <div class="small-row"><img class="small" src="../assets/stickers/sticker-03-magnet.svg" alt="מגנט בגודל קטן" width="64" height="64"><p>מדבקה 3 · אוסף התגליות<br><span lang="ru" dir="ltr">512 / 64 px</span></p></div>
+    </figure>
+<figure data-sample="telescope">
+      <figcaption><strong>טלסקופ · נדיר</strong><span lang="ru" dir="ltr">Телескоп · Редкая</span></figcaption>
+      <img class="large" src="../assets/stickers/sticker-04-telescope.svg" alt="טלסקופ" width="512" height="512">
+      <div class="small-row"><img class="small" src="../assets/stickers/sticker-04-telescope.svg" alt="טלסקופ בגודל קטן" width="64" height="64"><p>מדבקה 4 · מסגרת זהב לנדירות<br><span lang="ru" dir="ltr">512 / 64 px</span></p></div>
+    </figure>
+<figure data-sample="abacus">
+      <figcaption><strong>חשבונייה</strong><span lang="ru" dir="ltr">Счёты</span></figcaption>
+      <img class="large" src="../assets/stickers/sticker-05-abacus.svg" alt="חשבונייה" width="512" height="512">
+      <div class="small-row"><img class="small" src="../assets/stickers/sticker-05-abacus.svg" alt="חשבונייה בגודל קטן" width="64" height="64"><p>מדבקה 5 · אוסף התגליות<br><span lang="ru" dir="ltr">512 / 64 px</span></p></div>
+    </figure>
+<figure data-sample="ruler-compass">
+      <figcaption><strong>סרגל ומחוגה</strong><span lang="ru" dir="ltr">Линейка и циркуль</span></figcaption>
+      <img class="large" src="../assets/stickers/sticker-06-ruler-compass.svg" alt="סרגל ומחוגה" width="512" height="512">
+      <div class="small-row"><img class="small" src="../assets/stickers/sticker-06-ruler-compass.svg" alt="סרגל ומחוגה בגודל קטן" width="64" height="64"><p>מדבקה 6 · אוסף התגליות<br><span lang="ru" dir="ltr">512 / 64 px</span></p></div>
+    </figure>
+<figure data-sample="cubes">
+      <figcaption><strong>קוביות</strong><span lang="ru" dir="ltr">Кубики</span></figcaption>
+      <img class="large" src="../assets/stickers/sticker-07-cubes.svg" alt="קוביות" width="512" height="512">
+      <div class="small-row"><img class="small" src="../assets/stickers/sticker-07-cubes.svg" alt="קוביות בגודל קטן" width="64" height="64"><p>מדבקה 7 · אוסף התגליות<br><span lang="ru" dir="ltr">512 / 64 px</span></p></div>
+    </figure>
+<figure data-sample="balance">
+      <figcaption><strong>מאזניים</strong><span lang="ru" dir="ltr">Весы</span></figcaption>
+      <img class="large" src="../assets/stickers/sticker-08-balance.svg" alt="מאזניים" width="512" height="512">
+      <div class="small-row"><img class="small" src="../assets/stickers/sticker-08-balance.svg" alt="מאזניים בגודל קטן" width="64" height="64"><p>מדבקה 8 · אוסף התגליות<br><span lang="ru" dir="ltr">512 / 64 px</span></p></div>
+    </figure>
+<figure data-sample="puzzle-piece">
+      <figcaption><strong>חלק פאזל</strong><span lang="ru" dir="ltr">Деталь пазла</span></figcaption>
+      <img class="large" src="../assets/stickers/sticker-09-puzzle-piece.svg" alt="חלק פאזל" width="512" height="512">
+      <div class="small-row"><img class="small" src="../assets/stickers/sticker-09-puzzle-piece.svg" alt="חלק פאזל בגודל קטן" width="64" height="64"><p>מדבקה 9 · אוסף התגליות<br><span lang="ru" dir="ltr">512 / 64 px</span></p></div>
+    </figure>
+<figure data-sample="light-bulb">
+      <figcaption><strong>נורה</strong><span lang="ru" dir="ltr">Лампочка</span></figcaption>
+      <img class="large" src="../assets/stickers/sticker-10-light-bulb.svg" alt="נורה" width="512" height="512">
+      <div class="small-row"><img class="small" src="../assets/stickers/sticker-10-light-bulb.svg" alt="נורה בגודל קטן" width="64" height="64"><p>מדבקה 10 · אוסף התגליות<br><span lang="ru" dir="ltr">512 / 64 px</span></p></div>
+    </figure>
+<figure data-sample="matches">
+      <figcaption><strong>גפרורים</strong><span lang="ru" dir="ltr">Спички</span></figcaption>
+      <img class="large" src="../assets/stickers/sticker-11-matches.svg" alt="גפרורים" width="512" height="512">
+      <div class="small-row"><img class="small" src="../assets/stickers/sticker-11-matches.svg" alt="גפרורים בגודל קטן" width="64" height="64"><p>מדבקה 11 · אוסף התגליות<br><span lang="ru" dir="ltr">512 / 64 px</span></p></div>
+    </figure>
+<figure data-sample="tiles">
+      <figcaption><strong>אריחים · נדיר</strong><span lang="ru" dir="ltr">Плитки · Редкая</span></figcaption>
+      <img class="large" src="../assets/stickers/sticker-12-tiles.svg" alt="אריחים" width="512" height="512">
+      <div class="small-row"><img class="small" src="../assets/stickers/sticker-12-tiles.svg" alt="אריחים בגודל קטן" width="64" height="64"><p>מדבקה 12 · מסגרת זהב לנדירות<br><span lang="ru" dir="ltr">512 / 64 px</span></p></div>
+    </figure>
+<figure data-sample="knight">
+      <figcaption><strong>פרש</strong><span lang="ru" dir="ltr">Конь</span></figcaption>
+      <img class="large" src="../assets/stickers/sticker-13-knight.svg" alt="פרש" width="512" height="512">
+      <div class="small-row"><img class="small" src="../assets/stickers/sticker-13-knight.svg" alt="פרש בגודל קטן" width="64" height="64"><p>מדבקה 13 · אוסף התגליות<br><span lang="ru" dir="ltr">512 / 64 px</span></p></div>
+    </figure>
+<figure data-sample="rook">
+      <figcaption><strong>צריח</strong><span lang="ru" dir="ltr">Ладья</span></figcaption>
+      <img class="large" src="../assets/stickers/sticker-14-rook.svg" alt="צריח" width="512" height="512">
+      <div class="small-row"><img class="small" src="../assets/stickers/sticker-14-rook.svg" alt="צריח בגודל קטן" width="64" height="64"><p>מדבקה 14 · אוסף התגליות<br><span lang="ru" dir="ltr">512 / 64 px</span></p></div>
+    </figure>
+<figure data-sample="crown">
+      <figcaption><strong>כתר</strong><span lang="ru" dir="ltr">Корона</span></figcaption>
+      <img class="large" src="../assets/stickers/sticker-15-crown.svg" alt="כתר" width="512" height="512">
+      <div class="small-row"><img class="small" src="../assets/stickers/sticker-15-crown.svg" alt="כתר בגודל קטן" width="64" height="64"><p>מדבקה 15 · אוסף התגליות<br><span lang="ru" dir="ltr">512 / 64 px</span></p></div>
+    </figure>
+<figure data-sample="chess-board">
+      <figcaption><strong>לוח שחמט</strong><span lang="ru" dir="ltr">Шахматная доска</span></figcaption>
+      <img class="large" src="../assets/stickers/sticker-16-chess-board.svg" alt="לוח שחמט" width="512" height="512">
+      <div class="small-row"><img class="small" src="../assets/stickers/sticker-16-chess-board.svg" alt="לוח שחמט בגודל קטן" width="64" height="64"><p>מדבקה 16 · אוסף התגליות<br><span lang="ru" dir="ltr">512 / 64 px</span></p></div>
+    </figure>
+<figure data-sample="globe">
+      <figcaption><strong>כדור הארץ</strong><span lang="ru" dir="ltr">Глобус</span></figcaption>
+      <img class="large" src="../assets/stickers/sticker-17-globe.svg" alt="כדור הארץ" width="512" height="512">
+      <div class="small-row"><img class="small" src="../assets/stickers/sticker-17-globe.svg" alt="כדור הארץ בגודל קטן" width="64" height="64"><p>מדבקה 17 · אוסף התגליות<br><span lang="ru" dir="ltr">512 / 64 px</span></p></div>
+    </figure>
+<figure data-sample="compass">
+      <figcaption><strong>מצפן</strong><span lang="ru" dir="ltr">Компас</span></figcaption>
+      <img class="large" src="../assets/stickers/sticker-18-compass.svg" alt="מצפן" width="512" height="512">
+      <div class="small-row"><img class="small" src="../assets/stickers/sticker-18-compass.svg" alt="מצפן בגודל קטן" width="64" height="64"><p>מדבקה 18 · אוסף התגליות<br><span lang="ru" dir="ltr">512 / 64 px</span></p></div>
+    </figure>
+<figure data-sample="balloon">
+      <figcaption><strong>כדור פורח</strong><span lang="ru" dir="ltr">Воздушный шар</span></figcaption>
+      <img class="large" src="../assets/stickers/sticker-19-balloon.svg" alt="כדור פורח" width="512" height="512">
+      <div class="small-row"><img class="small" src="../assets/stickers/sticker-19-balloon.svg" alt="כדור פורח בגודל קטן" width="64" height="64"><p>מדבקה 19 · אוסף התגליות<br><span lang="ru" dir="ltr">512 / 64 px</span></p></div>
+    </figure>
+<figure data-sample="treasure-map">
+      <figcaption><strong>מפת אוצר · נדיר</strong><span lang="ru" dir="ltr">Карта сокровищ · Редкая</span></figcaption>
+      <img class="large" src="../assets/stickers/sticker-20-treasure-map.svg" alt="מפת אוצר" width="512" height="512">
+      <div class="small-row"><img class="small" src="../assets/stickers/sticker-20-treasure-map.svg" alt="מפת אוצר בגודל קטן" width="64" height="64"><p>מדבקה 20 · מסגרת זהב לנדירות<br><span lang="ru" dir="ltr">512 / 64 px</span></p></div>
+    </figure>
+<figure data-sample="crane">
+      <figcaption><strong>עגור מנייר</strong><span lang="ru" dir="ltr">Бумажный журавлик</span></figcaption>
+      <img class="large" src="../assets/stickers/sticker-21-crane.svg" alt="עגור מנייר" width="512" height="512">
+      <div class="small-row"><img class="small" src="../assets/stickers/sticker-21-crane.svg" alt="עגור מנייר בגודל קטן" width="64" height="64"><p>מדבקה 21 · אוסף התגליות<br><span lang="ru" dir="ltr">512 / 64 px</span></p></div>
+    </figure>
+<figure data-sample="paper-boat">
+      <figcaption><strong>סירת נייר</strong><span lang="ru" dir="ltr">Бумажная лодка</span></figcaption>
+      <img class="large" src="../assets/stickers/sticker-22-paper-boat.svg" alt="סירת נייר" width="512" height="512">
+      <div class="small-row"><img class="small" src="../assets/stickers/sticker-22-paper-boat.svg" alt="סירת נייר בגודל קטן" width="64" height="64"><p>מדבקה 22 · אוסף התגליות<br><span lang="ru" dir="ltr">512 / 64 px</span></p></div>
+    </figure>
+<figure data-sample="maze">
+      <figcaption><strong>מבוך</strong><span lang="ru" dir="ltr">Лабиринт</span></figcaption>
+      <img class="large" src="../assets/stickers/sticker-23-maze.svg" alt="מבוך" width="512" height="512">
+      <div class="small-row"><img class="small" src="../assets/stickers/sticker-23-maze.svg" alt="מבוך בגודל קטן" width="64" height="64"><p>מדבקה 23 · אוסף התגליות<br><span lang="ru" dir="ltr">512 / 64 px</span></p></div>
+    </figure>
+<figure data-sample="book">
+      <figcaption><strong>ספר · נדיר</strong><span lang="ru" dir="ltr">Книга · Редкая</span></figcaption>
+      <img class="large" src="../assets/stickers/sticker-24-book.svg" alt="ספר" width="512" height="512">
+      <div class="small-row"><img class="small" src="../assets/stickers/sticker-24-book.svg" alt="ספר בגודל קטן" width="64" height="64"><p>מדבקה 24 · מסגרת זהב לנדירות<br><span lang="ru" dir="ltr">512 / 64 px</span></p></div>
+    </figure>
+  </main>
+  <footer>האיורים נכתבו ידנית בקוד SVG. הכיוון אושר ב־23 בנובמבר 2026; כאן מוצג הסט המלא. <a href="../assets/ATTRIBUTION.md">מקורות ורישיון</a> · <a href="../">חזרה למשחק</a></footer>
+  <script>
+    window.artReady = fetch('../assets/characters/mishi.svg').then(response => {
+      if (!response.ok) throw new Error('Mishi SVG failed to load');
+      return response.text();
+    }).then(source => {
+      const svg = new DOMParser().parseFromString(source, 'image/svg+xml').documentElement;
+      document.querySelectorAll('.robot-render').forEach(host => {
+        const clone = svg.cloneNode(true);
+        clone.querySelectorAll('[id]').forEach(el => el.removeAttribute('id'));
+        clone.querySelectorAll('g[data-mood]').forEach(group => group.setAttribute('display', group.dataset.mood === host.dataset.mood ? 'inline' : 'none'));
+        clone.setAttribute('aria-hidden', 'true');
+        host.append(clone);
+      });
+    });
+  </script>
+</body>
+</html>

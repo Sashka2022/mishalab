@@ -12,6 +12,7 @@ let server,browser;
  const entries=await page.evaluate(()=>PlaySession.choices());assert.equal(entries.length,13);assert.equal(new Set(entries.map(e=>e.key)).size,13);
  // Every entry point offers a level, and its exact selection reaches the actual game engine.
  for(const n of [1,7])for(const e of entries){
+  await page.locator(`[data-home-tab="${e.kind==='core'?'thinking':e.kind==='puzzle'?'boards':'courses'}"]`).click();
   if(e.kind==='core')await page.locator(`[data-track="${e.key}"]`).first().click();
   else if(e.kind==='puzzle')await page.locator(`[data-puzzle-kind="${e.key}"]`).first().click();
   else await page.locator(`[data-lg-value="${e.kind==='atlas'?'trivia':e.key}"]`).click();
@@ -22,14 +23,14 @@ let server,browser;
   await home();
  }
  // Atlas resumes the saved question even when a different launch level was selected.
- await page.locator('[data-lg-value="trivia"]').click();await level(3);
+ await page.locator('[data-home-tab="courses"]').click();await page.locator('[data-lg-value="trivia"]').click();await level(3);
  const atlasAnswer=await page.evaluate(()=>AtlasQuiz.current().answer);
  await page.locator(`[data-atlas-action="select"][data-atlas-value="${atlasAnswer}"]`).click();await page.locator('[data-atlas-action="check"]').click();await page.locator('[data-atlas-action="next"]').click();await home();
- await page.locator('[data-lg-value="trivia"]').click();await page.locator('.launch-levels [data-value="1"]').click();await page.locator('[data-session-action="resume"]').click();
+ await page.locator('[data-home-tab="courses"]').click();await page.locator('[data-lg-value="trivia"]').click();await page.locator('.launch-levels [data-value="1"]').click();await page.locator('[data-session-action="resume"]').click();
  assert.equal(await page.evaluate(()=>AtlasQuiz.state().activeRound),3);assert.equal(await page.evaluate(()=>AtlasQuiz.state().runs[3].index),1);await home();
  // A standalone game can resume its existing level without applying a new selection.
- await page.locator('[data-track="math"]').first().click();await level(7);await home();
- await page.locator('[data-track="math"]').first().click();await page.locator('[data-session-action="level"][data-value="2"]').click();
+ await page.locator('[data-home-tab="thinking"]').click();await page.locator('[data-track="math"]').first().click();await level(7);await home();
+ await page.locator('[data-home-tab="thinking"]').click();await page.locator('[data-track="math"]').first().click();await page.locator('[data-session-action="level"][data-value="2"]').click();
  await page.locator('[data-session-action="resume"]').click();assert.equal(await page.evaluate(()=>session.task.level),7);await home();
  async function solveCurrent(useHint=false,wrongAtlas=false){
   const e=await page.evaluate(()=>PlaySession.entry());
@@ -84,7 +85,7 @@ let server,browser;
     const from=await page.evaluate(()=>PlaySession.learningRun().task.solutionMove[0]);
     await page.locator(`[data-lg-action="match"][data-lg-value="${from}"]`).click();
     await page.screenshot({path:`artifacts/journey-matches-${lang}.png`,fullPage:true});await home();
-    await page.locator('[data-track="math"]').first().click();await level(2);
+    await page.locator('[data-home-tab="thinking"]').click();await page.locator('[data-track="math"]').first().click();await level(2);
     const savedSignature=await page.evaluate(()=>session.task.signature);await home();await page.reload();
     await page.locator('[data-session-action="journey-resume"]').click();assert.equal(await page.evaluate(()=>PlaySession.entry().key),'matches');
     assert.equal(await page.evaluate(()=>PlaySession.learningRun().task.source),from);
@@ -93,7 +94,8 @@ let server,browser;
    }
    await solveCurrent(i===1,i===3);
   }
-  assert.equal(await page.locator('.journey-finish').count(),1);assert.equal(await page.locator('.review-exercise').count(),13);
+  assert.equal(await page.locator('.journey-finish').count(),1);if(await page.locator('[data-reward-action="dismiss-rank"]').count())await page.locator('[data-reward-action="dismiss-rank"]').click();
+  assert.equal(await page.locator('.review-exercise').count(),13);
   assert.ok(await page.locator('.review-strengths article').count());const result=await page.evaluate(()=>PlaySession.state().results);assert.equal(result.filter(r=>r.correct).length,12);assert.equal(result.find(r=>r.activity==='matches').hints,1);
   await page.locator('.review-exercises>summary').click();await page.screenshot({path:`artifacts/session-review-${lang}.png`,fullPage:true});
   if(lang==='he')await page.clock.install();
@@ -105,7 +107,7 @@ let server,browser;
   await home();await page.reload();await page.locator('[data-session-action="last"]').click();assert.equal(await page.locator('.review-exercise').count(),13);await home();
  }
  // A new standalone core session also ends on a durable report.
- await page.locator('[data-track="math"]').first().click();await level(1);
+ await page.locator('[data-home-tab="thinking"]').click();await page.locator('[data-track="math"]').first().click();await level(1);
  for(let i=0;i<5;i++){
   await page.evaluate(()=>{session.task.attempts=1;finishTask(true);render();});await page.locator('[data-action="next"]').click();
  }

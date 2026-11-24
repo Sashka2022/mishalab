@@ -7,6 +7,8 @@ let server, browser;
   browser = await chromium.launch({ executablePath: '/usr/bin/chromium', args: ['--no-sandbox'] });
   const page = await browser.newPage();
   const errors=[];page.on('pageerror',e=>errors.push(e.message));
+  // New summary celebration is verified separately in rewards-ui.cjs; dismiss it to continue the legacy flow.
+  await page.addLocatorHandler(page.locator('[data-reward-action="dismiss-rank"]'),async button=>button.click());
   await page.goto('http://127.0.0.1:8792');
   const catalog = await page.evaluate(() => {
     const fail=[], report={}, last={};
@@ -77,7 +79,7 @@ let server, browser;
   const randomAccess=await fresh.evaluate(()=>Object.fromEntries(Object.keys(LearningGames.catalog).filter(game=>LearningGames.catalog[game].mode!=='atlas').map(game=>[game,LearningGames.create(game,100,9)])));
   assert.deepEqual(randomAccess,catalog.last);await fresh.close();
 
-  async function openStage(game,stage){await page.locator(`[data-lg-action="open"][data-lg-value="${game}"]`).click();await page.locator('[data-session-action="browse"]').click();assert.equal(await page.locator('[data-lg-action="stage"]').count(),100);await page.locator(`[data-lg-action="stage"][data-lg-value="${stage}"]`).click();}
+  async function openStage(game,stage){if(await page.locator('[data-home-tab="courses"]').isVisible())await page.locator('[data-home-tab="courses"]').click();await page.locator(`[data-lg-action="open"][data-lg-value="${game}"]`).click();await page.locator('[data-session-action="browse"]').click();assert.equal(await page.locator('[data-lg-action="stage"]').count(),100);await page.locator(`[data-lg-action="stage"][data-lg-value="${stage}"]`).click();}
   async function current(){return page.evaluate(()=>LearningUI.state().sessions[LearningUI.state().activeGame].task);}
   async function solve(){
     let q=await current();
@@ -87,13 +89,13 @@ let server, browser;
     else await page.locator(`[data-lg-action="option"][data-lg-value="${q.answer}"]`).click();
     await page.locator('[data-lg-action="check"]').click();await page.locator('.lg-feedback.success').waitFor();
   }
-  await page.locator('[data-action="puzzle-auto"]').click();
+  if(!await page.locator('[data-action="puzzle-auto"]').isVisible())await page.locator('.difficulty-picker > summary').click();await page.locator('[data-action="puzzle-auto"]').click();
   for(const game of Object.keys(catalog.report)){
     await openStage(game,1);
     for(let i=0;i<10;i++){assert.equal((await current()).index,i);await solve();await page.locator('[data-lg-action="next"]').click();}
     await page.locator('.lg-course-summary').waitFor();assert.equal(await page.locator('.session-review .review-exercise').count(),10);
     assert.equal(await page.evaluate(game=>LearningUI.state().progress[game][1].best,game),10);
-    await page.reload();await page.locator(`[data-lg-action="open"][data-lg-value="${game}"]`).click();await page.locator('[data-session-action="browse"]').click();
+    await page.reload();if(await page.locator('[data-home-tab="courses"]').isVisible())await page.locator('[data-home-tab="courses"]').click();await page.locator(`[data-lg-action="open"][data-lg-value="${game}"]`).click();await page.locator('[data-session-action="browse"]').click();
     assert.equal(await page.locator('[data-lg-action="stage"][data-lg-value="1"]').getAttribute('class').then(s=>s.includes('completed')),true);
     await page.locator('[data-lg-action="stage"][data-lg-value="100"]').click();
     await solve();await page.locator('[data-lg-action="next"]').click();
@@ -113,8 +115,8 @@ let server, browser;
   assert.equal((await current()).variant,'build');await solve();
   await page.locator('[data-action="home"]').first().click();
   // Automatic advancement respects the ten-exercise stage and the shared pause switch.
-  await page.clock.install();await openStage('matches',3);await page.locator('[data-action="puzzle-auto"]').click();await solve();await page.clock.runFor(4100);assert.equal((await current()).index,1);
-  await solve();await page.locator('[data-action="puzzle-auto"]').click();await page.clock.runFor(6000);assert.equal((await current()).index,1);
+  await page.clock.install();await openStage('matches',3);if(!await page.locator('[data-action="puzzle-auto"]').isVisible())await page.locator('.difficulty-picker > summary').click();await page.locator('[data-action="puzzle-auto"]').click();await solve();await page.clock.runFor(4100);assert.equal((await current()).index,1);
+  await solve();if(!await page.locator('[data-action="puzzle-auto"]').isVisible())await page.locator('.difficulty-picker > summary').click();await page.locator('[data-action="puzzle-auto"]').click();await page.clock.runFor(6000);assert.equal((await current()).index,1);
   await page.locator('[data-action="home"]').first().click();await page.locator('[data-action="teacher"]').click();assert.equal(await page.locator('.lg-teacher-grid .stat').count(),5);
   assert.deepEqual(errors,[]);
   console.log(JSON.stringify(catalog.report));

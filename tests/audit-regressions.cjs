@@ -7,7 +7,9 @@ let server,browser;
  const origin='http://127.0.0.1:'+server.address().port;
  browser=await chromium.launch({executablePath:'/usr/bin/chromium',args:['--no-sandbox']});
  const page=await browser.newPage({viewport:{width:1440,height:1000}}),errors=[];page.on('pageerror',e=>errors.push(e.message));
- await page.goto(origin);await page.locator('[data-lang="he"]').click();
+ // New summary celebration is verified separately in rewards-ui.cjs; dismiss it to continue the legacy flow.
+  await page.addLocatorHandler(page.locator('[data-reward-action="dismiss-rank"]'),async button=>button.click());
+  await page.goto(origin);await page.locator('[data-lang="he"]').click();
  await page.evaluate(()=>{data.gameLevels={hebrew:9};data.puzzleAuto=false;saveProgress();});
  await page.locator('[data-track="math"]').first().click();await page.locator('.launch-levels [data-value="3"]').click();await page.locator('[data-session-action="begin"]').click();
  async function solve(){

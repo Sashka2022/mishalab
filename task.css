@@ -1,0 +1,818 @@
+/* task.css: component styles. Shared design values live in tokens.css. */
+.progress {
+  display: flex;
+  gap: 8px;
+  margin: 22px 0;
+}
+.progress i {
+  height: 7px;
+  flex: 1;
+  background: var(--swatch-256);
+  border-radius: 10px;
+}
+.progress i.done {
+  background: var(--swatch-257);
+}
+.progress i.current {
+  background: var(--purple);
+}
+.math {
+  direction: ltr;
+  text-align: center;
+  font-size: var(--fs-fluid-28);
+  padding: 25px 0;
+  font-variant-numeric: tabular-nums;
+}
+.answer {
+  width: 100%;
+  max-width: 400px;
+  display: block;
+  margin: 20px auto;
+  padding: 16px;
+  border: 2px solid var(--swatch-258);
+  border-radius: 15px;
+  direction: ltr;
+  text-align: center;
+}
+textarea.answer {
+  font-size: var(--fs-md);
+  min-height: 100px;
+  direction: inherit;
+}
+.feedback {
+  border-radius: 15px;
+  padding: 18px;
+  margin-top: 20px;
+  background: var(--swatch-259);
+  line-height: 1.6;
+}
+.feedback.success {
+  background: var(--swatch-260);
+}
+.hint {
+  background: var(--swatch-261);
+  border-radius: 15px;
+  padding: 18px;
+  margin-top: 14px;
+}
+.visual {
+  max-width: 440px;
+  margin: 15px auto;
+  direction: ltr;
+}
+.visual svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.board {
+  display: grid;
+  grid-template-columns: repeat(8,1fr);
+  border: 5px solid var(--swatch-262);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.square {
+  border-radius: 0;
+  aspect-ratio: 1;
+  padding: 0;
+  min-height: 0;
+  font-size: var(--fs-fluid-29);
+  background: var(--swatch-263);
+  position: relative;
+}
+.square.dark {
+  background: var(--swatch-264);
+}
+.square.selected {
+  box-shadow: inset 0 0 0 4px var(--swatch-23);
+}
+.square .coord {
+  position: absolute;
+  bottom: 1px;
+  left: 2px;
+  font-size: var(--fs-xs);
+  color: var(--swatch-265);
+}
+.options {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 18px;
+}
+.options button.selected {
+  background: var(--purple);
+  color: var(--swatch-4);
+}
+.gridbox {
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  gap: 5px;
+}
+.cell {
+  aspect-ratio: 1;
+  border-radius: 6px;
+  background: var(--swatch-266);
+  padding: 0;
+}
+.cell.on {
+  background: var(--swatch-267);
+}
+.match-slot {
+  cursor: pointer;
+  stroke: var(--swatch-268);
+  stroke-width: 8;
+  stroke-linecap: round;
+}
+.match-slot.on {
+  stroke: var(--swatch-269);
+}
+.match-slot.chosen {
+  stroke: var(--swatch-23);
+}
+.mission-rail {
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  gap: 10px;
+  margin: 18px 0 26px;
+}
+.mission-node {
+  position: relative;
+  text-align: center;
+  color: var(--swatch-270);
+  font-size: var(--fs-xs);
+}
+.mission-node:before {
+  content: "";
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  margin: 0 auto 7px;
+  border-radius: 50%;
+  background: var(--swatch-271);
+  border: 4px solid var(--swatch-272);
+}
+.mission-node.done:before {
+  content: "✓";
+  background: var(--swatch-273);
+  color: var(--swatch-18);
+}
+.mission-node.current:before {
+  content: "✦";
+  background: var(--swatch-23);
+  color: var(--swatch-18);
+  box-shadow: 0 0 0 7px var(--swatch-25);
+  animation: pulse var(--t-1800ms) ease-in-out infinite;
+}
+.task-shell {
+  position: relative;
+  border-top: 6px solid var(--swatch-23);
+  box-shadow: 0 25px 55px var(--swatch-274);
+}
+.quest-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.combo {
+  background: var(--swatch-275);
+  color: var(--swatch-276);
+  border-radius: 999px;
+  padding: 8px 13px;
+  font-weight: bold;
+}
+.xp-pop {
+  color: var(--swatch-277);
+  font-weight: bold;
+}
+.answer {
+  background: var(--swatch-18);
+  box-shadow: inset 0 2px 8px var(--swatch-278);
+  transition: border-color var(--t-200ms) ease,box-shadow var(--t-200ms) ease;
+}
+.answer:focus {
+  border-color: var(--swatch-23);
+  box-shadow: 0 0 0 5px var(--swatch-279);
+}
+.feedback.success {
+  border: 1px solid var(--swatch-280);
+  animation: popIn var(--t-350ms) ease;
+}
+.feedback.success:before {
+  content: "✦ ";
+  color: var(--swatch-281);
+}
+.options button {
+  transition: transform var(--t-fast) ease,background var(--t-fast) ease;
+}
+.options button:hover {
+  transform: translateY(-3px);
+}
+.level-up {
+  background: linear-gradient(120deg,var(--swatch-143),var(--swatch-282));
+  border: 1px solid var(--swatch-283);
+  border-radius: 20px;
+  padding: 18px;
+  margin-top: 18px;
+}
+@keyframes floaty {
+  0%,100% {
+    transform: translateY(0) rotate(-2deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(2deg);
+  }
+}
+@keyframes pulse {
+  0%,100% {
+    box-shadow: 0 0 0 5px var(--swatch-279);
+  }
+  50% {
+    box-shadow: 0 0 0 11px var(--swatch-284);
+  }
+}
+@keyframes popIn {
+  from {
+    transform: scale(.96);
+    opacity: .4;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@media (max-width:760px) {
+  .mission-node span {
+    display: none;
+  }
+}
+@media (max-width:460px) {
+  .task-shell {
+    padding: 19px;
+  }
+  .mission-rail {
+    gap: 4px;
+  }
+}
+.task-shell {
+  border-top-color: var(--ocean);
+  box-shadow: var(--shadow);
+}
+.mission-node.current:before {
+  background: var(--ocean);
+  box-shadow: 0 0 0 7px var(--swatch-47);
+  animation: none;
+}
+.mission-node.done:before {
+  background: var(--success);
+}
+.combo {
+  background: var(--swatch-285);
+  color: var(--swatch-286);
+}
+.feedback {
+  background: var(--swatch-287);
+  border: 1px solid var(--swatch-288);
+}
+.feedback.success {
+  background: var(--swatch-50);
+  border-color: var(--swatch-289);
+}
+.feedback.success:before {
+  content: "";
+}
+.hint {
+  background: var(--surface-violet);
+  border: 1px solid var(--swatch-290);
+}
+.level-up {
+  background: var(--swatch-143);
+  border-color: var(--swatch-291);
+}
+@keyframes mishi-arrive {
+  from {
+    opacity: 0;
+    transform: translate(-18px,18px) rotate(-3deg);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@media (max-width:820px) {
+  .quest-head {
+    align-items: flex-start;
+  }
+}
+body.task-screen {
+  height: 100dvh;
+  overflow: hidden;
+}
+body.task-screen header {
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 7px;
+  padding: 7px 12px;
+  min-height: 56px;
+}
+body.task-screen header .brand {
+  display: none;
+}
+body.task-screen header nav {
+  order: 1;
+  flex: 1;
+  width: auto;
+  min-width: 0;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+}
+body.task-screen header .language-switch {
+  flex: 1;
+  min-width: 0;
+}
+body.task-screen header .language-switch button {
+  min-width: 0;
+  min-height: 38px;
+  padding: 5px 8px;
+  font-size: var(--fs-xs);
+}
+body.task-screen header [data-action="teacher"] {
+  display: none;
+}
+body.task-screen header .nav-action {
+  min-width: 42px;
+  min-height: 42px;
+  padding: 8px;
+}
+body.task-screen header .nav-action span {
+  display: none;
+}
+body.task-screen header .hud {
+  order: 2;
+  width: auto;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+}
+body.task-screen header .hud-pill {
+  display: none;
+}
+body.task-screen header .speech-toggle,body.task-screen header .clock-toggle {
+  min-width: 42px;
+  min-height: 42px;
+  padding: 7px 9px;
+}
+body.task-screen footer {
+  display: none;
+}
+body.task-screen main {
+  margin: 6px auto 0;
+  overflow: hidden;
+  padding-block: 0 6px;
+}
+body.task-screen #app {
+  height: 100%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+body.task-screen .quest-head {
+  flex: 0 0 auto;
+  gap: 6px;
+  font-size: var(--fs-xs);
+}
+body.task-screen .quest-head .badge,body.task-screen .quest-head .combo {
+  padding: 5px 9px;
+}
+body.task-screen .mission-rail {
+  flex: 0 0 auto;
+  margin: 7px 0 9px;
+}
+body.task-screen .mission-node:before {
+  width: 28px;
+  height: 28px;
+  border-width: 3px;
+  margin-bottom: 3px;
+}
+body.task-screen .task-shell {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+  margin-top: 0;
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+}
+body.task-screen .task-shell .eyebrow {
+  font-size: var(--fs-xs);
+}
+body.task-screen .task-shell .challenge-band {
+  padding: 4px 9px;
+  margin-top: 4px;
+  font-size: var(--fs-xs);
+}
+body.task-screen .task-shell h2 {
+  font-size: var(--fs-fluid-30);
+  line-height: 1.25;
+  margin: 6px 0;
+}
+body.task-screen .task-shell h2 .ru {
+  font-size: var(--fs-second);
+  margin-top: 3px;
+}
+body.task-screen .task-shell p {
+  margin-block: 5px;
+  line-height: 1.35;
+}
+body.task-screen .task-shell .math {
+  font-size: var(--fs-fluid-31);
+  padding: 7px 0;
+}
+body.task-screen .task-shell .visual {
+  width: min(100%,38dvh);
+  max-width: 360px;
+  margin: 5px auto;
+  min-height: 0;
+  flex: 0 0 auto;
+}
+body.task-screen .task-shell .board {
+  width: min(100%,38dvh);
+  margin: auto;
+}
+body.task-screen .task-shell .answer {
+  min-height: 44px;
+  margin: 6px auto;
+  padding: 9px 12px;
+}
+body.task-screen .task-shell textarea.answer {
+  min-height: 62px;
+}
+body.task-screen .task-shell .options {
+  gap: 7px;
+  margin-top: 7px;
+}
+body.task-screen .task-shell .options button {
+  min-height: 44px;
+  padding: 8px 12px;
+}
+body.task-screen .task-shell .feedback,body.task-screen .task-shell .hint {
+  padding: 9px 12px;
+  margin-top: 6px;
+  font-size: var(--fs-sm);
+}
+body.task-screen .task-shell>.actions {
+  flex: 0 0 auto;
+  gap: 7px;
+  margin-top: auto;
+  padding-top: 7px;
+}
+body.task-screen .task-shell>.actions button {
+  min-height: 44px;
+  padding: 8px 14px;
+}
+body.task-screen .task-shell>.panel {
+  padding: 8px 10px;
+  margin-top: 6px;
+}
+body.task-screen .task-shell>.panel .options {
+  margin-top: 5px;
+}
+body.task-screen.task-compact .quest-head {
+  font-size: var(--fs-xs);
+}
+body.task-screen.task-compact .mission-rail {
+  margin: 4px 0 6px;
+}
+body.task-screen.task-compact .task-shell {
+  padding: 10px 14px;
+}
+body.task-screen.task-compact .task-shell h2 {
+  font-size: var(--fs-md);
+  margin: 3px 0;
+}
+body.task-screen.task-compact .task-shell .visual {
+  width: min(100%,31dvh);
+  max-width: 290px;
+  margin: 3px auto;
+}
+body.task-screen.task-compact .task-shell .board {
+  width: min(100%,31dvh);
+}
+body.task-screen.task-compact .task-shell .math {
+  font-size: var(--fs-fluid-54);
+  padding: 3px 0;
+}
+body.task-screen.task-compact .task-shell .feedback,body.task-screen.task-compact .task-shell .hint {
+  font-size: var(--fs-xs);
+  padding: 6px 9px;
+  margin-top: 4px;
+}
+body.task-screen.task-compact .task-shell textarea.answer {
+  min-height: 50px;
+}
+body.task-screen.task-tight .quest-head .meta {
+  display: none;
+}
+body.task-screen.task-tight .mission-rail {
+  height: 7px;
+  gap: 4px;
+  margin: 3px 0 5px;
+}
+body.task-screen.task-tight .mission-node {
+  font-size: var(--fs-fluid-32);
+}
+body.task-screen.task-tight .mission-node:before {
+  content: ""!important;
+  width: 100%;
+  height: 7px;
+  border: 0;
+  margin: 0;
+  box-shadow: none!important;
+  border-radius: 8px;
+}
+body.task-screen.task-tight .task-shell {
+  padding: 7px 10px;
+}
+body.task-screen.task-tight .task-shell .eyebrow {
+  font-size: var(--fs-xs);
+}
+body.task-screen.task-tight .task-shell .challenge-band {
+  font-size: var(--fs-xs);
+  padding: 2px 7px;
+  margin-top: 2px;
+}
+body.task-screen.task-tight .task-shell h2 {
+  font-size: var(--fs-fluid-55);
+  line-height: 1.18;
+  margin: 2px 0;
+}
+body.task-screen.task-tight .task-shell h2 .ru {
+  font-size: var(--fs-fluid-33);
+}
+body.task-screen.task-tight .task-shell .visual {
+  width: min(100%,27dvh);
+  max-width: 240px;
+  margin: 2px auto;
+}
+body.task-screen.task-tight .task-shell .board {
+  width: min(100%,27dvh);
+}
+body.task-screen.task-tight .task-shell .answer {
+  margin: 3px auto;
+  padding: 6px 9px;
+}
+body.task-screen.task-tight .task-shell .options {
+  margin-top: 3px;
+  gap: 4px;
+}
+body.task-screen.task-tight .task-shell .options button {
+  padding: 6px 9px;
+}
+body.task-screen.task-tight .task-shell>.actions {
+  padding-top: 3px;
+  gap: 4px;
+}
+body.task-screen.task-tight .task-shell .feedback,body.task-screen.task-tight .task-shell .hint {
+  font-size: var(--fs-xs);
+  padding: 4px 7px;
+  margin-top: 3px;
+}
+body.task-screen.task-tight .task-shell .level-up {
+  font-size: var(--fs-xs);
+  padding: 4px 7px;
+  margin-top: 3px;
+}
+body.task-screen.task-tight .task-shell p {
+  margin-block: 2px;
+  line-height: 1.2;
+}
+@media (max-width:430px) {
+  body.task-screen header {
+    padding-inline: 7px;
+  }
+  body.task-screen header .language-switch button {
+    font-size: var(--fs-xs);
+    padding-inline: 5px;
+  }
+  body.task-screen header .speech-toggle,body.task-screen header .clock-toggle {
+    padding-inline: 7px;
+  }
+  body.task-screen main {
+    padding-inline: 8px;
+  }
+}
+body.task-screen {
+  background-color: var(--swatch-292);
+}
+body.task-screen main {
+  max-width: 1000px;
+}
+body.task-screen header {
+  border-radius: 0 0 18px 18px;
+  margin-top: 0;
+  border-width: 0 0 4px;
+}
+body.task-screen .task-shell {
+  background: var(--swatch-293);
+  border: 3px solid var(--swatch-294);
+  border-top: 6px solid var(--swatch-295);
+  border-bottom: 7px solid var(--swatch-296);
+  border-radius: 26px;
+  box-shadow: 0 8px 0 var(--swatch-297);
+}
+body.task-screen .quest-head .badge {
+  background: var(--swatch-298);
+  color: var(--swatch-299);
+  border: 1px solid var(--swatch-300);
+}
+body.task-screen .combo {
+  background: var(--swatch-301);
+  border: 1px solid var(--swatch-302);
+  color: var(--swatch-303);
+}
+body.task-screen .task-shell>.actions .primary {
+  background: var(--ocean);
+  border: 2px solid var(--swatch-76);
+  border-bottom: 5px solid var(--swatch-77);
+}
+body.task-screen .task-shell>.actions button {
+  border-radius: 13px;
+}
+body.task-screen .task-shell>.actions button:not(.primary) {
+  background: var(--swatch-304);
+  color: var(--swatch-305);
+  border: 1px solid var(--swatch-306);
+  border-bottom: 4px solid var(--swatch-307);
+}
+body.task-screen .task-shell h2 {
+  color: var(--swatch-308);
+}
+body.task-screen .math {
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: var(--ocean);
+  background: var(--swatch-309);
+  border-radius: 17px;
+  max-width: 620px;
+  min-width: 200px;
+  margin: 8px auto;
+}
+body.task-screen .answer {
+  border: 3px solid var(--swatch-310);
+  border-bottom: 5px solid var(--swatch-311);
+  background: var(--swatch-18);
+  border-radius: 14px;
+}
+body.task-screen .options button {
+  background: var(--swatch-312);
+  border: 2px solid var(--swatch-313);
+  border-bottom: 5px solid var(--swatch-314);
+  color: var(--swatch-315);
+  font-weight: 600;
+}
+body.task-screen .options button.selected {
+  background: var(--swatch-295);
+  color: var(--swatch-18);
+  border-color: var(--swatch-316);
+}
+.mission-node.current:before {
+  background: var(--swatch-295);
+  border-color: var(--swatch-309);
+  box-shadow: 0 0 0 4px var(--swatch-317);
+}
+.mission-node.done:before {
+  background: var(--swatch-318);
+}
+.feedback.success {
+  background: var(--swatch-319);
+  border: 2px solid var(--swatch-320);
+}
+.hint {
+  background: var(--swatch-321);
+  border: 2px solid var(--swatch-322);
+}
+@media (max-width:820px) {
+  body.task-screen .brand:before {
+    display: none;
+  }
+  body.task-screen header {
+    margin: 0;
+  }
+}
+.mixed-session .quest-head,.mixed-session .mission-rail,.mixed-session .task-shell>.eyebrow {
+  display: none;
+}
+.mixed-session .task-shell {
+  padding: 24px;
+}
+@media (max-width:680px) {
+  .mixed-session .task-shell {
+    padding: 17px 12px;
+  }
+}
+/* A readable question remains the focal point, including on short screens. */
+body.task-screen .task-shell h2,body.task-screen.task-compact .task-shell h2,body.task-screen.task-tight .task-shell h2,.lg-task-card>h2 {
+  font-size: var(--fs-prompt);
+  line-height: 1.5;
+}
+body.task-screen .task-shell h2 .ru,body.task-screen.task-tight .task-shell h2 .ru {
+  font-size: var(--fs-second);
+  line-height: 1.5;
+}
+.task-shell h2 .bi > span,.lg-task-card>h2 .bi > span {
+  text-align: right;
+}
+.task-shell .actions .primary,.lg-task-actions .primary {
+  flex: 2;
+}
+.task-shell .actions button[data-action="skip"],.lg-task-actions button[data-learning-action="skip"] {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  color: var(--text-secondary);
+}
+.hint-dots {
+  letter-spacing: 3px;
+  white-space: nowrap;
+}
+.numeric-keypad {
+  display: grid;
+  grid-template-columns: repeat(3,minmax(52px,1fr));
+  gap: 6px;
+  direction: ltr;
+  width: min(100%,330px);
+  margin: 8px auto;
+}
+.numeric-keypad button {
+  min-height: 52px;
+  padding: 4px;
+  font-size: var(--fs-lg);
+  background: var(--sheet);
+  border: 1px solid var(--line);
+  border-bottom: 3px solid var(--line);
+}
+.numeric-keypad button:active {
+  transform: translateY(2px);
+  border-bottom-width: 1px;
+}
+.numeric-keypad .keypad-check {
+  background: var(--primary);
+  color: var(--on-primary);
+}
+@media(min-width:900px) {
+  .task-shell h2 .bi {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    align-items: start;
+    direction: rtl;
+  }
+  .task-shell h2 .bi>.bi__ru {
+    border-inline-start: 1px solid var(--line);
+    padding-inline-start: 24px;
+    text-align: left;
+  }
+}
+.has-touch-keypad>.actions [data-action="check"] {
+  display: none;
+}
+@media(pointer:coarse) {
+  .has-touch-keypad {
+    overflow: auto!important;
+  }
+  .has-touch-keypad .numeric-keypad {
+    flex: 0 0 auto;
+  }
+  .has-touch-keypad .mishi-companion {
+    display: none;
+  }
+}
+@media(max-width:820px) {
+  body.task-screen header {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  body.task-screen header .hud {
+    flex: 0 0 100%;
+    width: 100%;
+    order: 1;
+  }
+  body.task-screen header nav {
+    flex: 0 0 100%;
+    width: 100%;
+    order: 2;
+  }
+}
+@media(min-width:900px) {
+  .task-shell h2 .bi>.bi__ru {
+    border-inline-start: 0;
+    padding-inline-start: 0;
+    border-right: 1px solid var(--line);
+    padding-right: 24px;
+  }
+}

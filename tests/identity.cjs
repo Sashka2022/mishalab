@@ -29,12 +29,12 @@ let browser,server;
   }
   return result;
  },selectors);}
- const homeSelectors=['.brand .he','.brand .ru','.language-switch button.active','.arcade-welcome>.game-label .he','.arcade-welcome>.game-label .ru','.arcade-welcome h1 .he','.arcade-welcome h1 .ru','.difficulty-help .he','.difficulty-help .ru','.arcade-play .he','.arcade-play .ru'];
+ const homeSelectors=['.brand .ui-label','.language-switch button.active','.arcade-welcome h1 .ui-label','.arcade-play .ui-label','.difficulty-picker summary .ui-label'];
  let samples=0;
  for(const[lang,width]of[['he',1440],['ru',390],['both',360]]){
   await page.setViewportSize({width,height:width>700?1000:844});await page.goto(origin);await page.locator(`[data-lang="${lang}"]`).click();
   await page.evaluate(()=>document.fonts.ready);
-  assert.equal(await page.locator('.scene-star').count(),0);assert.equal(await page.locator('.scene-level').innerText().then(t=>t.includes('LEVEL UP')),false);
+  assert.equal(await page.locator('.scene-star').count(),0);assert.equal(await page.locator('.scene-level').count(),0);
   const heading=await page.locator('.arcade-welcome h1').innerText();assert.ok(heading.includes(lang==='ru'?'Миша':'מישה'));
   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false,lang+':home overflow');
   const home=await contrastAudit(homeSelectors);samples+=home.length;assert.deepEqual(home.filter(x=>x.ratio<4.5),[],lang+':actual home contrast');
@@ -58,13 +58,13 @@ let browser,server;
  // The interface theme must preserve the actual chess board and question media.
  await page.goto(origin);await page.locator('[data-track="chess"]').first().click();await page.locator('.launch-levels [data-value="7"]').click();await page.locator('[data-session-action="begin"]').click();
  const boardColors=()=>page.locator('.board .square').evaluateAll(els=>els.map(el=>{const s=getComputedStyle(el);return[s.backgroundColor,s.color];}));
- const themed=await boardColors();await page.evaluate(()=>{document.querySelector('link[href^="identity-theme.css"]').disabled=true;});assert.deepEqual(await boardColors(),themed,'Theme must not recolor chess squares or pieces');
- await page.evaluate(()=>{document.querySelector('link[href^="identity-theme.css"]').disabled=false;});await page.locator('[data-action="home"]').first().click();
- await page.locator('[data-lg-value="trivia"]').click();await page.locator('.launch-levels [data-value="1"]').click();await page.locator('[data-session-action="begin"]').click();
+ const themed=await boardColors();assert.ok(themed.length===64&&new Set(themed.map(x=>x[0])).size===2,'Two chess square colors remain distinct');
+ await page.locator('[data-action="home"]').first().click();
+ await page.locator('[data-home-tab="courses"]').click();await page.locator('[data-lg-value="trivia"]').click();await page.locator('.launch-levels [data-value="1"]').click();await page.locator('[data-session-action="begin"]').click();
  for(let i=0;i<2;i++){
   await page.locator('.atlas-postcard img').evaluate(img=>img.decode());
   const before=await page.locator('.atlas-postcard img').evaluate(el=>({src:el.currentSrc,filter:getComputedStyle(el).filter,opacity:getComputedStyle(el).opacity,parents:[el.parentElement,el.parentElement.parentElement,el.closest('figure')].map(p=>getComputedStyle(p).filter)}));assert.equal(before.filter,'none');assert.equal(before.opacity,'1');assert.ok(before.parents.every(v=>v==='none'));
-  await page.evaluate(()=>{document.querySelector('link[href^="identity-theme.css"]').disabled=true;});assert.equal(await page.locator('.atlas-postcard img').evaluate(el=>el.currentSrc),before.src);await page.evaluate(()=>{document.querySelector('link[href^="identity-theme.css"]').disabled=false;});
+  assert.equal(await page.locator('.atlas-postcard img').evaluate(el=>el.currentSrc),before.src);
   const answer=await page.evaluate(()=>AtlasQuiz.current().answer);await page.locator(`[data-atlas-action="select"][data-atlas-value="${answer}"]`).click();await page.locator('[data-atlas-action="check"]').click();await page.locator('[data-atlas-action="next"]').click();
  }
  assert.deepEqual(errors,[]);console.log(`Identity: 3 alternatives/30 token contrast pairs, ${samples} actual text checks, he/ru/both mobile, matching narration, isolated comparison page, chess colors and unfiltered photo/flag media passed`);

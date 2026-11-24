@@ -1,0 +1,20 @@
+const assert=require('node:assert/strict');
+const {chromium}=require('/opt/codex/cua_node/lib/node_modules/playwright-core');
+const {createStaticServer}=require('./static-server.cjs');
+let server,browser;
+(async()=>{
+ server=createStaticServer(0);await new Promise(r=>server.listening?r():server.once('listening',r));
+ browser=await chromium.launch({executablePath:'/usr/bin/chromium',headless:true,args:['--no-sandbox']});
+ const page=await browser.newPage({viewport:{width:390,height:844},reducedMotion:'reduce'});
+ await page.goto(`http://127.0.0.1:${server.address().port}`,{waitUntil:'networkidle'});
+ const check=async(label)=>{await page.waitForTimeout(80);assert.equal(await page.evaluate(()=>document.getAnimations().length),0,`${label}: reduced motion must stop all animations`);};
+ await check('home');
+ await page.locator('[data-home-tab="thinking"]').click();
+ await page.locator('.shelf-card[data-track="math"]').click();await check('level selection');
+ await page.locator('[data-session-action="begin"]').click();await check('question');
+ await page.evaluate(()=>{if(window.Mishi)Mishi.say({he:'ננסה יחד',ru:'Попробуем вместе'},'think');});
+ await check('companion');
+ const font=await page.locator('.task-shell h2').evaluate(el=>({size:parseFloat(getComputedStyle(el).fontSize),line:parseFloat(getComputedStyle(el).lineHeight)}));
+ assert.ok(font.size>=20,'Question remains at least 20px on mobile');assert.ok(font.line>=font.size*1.49,'Question line height remains 1.5');
+ console.log('Reduced motion: home, launch, exercise and companion have no animations; mobile question stays readable');
+})().catch(e=>{console.error(e);process.exitCode=1}).finally(async()=>{if(browser)await browser.close();if(server)server.close()});

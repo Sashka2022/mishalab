@@ -11,9 +11,9 @@ let server,browser;
     for(const lang of['he','ru','both']){
       await page.locator(`[data-lang="${lang}"]`).click();
       assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false,`${width}:${lang}:home`);
-      if(width===1440&&lang==='both')await page.locator('.learning-library').screenshot({path:'/workspace/mishalab/artifacts/learning-library.png'});
+      if(width===1440&&lang==='both')await page.locator('#shelf-panel-courses').screenshot({path:'/workspace/mishalab/artifacts/learning-library.png'});
       for(const game of['matches','origami','hebrew','maze']){
-        await page.locator(`[data-lg-action="open"][data-lg-value="${game}"]`).click();await page.locator('[data-session-action="browse"]').click();
+        if(await page.locator('[data-home-tab="courses"]').isVisible())await page.locator('[data-home-tab="courses"]').click();await page.locator(`[data-lg-action="open"][data-lg-value="${game}"]`).click();await page.locator('[data-session-action="browse"]').click();
         assert.equal(await page.locator('[data-lg-action="stage"]').count(),100);
         const stageBox=await page.locator('[data-lg-action="stage"]').first().boundingBox();assert.ok(stageBox.width>=44&&stageBox.height>=44);
         for(const stage of[1,100]){
@@ -34,6 +34,6 @@ let server,browser;
       }
     }
   }
-  const preview=await browser.newPage({viewport:{width:1440,height:1000}});await preview.goto('http://127.0.0.1:8793');await preview.locator('.learning-library').screenshot({path:'/workspace/mishalab/artifacts/learning-library.png'});await preview.close();
+  const preview=await browser.newPage({viewport:{width:1440,height:1000}});await preview.goto('http://127.0.0.1:8793');await preview.locator('[data-home-tab="courses"]').click();await preview.locator('#shelf-panel-courses').screenshot({path:'/workspace/mishalab/artifacts/learning-library.png'});await preview.close();
   assert.deepEqual(errors,[]);console.log('72 game/stage/language/viewport combinations, 100-stage selectors, Hebrew letter targets and advanced origami screenshots passed');
 })().catch(e=>{console.error(e);process.exitCode=1;}).finally(async()=>{if(browser)await browser.close();if(server)server.close();});

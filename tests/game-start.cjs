@@ -10,6 +10,7 @@ let browser, server;
   const targets = ['math', 'logic', 'geometry', 'chess', 'daily', 'puzzles'];
   for (const difficulty of [1, 4, 7, 10]) {
     for (const target of targets) {
+      await page.locator('.difficulty-picker > summary').click();
       if (difficulty === 10) await page.locator('#difficulty-range').fill('10');
       else await page.locator(`[data-difficulty="${difficulty}"]`).click();
       // Previous difficulties, weak skills and challenge bands cannot override an explicit opening choice.
@@ -18,24 +19,24 @@ let browser, server;
         d.history.push(...Object.keys(d.levels).flatMap(domain => Array.from({ length: 2 }, () => ({ domain, type: 'add', open: false, correct: false, hints: 2 }))));
       });
       if (target === 'daily') await page.locator('[data-action="daily"]').click();
-      else if (target === 'puzzles') await page.locator('[data-puzzle-kind="mixed"]').click();
-      else await page.locator(`.arcade-world[data-track="${target}"]`).click();
+      else if (target === 'puzzles') {await page.locator('[data-home-tab="boards"]').click();await page.locator('[data-puzzle-kind="sudoku"]').click();}
+      else {await page.locator('[data-home-tab="thinking"]').click();await page.locator(`.arcade-world[data-track="${target}"]`).click();}
       await page.locator(`.launch-levels [data-value="${difficulty}"]`).click();await page.locator('[data-session-action="begin"]').click();
       assert.equal(await page.evaluate(() => PlaySession.isCore()?session.task.level:MishaLab.getData().session.task.level), difficulty, `${target}:opening-level`);
       await page.locator('[data-action="home"]').first().click();
     }
   }
-  await page.locator('[data-difficulty="4"]').click();
+  await page.locator('.difficulty-picker > summary').click();await page.locator('[data-difficulty="4"]').click();await page.locator('[data-home-tab="thinking"]').click();
   await page.locator('.arcade-world[data-track="math"]').click();await page.locator('.launch-levels [data-value="4"]').click();await page.locator('[data-session-action="begin"]').click();
   const original = await page.evaluate(() => MishaLab.getData().session.task.signature);
   await page.locator('[data-action="home"]').first().click();
-  await page.locator('[data-difficulty="7"]').click();
+  await page.locator('.difficulty-picker > summary').click();await page.locator('[data-difficulty="7"]').click();
   await page.reload();
   assert.equal(await page.evaluate(() => MishaLab.getData().startDifficulty), 7);
-  await page.locator('[data-action="resume"]').click();
+  await page.locator('[data-home-tab="thinking"]').click();await page.locator('[data-track="math"]').click();await page.locator('[data-session-action="resume"]').click();
   assert.equal(await page.evaluate(() => MishaLab.getData().session.task.signature), original, 'Preference change must preserve saved play');
   await page.locator('[data-action="home"]').first().click();
-  await page.locator('[data-difficulty="auto"]').click();
+  await page.locator('.difficulty-picker > summary').click();await page.locator('[data-difficulty="auto"]').click();
   assert.equal(await page.evaluate(() => MishaLab.getData().startDifficulty), null);
 
   // A saved numerical nonogram upgrades to the accessible version, without losing history or rewards.
@@ -55,7 +56,7 @@ let browser, server;
   assert.equal(migrated.level, 6);
   assert.equal(migrated.history, before.history);
   assert.equal(migrated.rounds, before.rounds);
-  await page.locator('[data-action="resume"]').click();
+  await page.locator('[data-home-tab="boards"]').click();await page.locator('[data-puzzle-kind="nonogram"]').click();await page.locator('[data-session-action="resume"]').click();
   await page.locator('[data-action="hint"]').click();
   assert.equal(await page.locator('.copy-tile.guided').count(), 2);
   const painting = await page.evaluate(() => MishaLab.getData().session.task);
@@ -64,7 +65,7 @@ let browser, server;
   const highlighted = await page.locator('button.copy-tile.guided').getAttribute('data-puzzle-value');
   assert.notEqual(Number(highlighted), next, 'Hint must follow the next missing cell');
   await page.reload();
-  await page.locator('[data-action="resume"]').click();
+  await page.locator('[data-home-tab="boards"]').click();await page.locator('[data-puzzle-kind="nonogram"]').click();await page.locator('[data-session-action="resume"]').click();
   assert.equal(await page.evaluate(i => MishaLab.getData().session.task.board[i], next), 1);
   console.log('24 explicit difficulty openings, preference persistence, resume isolation, old-puzzle migration and live painting hints passed');
 })().catch(error => { console.error(error); process.exitCode = 1; }).finally(async () => { if (browser) await browser.close(); if (server) server.close(); });

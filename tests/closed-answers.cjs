@@ -71,14 +71,14 @@ let browser, server;
   assert.equal(await page.evaluate(()=>session.task.finished),false);
   await page.locator('#answer').fill(String(answer));await page.locator('[data-action="check"]').click();
   assert.equal(await page.evaluate(()=>session.task.finished),true);assert.equal(await page.evaluate(()=>session.results[0].correct),true);assert.equal(await page.evaluate(()=>session.results[0].open),false);
-  // Every home entry, including the four hero shortcuts and mixed-board button, first shows the picker.
+  // All thirteen shelf games and the full journey still show the level picker.
   for(const [lang,width] of [['he',1440],['ru',390]]){
     await page.setViewportSize({width,height:900});
     await page.locator('[data-action="home"]').first().click();await page.locator(`[data-lang="${lang}"]`).click();
     const routes=await page.locator('#app [data-track],#app [data-puzzle-kind],#app [data-lg-action="open"],#app [data-action="daily"]').evaluateAll(els=>els.map((el,i)=>({index:i,key:el.dataset.track||el.dataset.puzzleKind||el.dataset.lgValue||'general'})));
-    assert.equal(routes.length,19);
+    assert.equal(routes.length,15);
     for(const route of routes){
-      await page.locator('#app [data-track],#app [data-puzzle-kind],#app [data-lg-action="open"],#app [data-action="daily"]').nth(route.index).click();
+      const tab=route.key==='general'||['math','logic','geometry','chess'].includes(route.key)?'thinking':['sudoku','lights','sliding','nonogram','mixed'].includes(route.key)?'boards':'courses';await page.locator(`[data-home-tab="${tab}"]`).click();await page.locator('#app [data-track],#app [data-puzzle-kind],#app [data-lg-action="open"],#app [data-action="daily"]').nth(route.index).click();
       assert.equal(await page.locator('.game-launch').count(),1,`${lang}:${route.key}`);
       assert.equal(await page.locator('.launch-levels button').count(),10);
       assert.equal(await page.locator('[data-session-action="begin"]').isVisible(),true);
@@ -92,5 +92,5 @@ let browser, server;
   await page.locator('.game-launch').waitFor();
   assert.equal(await page.locator('.game-launch').count(),1,'direct atlas entry');
   assert.deepEqual(errors,[]);
-  console.log(`${generated.checked} checked exercises; pair/parity correctness; legacy native/mixed saves; 38 desktop/mobile entrances and direct atlas picker passed`);
+  console.log(`${generated.checked} checked exercises; pair/parity correctness; legacy native/mixed saves; 30 desktop/mobile entrances and direct atlas picker passed`);
 })().catch(e=>{console.error(e);process.exitCode=1;}).finally(async()=>{if(browser)await browser.close();if(server)server.close();});

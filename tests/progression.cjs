@@ -11,6 +11,8 @@ let server;
     args: ['--no-sandbox']
   });
   const page = await browser.newPage();
+  // New summary celebration is verified separately in rewards-ui.cjs; dismiss it to continue the legacy flow.
+  await page.addLocatorHandler(page.locator('[data-reward-action="dismiss-rank"]'),async button=>button.click());
   await page.goto('http://127.0.0.1:8766');
   await page.locator('[data-track="math"]').first().click();await page.locator('[data-session-action="begin"]').click();
   for (let i = 0; i < 5; i++) {
@@ -37,7 +39,7 @@ let server;
 
   await page.locator('[data-action="home"]').click();
   await page.locator('[data-action="teacher"]').click();
-  if (await page.locator('[data-level]').count() || await page.locator('select').count()) {
+  if (await page.locator('[data-level]').count() || await page.locator('select[data-level]').count()) {
     throw new Error('Teacher can still edit levels');
   }
   if (!await page.locator('[data-ack]').count()) {

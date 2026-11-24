@@ -4,7 +4,8 @@ const { createStaticServer } = require('./static-server.cjs');
 let server;
 let browser;
 (async () => {
-  server = createStaticServer(8772);
+  server = createStaticServer(0);
+  await new Promise(resolve=>server.once('listening',resolve));
   browser = await chromium.launch({ executablePath: '/usr/bin/chromium', headless: true, args: ['--no-sandbox'] });
   const page = await browser.newPage();
   await page.addInitScript(() => {
@@ -23,7 +24,7 @@ let browser;
       }
     });
   });
-  await page.goto('http://127.0.0.1:8772');
+  await page.goto('http://127.0.0.1:'+server.address().port);
 
   const toggle = page.locator('[data-action="toggle-speech"]');
   if (await toggle.getAttribute('aria-pressed') !== 'false') throw new Error('Read-aloud toggle should start off');
@@ -33,6 +34,7 @@ let browser;
   let spoken = await page.evaluate(() => window.__spoken);
   if (!spoken.some(x => x.lang === 'he-IL') || !spoken.some(x => x.lang === 'ru-RU')) throw new Error('Bilingual home narration is missing');
 
+  await page.evaluate(()=>{ data.helpMode='always';saveProgress(); });
   await page.locator('[data-track="math"]').first().click();await page.locator('[data-session-action="begin"]').click();
   const prompt = await page.evaluate(() => MishaLab.getData().session.task.prompt);
   spoken = await page.evaluate(() => window.__spoken);

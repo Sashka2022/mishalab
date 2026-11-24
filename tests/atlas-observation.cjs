@@ -16,12 +16,14 @@ let server,browser;
    Object.defineProperty(window,'speechSynthesis',{value:{cancel(){},getVoices(){return[{lang:'he-IL',name:'Hebrew'},{lang:'ru-RU',name:'Russian'}];},speak(u){window.atlasSpoken.push({text:u.text,lang:u.lang});},addEventListener(){}}});
   });
   const page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));
+  // New summary celebration is verified separately in rewards-ui.cjs; dismiss it to continue the legacy flow.
+  await page.addLocatorHandler(page.locator('[data-reward-action="dismiss-rank"]'),async button=>button.click());
   await page.goto(origin);await page.locator(`[data-lang="${lang}"]`).click();
   return{page,context};
  }
  async function choose(page,value){await page.locator(`[data-atlas-action="select"][data-atlas-value="${value}"]`).click();await page.locator('[data-atlas-action="check"]').click();}
  async function startMap(page){
-  await page.locator('[data-lg-value="trivia"]').click();await page.locator('.launch-levels [data-value="1"]').click();await page.locator('[data-session-action="begin"]').click();
+  if(await page.locator('[data-home-tab="courses"]').isVisible())await page.locator('[data-home-tab="courses"]').click();await page.locator('[data-lg-value="trivia"]').click();await page.locator('.launch-levels [data-value="1"]').click();await page.locator('[data-session-action="begin"]').click();
   for(let i=0;i<3;i++){assert.equal(await page.locator('[data-atlas-action="hint"]').count(),0,'Other questions have no invented generic hints');await choose(page,bank.questions[i].answer);await page.locator('[data-atlas-action="next"]').click();}
   assert.equal(await page.evaluate(()=>AtlasQuiz.current().id),'atlas-04');
  }

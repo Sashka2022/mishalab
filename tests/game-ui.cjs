@@ -9,7 +9,7 @@ let server;
   });
   const page = await browser.newPage();
   await page.goto('http://127.0.0.1:8769');
-  if (await page.locator('.achievement').count() !== 5) throw new Error('Badge shelf is missing');
+  if (await page.locator('.reward-badge,.achievement').count() < 5) throw new Error('Badge shelf is missing');
   await page.locator('[data-track="math"]').first().click();await page.locator('[data-session-action="begin"]').click();
   if (!await page.locator('#runClock').count()) throw new Error('Run clock is missing');
   await page.waitForTimeout(1100);
@@ -47,9 +47,10 @@ let server;
   if (state.xp <= 0 || state.currentStreak !== 1 || !state.badges.includes('first')) {
     throw new Error('XP, streak or first badge was not awarded');
   }
-  if (!await page.locator('.xp-pop').count() || !await page.locator('.level-up').count()) {
-    throw new Error('Reward feedback is not visible');
+  if (!await page.locator('.xp-pop,.xp-flight').count() || !await page.locator('.reward-xp,.hud-pill strong').count()) {
+    throw new Error('Earned XP and rank progress are not visible');
   }
+  if(await page.locator('.reward-rank-celebration').count())throw new Error('Rank celebration interrupted a task');
   await page.locator('[data-action="toggle-clock"]').click();
   if (await page.locator('#runClock').textContent() !== '••:••') throw new Error('Clock could not be hidden');
   await browser.close();

@@ -68,7 +68,7 @@ let browser;
   await page.locator('[data-lang="ru"]').click();
   if (await page.locator('html').getAttribute('dir') !== 'ltr') throw new Error('Russian direction');
   await page.locator('[data-lang="both"]').click();
-  if (!await page.locator('[lang="he"][dir="rtl"]').count() || !await page.locator('[lang="ru"][dir="ltr"]').count()) throw new Error('bilingual direction');
+  if (await page.locator('html').getAttribute('dir') !== 'rtl' || !await page.locator('.ui-label[lang="he"][dir="rtl"]').count()) throw new Error('Combined mode uses Hebrew interface direction');
   await page.setViewportSize({ width: 390, height: 844 });
   if (await page.evaluate(() => document.documentElement.scrollWidth > innerWidth)) {
     const offenders = await page.evaluate(() => [...document.querySelectorAll('*')].filter(el => {

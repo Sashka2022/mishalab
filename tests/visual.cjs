@@ -13,7 +13,7 @@ let server, browser;
     await page.setViewportSize({ width, height: width < 768 ? 844 : 1000 });
     for (const lang of ['he', 'ru', 'both']) {
       await page.goto('http://127.0.0.1:8774', { waitUntil: 'networkidle' });
-      await page.locator(`[data-lang="${lang}"]`).click();
+      await page.locator(`[data-lang="${lang}"]`).click();await page.locator('[data-home-tab="thinking"]').click();
       const layout = await page.evaluate(() => ({
         overflow: document.documentElement.scrollWidth > innerWidth,
         games: [...document.querySelectorAll('.arcade-world')].map(button => { const r = button.getBoundingClientRect(); return { width: r.width, height: r.height, label: button.getAttribute('aria-label'), domain: button.dataset.track }; }),
@@ -25,12 +25,13 @@ let server, browser;
       assert.deepEqual(layout.brokenImages, []);
       assert.equal(new Set(layout.games.map(g => g.domain)).size, 4);
       assert.ok(layout.games.every(g => g.width >= 44 && g.height >= 44 && g.label));
-      assert.ok(layout.difficultyTop < layout.playTop, 'Difficulty should precede starting a game');
+      assert.ok(layout.difficultyTop < layout.playTop, 'Collapsed level preference precedes full journey option');
+      assert.equal(await page.locator('.difficulty-picker').getAttribute('open'), null, 'Default preference is collapsed');
       if (lang === 'both') await page.screenshot({ path: `/workspace/mishalab/artifacts/game-home-${width}.png`, fullPage: true });
-      await page.locator('.arcade-world[data-track="math"]').click();await page.locator('[data-session-action="begin"]').click();
+      await page.locator('[data-home-tab="thinking"]').click();await page.locator('.arcade-world[data-track="math"]').click();await page.locator('[data-session-action="begin"]').click();
       assert.equal(await page.evaluate(() => MishaLab.getData().session.track), 'math');
       await page.locator('[data-action="home"]').first().click();
-      await page.locator('.puzzle-card[data-puzzle-kind="nonogram"]').click();await page.locator('[data-session-action="begin"]').click();
+      await page.locator('[data-home-tab="boards"]').click();await page.locator('.puzzle-card[data-puzzle-kind="nonogram"]').click();await page.locator('[data-session-action="begin"]').click();
       const size = await page.locator('button.copy-tile').first().boundingBox();
       assert.ok(size.width >= 44 && size.height >= 44, `${width}:${lang}:paint-target-too-small`);
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false);
@@ -43,6 +44,7 @@ let server, browser;
       await page.locator('[data-action="home"]').first().click();
     }
   }
+  await page.locator('[data-home-tab="thinking"]').click();
   await page.emulateMedia({ reducedMotion: 'reduce' });
   const duration = await page.locator('.arcade-world').first().evaluate(el => getComputedStyle(el).transitionDuration);
   assert.ok(duration.split(',').every(v => parseFloat(v) === 0));

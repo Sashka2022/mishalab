@@ -18,13 +18,16 @@ let server, browser;
   const page = await context.newPage();
   page.on('pageerror', e => errors.push(e.message));
   page.on('response', r => { if (r.status() >= 400 && r.url().startsWith('http://127.')) failures.push(r.url()); });
+  // New summary celebration is verified separately in rewards-ui.cjs; dismiss it to continue the legacy flow.
+  await page.addLocatorHandler(page.locator('[data-reward-action="dismiss-rank"]'),async button=>button.click());
   await page.goto('http://127.0.0.1:8797');
   // Existing card and old storage remain compatible; old trivia does not become Atlas progress.
   const old = { game:'trivia', stage:100, index:9, status:'playing', task:{id:'trivia:100:9:1'} };
   await page.evaluate(old => { LearningUI.state().sessions.trivia=old; LearningUI.state().progress.trivia={100:{best:10}}; saveProgress(); },old);
+  await page.locator('[data-home-tab="courses"]').click();
   const oldStyle = await page.locator('[data-lg-value="matches"]').evaluate(el=>({color:getComputedStyle(el).color,border:getComputedStyle(el).borderRadius}));
   assert.match(await page.locator('[data-lg-value="trivia"]').innerText(),/אטלס הסקרנות/);
-  await page.locator('[data-lg-value="trivia"]').click();await page.locator('[data-session-action="browse"]').click();
+  if(await page.locator('[data-home-tab="courses"]').isVisible())await page.locator('[data-home-tab="courses"]').click();await page.locator('[data-lg-value="trivia"]').click();await page.locator('[data-session-action="browse"]').click();
   assert.equal(await page.locator('[data-atlas-action="start"]').count(),10);
   assert.deepEqual(await page.evaluate(()=>AtlasQuiz.state().progress),{});
   assert.equal(await page.evaluate(()=>AtlasQuiz.state().activeRound),null);

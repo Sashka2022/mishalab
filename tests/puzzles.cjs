@@ -9,6 +9,8 @@ let browser, server;
   const page = await browser.newPage();
   const errors = [];
   page.on('pageerror', e => errors.push(e.message));
+  // New summary celebration is verified separately in rewards-ui.cjs; dismiss it to continue the legacy flow.
+  await page.addLocatorHandler(page.locator('[data-reward-action="dismiss-rank"]'),async button=>button.click());
   await page.goto('http://127.0.0.1:8782');
   const generated = await page.evaluate(() => {
     const fail = [], totals = {};
@@ -107,9 +109,9 @@ let browser, server;
     await page.locator('.feedback.success').waitFor();
   }
   // Verify all four playable boards, undo, local persistence and manual renewal.
-  await page.locator('[data-action="puzzle-auto"]').click();
+  if(!await page.locator('[data-action="puzzle-auto"]').isVisible())await page.locator('.difficulty-picker > summary').click();await page.locator('[data-action="puzzle-auto"]').click();
   for (const kind of ['sudoku', 'lights', 'sliding', 'nonogram']) {
-    await page.locator(`.puzzle-card[data-puzzle-kind="${kind}"]`).click();await page.locator('[data-session-action="begin"]').click();
+    await page.locator('[data-home-tab="boards"]').click();await page.locator(`.puzzle-card[data-puzzle-kind="${kind}"]`).click();await page.locator('[data-session-action="begin"]').click();
     if (kind === 'lights') {
       const initial = await page.evaluate(() => MishaLab.getData().session.task.board);
       await page.locator('[data-puzzle-action="tile"]').first().click();
@@ -125,7 +127,7 @@ let browser, server;
     await page.locator('[data-action="home"]').first().click();
   }
   await page.clock.install();
-  await page.locator('[data-action="puzzle-auto"]').click();
+  if(!await page.locator('[data-action="puzzle-auto"]').isVisible())await page.locator('.difficulty-picker > summary').click();await page.locator('[data-action="puzzle-auto"]').click();
   await page.locator('[data-puzzle-kind="mixed"]').click();await page.locator('[data-session-action="begin"]').click();
   const seen = [];
   for (let i = 0; i < 5; i++) {
@@ -142,7 +144,7 @@ let browser, server;
   assert.equal(await page.evaluate(() => MishaLab.getData().session.results.length), 0);
   await solveCurrent();
   const finishedSignature = await page.evaluate(() => MishaLab.getData().session.task.signature);
-  await page.locator('[data-action="puzzle-auto"]').click();
+  if(!await page.locator('[data-action="puzzle-auto"]').isVisible())await page.locator('.difficulty-picker > summary').click();await page.locator('[data-action="puzzle-auto"]').click();
   await page.clock.runFor(8000);
   assert.equal(await page.evaluate(() => MishaLab.getData().session.task.signature), finishedSignature);
   await page.reload();
@@ -151,7 +153,7 @@ let browser, server;
   await page.locator('[data-action="next"]').click();
   await page.locator('[data-action="skip"]').click();
   const skippedSignature = await page.evaluate(() => MishaLab.getData().session.task.signature);
-  await page.locator('[data-action="puzzle-auto"]').click();
+  if(!await page.locator('[data-action="puzzle-auto"]').isVisible())await page.locator('.difficulty-picker > summary').click();await page.locator('[data-action="puzzle-auto"]').click();
   await page.clock.runFor(8000);
   assert.equal(await page.evaluate(() => MishaLab.getData().session.task.signature), skippedSignature);
 
@@ -161,7 +163,7 @@ let browser, server;
     await page.setViewportSize({ width, height: width < 768 ? 640 : 900 });
     await page.locator(`[data-lang="${lang}"]`).click();
     for (const kind of ['sudoku', 'lights', 'sliding', 'nonogram']) {
-      await page.locator(`.puzzle-card[data-puzzle-kind="${kind}"]`).click();await page.locator('[data-session-action="begin"]').click();
+      await page.locator('[data-home-tab="boards"]').click();await page.locator(`.puzzle-card[data-puzzle-kind="${kind}"]`).click();await page.locator('[data-session-action="begin"]').click();
       const box = await page.locator('.puzzle-tile').first().boundingBox();
       assert.ok(box.width >= 43, `Small target ${kind}: ${box.width}`);
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1), false);
